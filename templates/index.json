@@ -294,40 +294,6 @@
         "button_text_color": "#ffffff",
         "button_hover_text_color": "#000000"
       }
-    },
-    "products_carousel_BrKFhr": {
-      "type": "products-carousel",
-      "settings": {
-        "section_width": "fluid_container",
-        "color_scheme": "",
-        "heading": "Trending Outfits",
-        "description": "Unmatched design—superior performance and customer satisfaction in one.",
-        "show_view_all_button": false,
-        "header_size": "medium",
-        "header_alignment": "center",
-        "collection": "abaya-for-events",
-        "items_to_show": 8,
-        "items_per_row": 4,
-        "column_gap": 30,
-        "show_banner": false,
-        "sticky_banner": false,
-        "banner_width": 30,
-        "position": "left",
-        "banner_link": "",
-        "banner_type": "image",
-        "video_url": "",
-        "video_autoplay": true,
-        "show_arrow": true,
-        "carousel_pagination": "show_dots_on_mobile",
-        "infinite": false,
-        "autoplay": false,
-        "autorotate_speed": 5,
-        "reveal": false,
-        "items_per_row_mobile": 2,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "reset_spacing": false
-      }
     }
   },
   "order": [
@@ -337,7 +303,6 @@
     "products_carousel_AdKeFt",
     "multi_content_YDk9nb",
     "about_section_jDWxrh",
-    "banner_bottom_6xDfg3",
-    "products_carousel_BrKFhr"
+    "banner_bottom_6xDfg3"
   ]
 }
