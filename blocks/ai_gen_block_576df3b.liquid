@@ -1,0 +1,482 @@
+{% doc %}
+  @prompt
+    Create a custom size input field that appears above the add to cart button on product pages. The field should allow customers to enter their custom measurements for tailored abayas, with a label like "Enter your custom measurements" and proper styling that matches the theme design. Include form validation and ensure the data is captured when the product is added to cart.
+
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-custom-size-field-{{ ai_gen_id }} {
+    margin: {{ block.settings.margin_top }}px 0 {{ block.settings.margin_bottom }}px;
+    padding: {{ block.settings.padding }}px;
+    background-color: {{ block.settings.background_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+    border: 1px solid {{ block.settings.border_color }};
+  }
+
+  .ai-custom-size-label-{{ ai_gen_id }} {
+    display: block;
+    font-size: {{ block.settings.label_font_size }}px;
+    font-weight: {{ block.settings.label_font_weight }};
+    color: {{ block.settings.label_color }};
+    margin-bottom: 8px;
+    text-transform: {{ block.settings.label_text_transform }};
+  }
+
+  .ai-custom-size-input-{{ ai_gen_id }} {
+    width: 100%;
+    padding: 12px 16px;
+    font-size: {{ block.settings.input_font_size }}px;
+    color: {{ block.settings.input_text_color }};
+    background-color: {{ block.settings.input_background_color }};
+    border: 1px solid {{ block.settings.input_border_color }};
+    border-radius: {{ block.settings.input_border_radius }}px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+  }
+
+  .ai-custom-size-input-{{ ai_gen_id }}:focus {
+    outline: none;
+    border-color: {{ block.settings.input_focus_border_color }};
+    box-shadow: 0 0 0 2px {{ block.settings.input_focus_border_color }}33;
+  }
+
+  .ai-custom-size-input-{{ ai_gen_id }}.error {
+    border-color: {{ block.settings.error_color }};
+  }
+
+  .ai-custom-size-helper-{{ ai_gen_id }} {
+    font-size: {{ block.settings.helper_font_size }}px;
+    color: {{ block.settings.helper_color }};
+    margin-top: 6px;
+    line-height: 1.4;
+  }
+
+  .ai-custom-size-error-{{ ai_gen_id }} {
+    font-size: {{ block.settings.helper_font_size }}px;
+    color: {{ block.settings.error_color }};
+    margin-top: 6px;
+    display: none;
+  }
+
+  .ai-custom-size-error-{{ ai_gen_id }}.show {
+    display: block;
+  }
+
+  .ai-custom-size-required-{{ ai_gen_id }} {
+    color: {{ block.settings.error_color }};
+    margin-left: 4px;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-custom-size-field-{{ ai_gen_id }} {
+      margin: {{ block.settings.margin_top | times: 0.8 }}px 0 {{ block.settings.margin_bottom | times: 0.8 }}px;
+      padding: {{ block.settings.padding | times: 0.8 }}px;
+    }
+
+    .ai-custom-size-label-{{ ai_gen_id }} {
+      font-size: {{ block.settings.label_font_size | times: 0.9 }}px;
+    }
+
+    .ai-custom-size-input-{{ ai_gen_id }} {
+      font-size: {{ block.settings.input_font_size | times: 0.9 }}px;
+      padding: 10px 14px;
+    }
+  }
+{% endstyle %}
+
+<custom-size-field-{{ ai_gen_id }}
+  class="ai-custom-size-field-{{ ai_gen_id }}"
+  data-required="{{ block.settings.required }}"
+  {{ block.shopify_attributes }}
+>
+  <label for="ai-custom-size-input-{{ ai_gen_id }}" class="ai-custom-size-label-{{ ai_gen_id }}">
+    {{ block.settings.label }}
+    {% if block.settings.required %}
+      <span class="ai-custom-size-required-{{ ai_gen_id }}">*</span>
+    {% endif %}
+  </label>
+
+  {% if block.settings.input_type == 'textarea' %}
+    <textarea
+      id="ai-custom-size-input-{{ ai_gen_id }}"
+      name="properties[{{ block.settings.property_name }}]"
+      class="ai-custom-size-input-{{ ai_gen_id }}"
+      placeholder="{{ block.settings.placeholder }}"
+      rows="4"
+      {% if block.settings.required %}required{% endif %}
+      {% if block.settings.max_length > 0 %}maxlength="{{ block.settings.max_length }}"{% endif %}
+    ></textarea>
+  {% else %}
+    <input
+      type="text"
+      id="ai-custom-size-input-{{ ai_gen_id }}"
+      name="properties[{{ block.settings.property_name }}]"
+      class="ai-custom-size-input-{{ ai_gen_id }}"
+      placeholder="{{ block.settings.placeholder }}"
+      {% if block.settings.required %}required{% endif %}
+      {% if block.settings.max_length > 0 %}maxlength="{{ block.settings.max_length }}"{% endif %}
+    >
+  {% endif %}
+
+  {% if block.settings.helper_text != blank %}
+    <div class="ai-custom-size-helper-{{ ai_gen_id }}">
+      {{ block.settings.helper_text }}
+    </div>
+  {% endif %}
+
+  <div class="ai-custom-size-error-{{ ai_gen_id }}" id="ai-custom-size-error-{{ ai_gen_id }}">
+    {{ block.settings.error_message }}
+  </div>
+</custom-size-field-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class CustomSizeField{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+        this.input = null;
+        this.errorElement = null;
+        this.isRequired = false;
+      }
+
+      connectedCallback() {
+        this.input = this.querySelector('#ai-custom-size-input-{{ ai_gen_id }}');
+        this.errorElement = this.querySelector('#ai-custom-size-error-{{ ai_gen_id }}');
+        this.isRequired = this.dataset.required === 'true';
+
+        this.setupEventListeners();
+        this.interceptFormSubmission();
+      }
+
+      setupEventListeners() {
+        if (!this.input) return;
+
+        this.input.addEventListener('blur', () => {
+          this.validateInput();
+        });
+
+        this.input.addEventListener('input', () => {
+          this.clearError();
+        });
+      }
+
+      validateInput() {
+        const value = this.input.value.trim();
+        
+        if (this.isRequired && !value) {
+          this.showError();
+          return false;
+        }
+
+        this.clearError();
+        return true;
+      }
+
+      showError() {
+        this.input.classList.add('error');
+        this.errorElement.classList.add('show');
+      }
+
+      clearError() {
+        this.input.classList.remove('error');
+        this.errorElement.classList.remove('show');
+      }
+
+      interceptFormSubmission() {
+        const productForm = this.closest('form[action*="/cart/add"]');
+        if (!productForm) return;
+
+        productForm.addEventListener('submit', (event) => {
+          if (!this.validateInput() && this.isRequired) {
+            event.preventDefault();
+            this.input.focus();
+            return false;
+          }
+        });
+      }
+    }
+
+    customElements.define('custom-size-field-{{ ai_gen_id }}', CustomSizeField{{ ai_gen_id }});
+  })();
+</script>
+
+{% schema %}
+{
+  "name": "Custom Size Input",
+  "tag": null,
+  "settings": [
+    {
+      "type": "header",
+      "content": "Field Settings"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Field label",
+      "default": "Enter your custom measurements"
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Placeholder text",
+      "default": "e.g., Bust: 36in, Waist: 28in, Length: 54in"
+    },
+    {
+      "type": "text",
+      "id": "property_name",
+      "label": "Property name",
+      "info": "This will be the key used to store the custom size data",
+      "default": "Custom Measurements"
+    },
+    {
+      "type": "select",
+      "id": "input_type",
+      "label": "Input type",
+      "options": [
+        {
+          "value": "text",
+          "label": "Single line"
+        },
+        {
+          "value": "textarea",
+          "label": "Multi-line"
+        }
+      ],
+      "default": "textarea"
+    },
+    {
+      "type": "checkbox",
+      "id": "required",
+      "label": "Required field",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "max_length",
+      "min": 0,
+      "max": 500,
+      "step": 10,
+      "label": "Maximum character length",
+      "info": "Set to 0 for no limit",
+      "default": 200
+    },
+    {
+      "type": "textarea",
+      "id": "helper_text",
+      "label": "Helper text",
+      "info": "Optional text to help customers understand what to enter",
+      "default": "Please provide your measurements in inches or centimeters. Include bust, waist, hip, and desired length."
+    },
+    {
+      "type": "text",
+      "id": "error_message",
+      "label": "Error message",
+      "default": "Please enter your custom measurements"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Top margin",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 50,
+      "step": 2,
+      "unit": "px",
+      "label": "Bottom margin",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding",
+      "min": 0,
+      "max": 30,
+      "step": 2,
+      "unit": "px",
+      "label": "Internal padding",
+      "default": 16
+    },
+    {
+      "type": "header",
+      "content": "Field Styling"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border color",
+      "default": "#e5e5e5"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 6
+    },
+    {
+      "type": "header",
+      "content": "Label Styling"
+    },
+    {
+      "type": "color",
+      "id": "label_color",
+      "label": "Label color",
+      "default": "#333333"
+    },
+    {
+      "type": "range",
+      "id": "label_font_size",
+      "min": 12,
+      "max": 20,
+      "step": 1,
+      "unit": "px",
+      "label": "Label font size",
+      "default": 14
+    },
+    {
+      "type": "select",
+      "id": "label_font_weight",
+      "label": "Label font weight",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semi-bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "500"
+    },
+    {
+      "type": "select",
+      "id": "label_text_transform",
+      "label": "Label text transform",
+      "options": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "uppercase",
+          "label": "Uppercase"
+        },
+        {
+          "value": "capitalize",
+          "label": "Capitalize"
+        }
+      ],
+      "default": "none"
+    },
+    {
+      "type": "header",
+      "content": "Input Styling"
+    },
+    {
+      "type": "color",
+      "id": "input_background_color",
+      "label": "Input background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "input_text_color",
+      "label": "Input text color",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "input_border_color",
+      "label": "Input border color",
+      "default": "#d1d5db"
+    },
+    {
+      "type": "color",
+      "id": "input_focus_border_color",
+      "label": "Input focus border color",
+      "default": "#3b82f6"
+    },
+    {
+      "type": "range",
+      "id": "input_font_size",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Input font size",
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "input_border_radius",
+      "min": 0,
+      "max": 15,
+      "step": 1,
+      "unit": "px",
+      "label": "Input border radius",
+      "default": 4
+    },
+    {
+      "type": "header",
+      "content": "Helper Text & Errors"
+    },
+    {
+      "type": "color",
+      "id": "helper_color",
+      "label": "Helper text color",
+      "default": "#6b7280"
+    },
+    {
+      "type": "color",
+      "id": "error_color",
+      "label": "Error color",
+      "default": "#ef4444"
+    },
+    {
+      "type": "range",
+      "id": "helper_font_size",
+      "min": 10,
+      "max": 16,
+      "step": 1,
+      "unit": "px",
+      "label": "Helper text font size",
+      "default": 12
+    }
+  ],
+  "presets": [
+    {
+      "name": "Custom Size Input"
+    }
+  ]
+}
+{% endschema %}
