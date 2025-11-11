@@ -256,6 +256,28 @@
         "reset_spacing": false
       }
     },
+    "about_section_jDWxrh": {
+      "type": "about-section",
+      "name": "About Us Section",
+      "settings": {
+        "title": "About Us",
+        "description_1": "Welcome to FEE, your premier online fashion platform showcasing exclusive, high-demand designs from local and international designers. We create a unique space where fashion enthusiasts can discover the latest trends and unique pieces not available in the Qatari market.",
+        "vision_title": "Our Vision",
+        "vision_description": "We bridge the gap between talented designers and discerning customers, providing a seamless shopping experience that combines speed, quality, and exclusivity. We aim to be the leading fashion platform in the GCC region and beyond.",
+        "mission_title": "Our Mission",
+        "mission_description": "We support and promote creative designers from Qatar and around the world, giving them a platform to reach a wider audience. Our commitment is to provide unique, high-quality products and exceptional service.",
+        "button_1_text": "Become a Designer",
+        "button_1_link": "",
+        "button_2_text": "Company Profile",
+        "button_2_link": "",
+        "button_background_color": "#ebcfac",
+        "button_text_color": "#000000",
+        "button_border_color": "#000000",
+        "background_color": "#ffffff",
+        "text_color": "#000000",
+        "heading_color": "#000000"
+      }
+    },
     "banner_bottom_6xDfg3": {
       "type": "Banner-bottom",
       "name": "Banner Bottom Section",
@@ -314,6 +336,7 @@
     "banner1_HtaeNA",
     "products_carousel_AdKeFt",
     "multi_content_YDk9nb",
+    "about_section_jDWxrh",
     "banner_bottom_6xDfg3",
     "products_carousel_BrKFhr"
   ]
