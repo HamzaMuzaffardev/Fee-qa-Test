@@ -46,10 +46,37 @@
             "content_box_opacity": 100,
             "content_alignment_mobile": "left"
           }
+        },
+        "slider_item_gcWKYx": {
+          "type": "slider_item",
+          "settings": {
+            "overlay_opacity": 0,
+            "slider_effect": "effect_fadeinup",
+            "subheading": "",
+            "heading": "Fee: Where Every Piece Tells a Story",
+            "description": "<p>Verse One by Fee is Officially out! Shop NOW only from FEE</p>",
+            "first_button_label": "Shop by Designer",
+            "first_button_link": "shopify://collections/all",
+            "first_button_style": false,
+            "second_button_label": "",
+            "second_button_link": "",
+            "second_button_style": false,
+            "content_alignment": "left",
+            "content_position": "middle-left",
+            "content_width": "container",
+            "content_max_width": 60,
+            "content_padding_block": 70,
+            "content_padding_inline": 50,
+            "show_content_background": false,
+            "content_background": "#ffffff",
+            "content_box_opacity": 100,
+            "content_alignment_mobile": "left"
+          }
         }
       },
       "block_order": [
-        "slider_item_YipJd4"
+        "slider_item_YipJd4",
+        "slider_item_gcWKYx"
       ],
       "custom_css": [],
       "settings": {
@@ -57,7 +84,7 @@
         "slide_height": "full_screen",
         "desktop_height": 300,
         "mobile_height": 480,
-        "color_scheme": "scheme-bb1431b0-be4a-4b03-a450-f572c07e3904",
+        "color_scheme": "scheme-fc2810ca-9089-4b73-95f4-f0424fd21cc8",
         "subheading_font_size": 17,
         "subheading_font_weight": "subheading_weight",
         "subheading_spacing_bottom": 0,
