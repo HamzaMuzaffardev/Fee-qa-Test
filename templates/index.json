@@ -261,15 +261,15 @@
       "name": "Banner Bottom Section",
       "settings": {
         "background_color": "#000000",
-        "text_color": "#FFFFFF",
-        "svg_stroke_color": "#FFFFFF",
+        "text_color": "#ffffff",
+        "svg_stroke_color": "#ffffff",
         "instagram_title": "Get Featured on our Instagram",
         "instagram_footer": "Tag @FEE_QA or use #تباهي",
         "arabic_title": "عندنا بعد أكثر",
-        "button_text": "عرض جميع المنتجات",
-        "button_link": "",
-        "button_border_color": "#FFFFFF",
-        "button_text_color": "#FFFFFF",
+        "button_text": "View All Products",
+        "button_link": "shopify://collections/all",
+        "button_border_color": "#ffffff",
+        "button_text_color": "#ffffff",
         "button_hover_text_color": "#000000"
       }
     },
