@@ -107,6 +107,34 @@
         "reset_spacing": true
       }
     },
+    "banner1_HtaeNA": {
+      "type": "Banner1",
+      "name": "Banner1 Section",
+      "settings": {
+        "heading_text": "تباهـــــــــــــــــــــــــي",
+        "heading_weight": "400",
+        "background_color": "#000000",
+        "low_opacity_color": "#828282",
+        "high_opacity_color": "#FFFFFF",
+        "animation_duration": 4,
+        "animation_ease": "ease-out",
+        "button_text": "CLOTHES",
+        "button_link": "",
+        "button_background": "transparent",
+        "button_text_color": "#FFFFFF",
+        "button_border_color": "#FFFFFF",
+        "button_hover_background": "rgba(255, 255, 255, 0.1)",
+        "button_hover_text_color": "#FFFFFF",
+        "button_hover_border_color": "#FFFFFF",
+        "show_second_button": false,
+        "second_button_text": "SHOP NOW",
+        "second_button_link": "",
+        "secondary_button_border_color": "#FFFFFF",
+        "secondary_button_text_color": "#FFFFFF",
+        "secondary_button_hover_background": "rgba(255, 255, 255, 0.1)",
+        "secondary_button_hover_text_color": "#FFFFFF"
+      }
+    },
     "products_carousel_AdKeFt": {
       "type": "products-carousel",
       "settings": {
@@ -277,6 +305,7 @@
   "order": [
     "divider_tmbVey",
     "slideshow_8KKtNU",
+    "banner1_HtaeNA",
     "products_carousel_AdKeFt",
     "multi_content_YDk9nb",
     "products_carousel_BrKFhr"
