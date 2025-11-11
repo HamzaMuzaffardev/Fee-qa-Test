@@ -256,6 +256,23 @@
         "reset_spacing": false
       }
     },
+    "banner_bottom_6xDfg3": {
+      "type": "Banner-bottom",
+      "name": "Banner Bottom Section",
+      "settings": {
+        "background_color": "#000000",
+        "text_color": "#FFFFFF",
+        "svg_stroke_color": "#FFFFFF",
+        "instagram_title": "Get Featured on our Instagram",
+        "instagram_footer": "Tag @FEE_QA or use #تباهي",
+        "arabic_title": "عندنا بعد أكثر",
+        "button_text": "عرض جميع المنتجات",
+        "button_link": "",
+        "button_border_color": "#FFFFFF",
+        "button_text_color": "#FFFFFF",
+        "button_hover_text_color": "#000000"
+      }
+    },
     "products_carousel_BrKFhr": {
       "type": "products-carousel",
       "settings": {
@@ -297,6 +314,7 @@
     "banner1_HtaeNA",
     "products_carousel_AdKeFt",
     "multi_content_YDk9nb",
+    "banner_bottom_6xDfg3",
     "products_carousel_BrKFhr"
   ]
 }
