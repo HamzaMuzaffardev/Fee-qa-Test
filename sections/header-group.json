@@ -136,7 +136,7 @@
         "collection_list": [],
         "menu_mobile_color": "#ffffff",
         "menu_mobile_background": "#d0473e",
-        "show_search": false,
+        "show_search": true,
         "show_account_icon": true,
         "show_wishlist_icon": true,
         "show_shopping_cart": true,
