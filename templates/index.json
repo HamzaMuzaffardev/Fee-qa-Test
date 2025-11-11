@@ -51,7 +51,7 @@
         "slider_item_gcWKYx": {
           "type": "slider_item",
           "settings": {
-            "image": "shopify://shop_images/unnamed.png",
+            "image": "shopify://shop_images/unnamed.webp",
             "overlay_opacity": 0,
             "slider_effect": "effect_fadeinup",
             "subheading": "",
@@ -68,7 +68,7 @@
             "content_width": "container",
             "content_max_width": 60,
             "content_padding_block": 70,
-            "content_padding_inline": 50,
+            "content_padding_inline": 0,
             "show_content_background": false,
             "content_background": "#ffffff",
             "content_box_opacity": 100,
