@@ -1,0 +1,473 @@
+<!-- sections/tabahi-section.liquid -->
+<style>
+  .tabahi-section {
+    padding: 80px 0;
+    width: 100%;
+    background-color: {{ section.settings.background_color }};
+    position: relative;
+    overflow: hidden;
+    min-height: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  .tabahi-section__header {
+    position: absolute;
+    width: 100%;
+    right: 0;
+    top: 0;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .tabahi-section__heading {
+    margin: -50px 0;
+    padding: 0;
+    position: absolute;
+    right: 90px;
+    font-family: 'Cairo', sans-serif;
+    color: transparent;
+    font-size: 174px;
+    text-align: right;
+    overflow: hidden;
+    line-height: 1;
+    font-weight: {{ section.settings.heading_weight }};
+  }
+
+  .tabahi-section__heading--low-opacity {
+    color: transparent;
+    background-color: {{ section.settings.low_opacity_color }};
+    background-clip: text;
+    -webkit-background-clip: text;
+    opacity: 0.5;
+  }
+
+  .tabahi-section__heading--high-opacity {
+    color: transparent;
+    background-color: {{ section.settings.high_opacity_color }};
+    background-clip: text;
+    -webkit-background-clip: text;
+    display: inline-block;
+    width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    transition: width {{ section.settings.animation_duration }}s {{ section.settings.animation_ease }};
+  }
+
+  .tabahi-section__background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .tabahi-section__background svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .tabahi-section__buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+    position: relative;
+    z-index: 3;
+    padding: 80px 0;
+  }
+
+  .tabahi-section__button {
+    width: 322px;
+    height: 94px;
+    border: 1px solid {{ section.settings.button_border_color }};
+    box-sizing: border-box;
+    background-color: {{ section.settings.button_background }};
+    padding: 10px 20px;
+    color: {{ section.settings.button_text_color }};
+    font-size: 15px;
+    font-weight: 300;
+    border-radius: 500px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tabahi-section__button:hover {
+    background-color: {{ section.settings.button_hover_background }};
+    color: {{ section.settings.button_hover_text_color }};
+    border-color: {{ section.settings.button_hover_border_color }};
+    transform: translateY(-2px);
+  }
+
+  .tabahi-section__button--secondary {
+    background-color: transparent;
+    border-color: {{ section.settings.secondary_button_border_color }};
+    color: {{ section.settings.secondary_button_text_color }};
+  }
+
+  .tabahi-section__button--secondary:hover {
+    background-color: {{ section.settings.secondary_button_hover_background }};
+    color: {{ section.settings.secondary_button_hover_text_color }};
+  }
+
+  /* Responsive styles */
+  @media (max-width: 991px) {
+    .tabahi-section__heading {
+      margin: 0;
+      font-size: 80px;
+      right: 40px;
+    }
+    
+    .tabahi-section {
+      min-height: 600px;
+    }
+  }
+
+  @media (max-width: 750px) {
+    .tabahi-section__buttons {
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .tabahi-section__heading {
+      margin: 0;
+      font-size: 60px;
+      right: 20px;
+    }
+    
+    .tabahi-section {
+      min-height: 500px;
+      padding: 40px 0;
+    }
+  }
+
+  @media (max-width: 550px) {
+    .tabahi-section__button {
+      width: 142px;
+      height: 60px;
+      font-size: 12px;
+    }
+    
+    .tabahi-section__heading {
+      font-size: 50px;
+    }
+  }
+
+  @media (max-width: 450px) {
+    .tabahi-section {
+      padding: 40px 0;
+    }
+
+    .tabahi-section__buttons {
+      flex-direction: column;
+    }
+
+    .tabahi-section__heading {
+      margin: 0;
+      font-size: 40px;
+      right: 15px;
+    }
+    
+    .tabahi-section__button {
+      width: 122px;
+      height: 54px;
+    }
+  }
+</style>
+
+<section class="tabahi-section" id="section-{{ section.id }}">
+  <header class="tabahi-section__header">
+    <h1 class="tabahi-section__heading tabahi-section__heading--low-opacity">
+      {{ section.settings.heading_text }}
+    </h1>
+    <h1 class="tabahi-section__heading tabahi-section__heading--high-opacity">
+      {{ section.settings.heading_text }}
+    </h1>
+  </header>
+  
+  <div class="tabahi-section__background">
+    <!-- Static SVG Background -->
+    <svg viewBox="0 0 1440 700" fill="none" preserveAspectRatio="xMidYMax meet">
+      <g>
+        <path d="M1476.5 107C1482.83 134.667 1464.1 181.7 1338.5 148.5C1181.5 107 1146 7.50005 1054.5 118.5C963 229.5 960 226.5 911.5 132.5C863 38.5 413.5 3.00008 388 148.5C362.5 294 33 19.4999 175.5 2.49993C318 -14.5001 234 163 175.5 185.5C117 208 38.5 5 -1.50001 51C-41.5 97 -125 360 -27 304C71 248 183.5 207 250.5 263" stroke="white"></path>
+      </g>
+      <g transform="translate(73,226)">
+        <path d="M60.5315 97.2145C59.4496 97.159 59.0057 97.9916 58.3954 98.6854C53.7349 104.014 50.5724 110.286 47.1047 116.363C44.1641 121.553 41.2513 126.77 37.5895 131.544C32.9289 137.593 26.382 141.062 20.0847 144.920C15.5906 147.667 11.0965 150.443 7.12954 153.912C3.19028 157.353 0.749044 161.46 1.08194 167.094C1.5258 174.753 1.60902 182.468 3.93929 189.878C5.13217 193.624 7.21276 196.816 10.7359 198.842C15.5629 201.617 19.0028 205.919 22.6092 209.97C27.8523 215.826 32.5128 222.126 36.3134 229.091C39.892 235.668 42.3887 242.662 44.608 249.766C46.7441 256.566 49.7401 262.893 55.2607 267.639C59.6715 271.413 64.6649 274.299 69.908 276.880C77.6201 280.682 85.7206 283.513 93.7933 286.399C97.2055 287.620 100.285 286.51 102.92 284.262C107.414 280.46 109.939 275.354 112.103 269.997C115.099 262.588 116.957 254.956 117.429 246.991C117.568 244.521 118.622 242.273 119.953 240.164" stroke="white"></path>
+        <!-- Include other SVG paths from your original code as needed -->
+        <path d="M157.21 293.864C157.487 291.894 159.069 290.756 160.234 289.424C166.364 282.43 170.831 274.327 175.519 266.39C178.598 261.2 181.789 256.094 185.7 251.432C190.749 245.409 194.383 238.416 198.295 231.644C200.819 227.26 203.843 223.18 205.785 218.462C206.673 216.325 207.116 214.105 206.784 211.857C206.395 209.138 204.426 207.778 201.929 206.918C198.628 205.807 195.188 205.891 191.914 206.39C181.262 208.028 171.053 211.08 161.454 216.103C157.349 218.24 153.659 220.96 150.164 223.985" stroke="white"></path>
+      </g>
+    </svg>
+  </div>
+  
+  <div class="tabahi-section__buttons">
+    {% if section.settings.button_link != blank %}
+      <a href="{{ section.settings.button_link }}" class="tabahi-section__button">
+        {{ section.settings.button_text }}
+      </a>
+    {% else %}
+      <button class="tabahi-section__button">
+        {{ section.settings.button_text }}
+      </button>
+    {% endif %}
+    
+    {% if section.settings.show_second_button %}
+      {% if section.settings.second_button_link != blank %}
+        <a href="{{ section.settings.second_button_link }}" class="tabahi-section__button tabahi-section__button--secondary">
+          {{ section.settings.second_button_text }}
+        </a>
+      {% else %}
+        <button class="tabahi-section__button tabahi-section__button--secondary">
+          {{ section.settings.second_button_text }}
+        </button>
+      {% endif %}
+    {% endif %}
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Animate high-opacity heading width from 0 to 100%
+    const highOpacityHeading = document.querySelector('#section-{{ section.id }} .tabahi-section__heading--high-opacity');
+    if (highOpacityHeading) {
+      // Create an Intersection Observer to trigger the animation
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            // Start the animation
+            highOpacityHeading.style.width = '100%';
+            
+            // Stop observing after animation starts
+            observer.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.3,
+        rootMargin: '50px'
+      });
+      
+      observer.observe(highOpacityHeading);
+    }
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Banner1 Section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Heading Settings"
+    },
+    {
+      "type": "text",
+      "id": "heading_text",
+      "label": "Heading Text",
+      "default": "تباهـــــــــــــــــــــــــي"
+    },
+    {
+      "type": "select",
+      "id": "heading_weight",
+      "label": "Heading Font Weight",
+      "options": [
+        {
+          "value": "300",
+          "label": "Light"
+        },
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "600",
+          "label": "Semi Bold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "400"
+    },
+    {
+      "type": "header",
+      "content": "Color Settings"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "low_opacity_color",
+      "label": "Low Opacity Text Color",
+      "default": "#828282"
+    },
+    {
+      "type": "color",
+      "id": "high_opacity_color",
+      "label": "High Opacity Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Animation Settings"
+    },
+    {
+      "type": "range",
+      "id": "animation_duration",
+      "label": "Animation Duration (seconds)",
+      "min": 1,
+      "max": 10,
+      "step": 0.5,
+      "default": 4
+    },
+    {
+      "type": "select",
+      "id": "animation_ease",
+      "label": "Animation Easing",
+      "options": [
+        {
+          "value": "ease",
+          "label": "Ease"
+        },
+        {
+          "value": "ease-in",
+          "label": "Ease In"
+        },
+        {
+          "value": "ease-out",
+          "label": "Ease Out"
+        },
+        {
+          "value": "ease-in-out",
+          "label": "Ease In Out"
+        },
+        {
+          "value": "linear",
+          "label": "Linear"
+        }
+      ],
+      "default": "ease-out"
+    },
+    {
+      "type": "header",
+      "content": "Primary Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "CLOTHES"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "color",
+      "id": "button_background",
+      "label": "Button Background",
+      "default": "transparent"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Button Border Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_background",
+      "label": "Button Hover Background",
+      "default": "rgba(255, 255, 255, 0.1)"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Button Hover Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_border_color",
+      "label": "Button Hover Border Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Secondary Button Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_second_button",
+      "label": "Show Second Button",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "second_button_text",
+      "label": "Second Button Text",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "second_button_link",
+      "label": "Second Button Link"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_border_color",
+      "label": "Secondary Button Border Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_text_color",
+      "label": "Secondary Button Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_hover_background",
+      "label": "Secondary Button Hover Background",
+      "default": "rgba(255, 255, 255, 0.1)"
+    },
+    {
+      "type": "color",
+      "id": "secondary_button_hover_text_color",
+      "label": "Secondary Button Hover Text Color",
+      "default": "#FFFFFF"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner1 Section",
+      "category": "Custom Sections",
+      "settings": {
+        "heading_text": "تباهـــــــــــــــــــــــــي",
+        "button_text": "CLOTHES",
+        "second_button_text": "SHOP NOW"
+      }
+    }
+  ]
+}
+{% endschema %}
