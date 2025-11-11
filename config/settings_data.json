@@ -14,6 +14,7 @@
     "logo": "shopify://shop_images/Frame.svg",
     "logo_on_transparent": "shopify://shop_images/Logo-03.png",
     "desktop_logo_width": 82,
+    "mobile_logo_width": 72,
     "fluid_container_width": 1410,
     "spacing_desktop": 90,
     "space_mobile": 50,
@@ -192,7 +193,7 @@
         "settings": {
           "background": "#111111",
           "background_gradient": "",
-          "primary_color": "#14854e",
+          "primary_color": "#ffffff",
           "text_color": "#ffffff",
           "heading_color": "#ffffff",
           "border_color": "#ebebeb",
