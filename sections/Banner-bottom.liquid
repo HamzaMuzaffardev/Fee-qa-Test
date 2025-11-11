@@ -1,0 +1,394 @@
+<!-- sections/instagram-grid.liquid -->
+<style>
+  .ninth-section-{{ section.id }} {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: {{ section.settings.background_color }};
+    padding: 50px 0;
+  }
+
+  .ninth-section-{{ section.id }} .section-header h1 {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    font-size: 45px;
+    letter-spacing: .3em;
+    color: {{ section.settings.text_color }};
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+
+  .ninth-section-{{ section.id }} .background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    margin: auto 0;
+    overflow: hidden;
+  }
+
+  .ninth-section-{{ section.id }} .background svg {
+    width: 100%;
+    height: 120%;
+  }
+
+  .ninth-section-{{ section.id }} .background svg path {
+    stroke: {{ section.settings.svg_stroke_color }};
+    stroke-width: 1;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .ninth-section-{{ section.id }} .content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 30px;
+    width: 70%;
+    max-width: 950px;
+    z-index: 1;
+  }
+
+  .ninth-section-{{ section.id }} .content img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .ninth-section-{{ section.id }} footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .ninth-section-{{ section.id }} footer h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 45px;
+    letter-spacing: .3em;
+    color: {{ section.settings.text_color }};
+    font-weight: 300;
+    text-transform: uppercase;
+  }
+
+  .tenth-section-{{ section.id }} {
+    background-color: {{ section.settings.background_color }};
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding-bottom: 50px;
+  }
+
+  .tenth-section-{{ section.id }} .section-header h1 {
+    color: {{ section.settings.text_color }};
+    font-size: 90px;
+    font-weight: 300;
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+  .tenth-section-{{ section.id }} .background {
+    width: 100%;
+  }
+
+  .tenth-section-{{ section.id }} .background svg {
+    width: 100%;
+  }
+
+  .tenth-section-{{ section.id }} .background svg path {
+    stroke: {{ section.settings.svg_stroke_color }};
+  }
+
+  .tenth-section-{{ section.id }} .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .tenth-section-{{ section.id }} .content a {
+    padding: 18px 40px;
+    border: 1px solid {{ section.settings.button_border_color }};
+    border-radius: 100px;
+    text-decoration: none;
+    color: {{ section.settings.button_text_color }};
+    transition: all 0.3s ease;
+    font-size: 16px;
+  }
+
+  .tenth-section-{{ section.id }} .content a:hover {
+    background-color: {{ section.settings.button_border_color }};
+    color: {{ section.settings.button_hover_text_color }};
+  }
+
+  @media (max-width: 1300px) {
+    .ninth-section-{{ section.id }} .section-header h1,
+    .ninth-section-{{ section.id }} footer h1 {
+      font-size: 35px;
+    }
+  }
+
+  @media (max-width: 870px) {
+    .ninth-section-{{ section.id }} .section-header h1,
+    .ninth-section-{{ section.id }} footer h1 {
+      font-size: 25px;
+    }
+    .ninth-section-{{ section.id }} .background {
+      top: -30px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .ninth-section-{{ section.id }} {
+      padding: 10px 0;
+    }
+    .ninth-section-{{ section.id }} .section-header h1,
+    .ninth-section-{{ section.id }} footer h1 {
+      font-size: 20px;
+      text-align: center;
+    }
+    .tenth-section-{{ section.id }} .section-header h1 {
+      font-size: 40px;
+    }
+  }
+
+  @media (max-width: 450px) {
+    .ninth-section-{{ section.id }} .section-header h1,
+    .ninth-section-{{ section.id }} footer h1 {
+      font-size: 15px;
+      text-align: center;
+    }
+    .ninth-section-{{ section.id }} .background {
+      top: -50px;
+    }
+    .ninth-section-{{ section.id }} .content {
+      gap: 10px;
+    }
+  }
+
+  @media (max-width: 850px) {
+    .tenth-section-{{ section.id }} .content a {
+      width: auto;
+      height: auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 30px;
+    }
+  }
+</style>
+
+<article class="ninth-section ninth-section-{{ section.id }}">
+  <header class="section-header">
+    <h1 style="letter-spacing: 0.3em; opacity: 1;">
+      {{ section.settings.instagram_title }}
+    </h1>
+  </header>
+  
+  <div class="background">
+    <svg preserveAspectRatio="xMidYMax meet" viewBox="0 0 1440 1328" fill="none">
+      <path d="M1501.66 1.19849C1654.84 4.13145 1424.73 129.586 1246.92 153.05C1175.07 162.543 -100.466 186.416 68.2645 125.802C236.995 65.1875 223.781 136.209 223.781 136.209C227.786 278.442 242.136 726.901 235.607 819.021C228.038 925.522 326.407 962.232 626.59 909.375C1054.85 834.001 1304.07 876.009 846.917 921.864C519.895 954.663 634.159 834.695 621.543 723.842C608.928 612.957 1408.3 699.495 1236.8 668.368C1065.29 637.209 991.899 689.561 996.252 808.677C1000.6 927.793 1118.24 897.675 1221.12 905.37C1324.03 913.065 1277.13 391.818 1246.86 393.269C1216.58 394.72 1249.22 435.56 1249.22 435.56C1266.06 695.931 1113.98 628.379 635.925 656.825C627 657.361 617.917 657.898 608.707 658.465C104.218 689.75 242.956 555.622 235.387 459.781C227.818 363.939 813.013 361.416 876.658 399.23C940.303 437.074 1251.68 410.331 1260.58 285.853C1269.47 161.376 1044.98 153.744 858.839 138.606C672.699 123.468 838.244 257.974 836.478 353.847C836.131 371.824 828.467 384.659 815.726 393.616C760.565 432.533 610.6 399.23 553.2 399.23C482.585 399.23 512.137 150.369 594.547 118.611C676.925 86.8535 913.905 172.603 784.03 246.999C654.154 321.396 490.154 124.667 361.509 118.611C232.864 112.556 71.4184 404.275 358.986 421.936C646.554 439.597 535.57 220.54 535.57 168.693C535.57 127.473 337.761 149.329 256.77 159.988C256.77 159.988 419.224 962.295 -18.4978 938.799C-57.1324 936.718 -218.546 946.021 -172.752 926.752C-126.958 907.483 -25.7201 950.847 -98.0377 1061.73C-170.355 1172.62 -302.911 1167.79 -187.228 1326.86"></path>
+    </svg>
+  </div>
+  
+  <div class="content">
+    {% for i in (1..9) %}
+      {% assign image_setting = 'instagram_image_' | append: i %}
+      {% if section.settings[image_setting] != blank %}
+        <img src="{{ section.settings[image_setting] | img_url: '500x500' }}" alt="Instagram image {{ i }}" loading="lazy">
+      {% else %}
+        <div style="background: #333; width: 100%; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; color: #fff;">
+          Image {{ i }}
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+  
+  <footer>
+    <h1 style="letter-spacing: 0.1em;">
+      {{ section.settings.instagram_footer }}
+    </h1>
+  </footer>
+</article>
+
+<article class="tenth-section tenth-section-{{ section.id }}">
+  <header class="section-header">
+    <h1 style="opacity: 1;">
+      {{ section.settings.arabic_title }}
+    </h1>
+  </header>
+
+  <div class="background">
+    <svg viewBox="0 0 1407 326" fill="none" preserveAspectRatio="xMidYMax meet">
+      <g clip-path="url(#clip0_0_1)">
+        <path d="M255.657 116.671C256.981 114.956 255.787 113.317 255.435 111.701C254.227 106.074 252.941 100.461 251.618 94.8559C251.151 92.8651 250.08 91.2341 248.075 90.2004C250.707 81.992 251.365 73.2017 255.412 65.3532C257.088 62.1066 259.2 59.174 261.273 56.2413C263.369 53.278 264.456 50.0008 264.938 46.6087C265.603 41.9762 264.119 38.1247 260.118 35.0542C255.52 31.5243 250.172 29.3573 245.428 26.0801C239.989 22.3281 234.748 18.2545 231.894 12.4735C225.299 -0.880488 206.723 -2.27408 194.987 2.89445C187.222 6.31716 180.742 11.5469 174.04 16.4475C165.846 22.4276 156.772 24.9851 146.826 25.1919C145.166 25.2225 143.513 25.4905 141.853 25.5517C136.337 25.7432 132.206 28.806 130.935 33.6453C127.73 45.8736 118.779 49.526 107.823 51.2948C102.965 52.0758 98.2976 53.7221 94.7706 57.6885C89.7288 63.3624 91.0447 77.6428 99.4146 81.0119C102.934 82.4285 106.484 82.0533 110.149 80.4147C114.433 78.5004 118.105 75.3534 122.726 74.1895C130.232 72.2982 137.63 72.6887 144.913 75.3227C148.746 76.7087 152.732 77.4131 156.772 77.5892C163.023 77.8572 167.973 75.5065 171.339 69.9857C173.198 66.9382 175.524 64.1817 177.398 61.1418C181.407 54.6333 187.13 50.9809 194.628 49.6179C200.802 48.4923 206.899 46.9609 212.989 45.4142C215.231 44.8476 216.968 45.3606 218.75 46.601C223.953 50.2152 229.209 53.7451 234.419 57.3439C238.397 60.0928 239.629 61.8692 237.517 67.3058C235.513 72.4437 235.452 77.9721 234.794 83.3703C233.011 98.003 228.719 111.533 217.19 121.633C211.436 126.663 204.443 128.853 196.938 128.869C188.346 128.884 184.131 125.362 180.481 117.069C177.222 109.672 175.952 101.655 173.213 94.0979C172.838 93.0718 172.471 92.0458 172.066 91.035C168.577 82.4438 166.366 81.7011 157.537 83.0411C151.868 83.8987 146.421 82.6812 141.103 81.3642C127.263 77.9338 116.376 82.6888 107.019 92.5588C106.178 93.447 105.145 94.1821 105.497 95.6293"></path>
+        <!-- Additional paths would be added here, but shortened for brevity -->
+      </g>
+      <defs>
+        <clipPath id="clip0_0_1">
+          <rect width="1407" height="326" fill="white"/>
+        </clipPath>
+      </defs>
+    </svg>
+  </div>
+
+  <div class="content" style="opacity: 1; transform: none;">
+    <a href="{{ section.settings.button_link }}" color="white" tabindex="0" 
+       style="border-color: {{ section.settings.button_border_color }}; color: {{ section.settings.button_text_color }};">
+      {{ section.settings.button_text }}
+    </a>
+    <div class="forms"></div>
+  </div>
+</article>
+
+{% schema %}
+{
+  "name": "Instagram Grid Section",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Color Settings"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "svg_stroke_color",
+      "label": "SVG Stroke Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "header",
+      "content": "Instagram Section"
+    },
+    {
+      "type": "text",
+      "id": "instagram_title",
+      "label": "Instagram Title",
+      "default": "Get Featured on our Instagram"
+    },
+    {
+      "type": "text",
+      "id": "instagram_footer",
+      "label": "Instagram Footer Text",
+      "default": "Tag @FEE_QA or use #تباهي"
+    },
+    {
+      "type": "header",
+      "content": "Instagram Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "instagram_image_1",
+      "label": "Instagram Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "instagram_image_2",
+      "label": "Instagram Image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "instagram_image_3",
+      "label": "Instagram Image 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "instagram_image_4",
+      "label": "Instagram Image 4"
+    },
+    {
+      "type": "image_picker",
+      "id": "instagram_image_5",
+      "label": "Instagram Image 5"
+    },
+    {
+      "type": "image_picker",
+      "id": "instagram_image_6",
+      "label": "Instagram Image 6"
+    },
+    {
+      "type": "image_picker",
+      "id": "instagram_image_7",
+      "label": "Instagram Image 7"
+    },
+    {
+      "type": "image_picker",
+      "id": "instagram_image_8",
+      "label": "Instagram Image 8"
+    },
+    {
+      "type": "image_picker",
+      "id": "instagram_image_9",
+      "label": "Instagram Image 9"
+    },
+    {
+      "type": "header",
+      "content": "Bottom Section"
+    },
+    {
+      "type": "text",
+      "id": "arabic_title",
+      "label": "Arabic Title",
+      "default": "عندنا بعد أكثر"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "عرض جميع المنتجات"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Button Border Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Button Hover Text Color",
+      "default": "#000000"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Instagram Grid Section",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}
