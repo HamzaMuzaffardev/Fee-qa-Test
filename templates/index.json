@@ -322,7 +322,7 @@
     "products_carousel_AdKeFt": {
       "type": "products-carousel",
       "settings": {
-        "section_width": "stretch_width",
+        "section_width": "fluid_container",
         "color_scheme": "scheme-2b5c6c91-201d-4fb1-aba3-e6d562656976",
         "heading": "Fee's Top Picks",
         "description": "Unmatched design—superior performance and customer satisfaction in one.",
