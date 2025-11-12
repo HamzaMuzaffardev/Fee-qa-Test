@@ -1754,7 +1754,12 @@ svg path {
 .section.sec__products-carousel .section__header.mb-33.mb-sm-20.text-center p {
     color: #fff;
 }
-@media only screen and (max-width: 1200px){}
+@media only screen and (min-width: 1200px){
+  .sec__content.relative.z-1.flex.w-1024-full.middle-left.container.text-left.text-md-left {
+    width: 100%;
+    max-width: 1440px;
+}
+}
 @media only screen and (max-width: 991px){
   .buttons a {
     padding: 14px 32x;
