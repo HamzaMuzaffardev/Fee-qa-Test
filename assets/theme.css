@@ -1790,6 +1790,9 @@ svg path {
   .ninth-section-template--20069970280645__banner_bottom_6xDfg3 {
     padding: 60px 0 0 0 !important;
   }
+  .section__block-inner.gradient.color-scheme-2b5c6c91-201d-4fb1-aba3-e6d562656976.flex.relative.flex-column.flex-md-row.text-below-mb.h-full .banner__media.w-full.overlay-bg.rounded.absolute-md.mb-30.mb-md-0.inset-0 {
+    display: none;
+  }
 
 }
 @media only screen and (max-width: 480px){
