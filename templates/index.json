@@ -277,13 +277,6 @@
             "content": "Subscribe and get 10% off your first purchase"
           }
         },
-        "scrolling_text_AWwGEC": {
-          "type": "scrolling_text",
-          "settings": {
-            "image": "shopify://shop_images/Vector.svg",
-            "content": ""
-          }
-        },
         "scrolling_text_QUpijB": {
           "type": "scrolling_text",
           "settings": {
@@ -293,7 +286,6 @@
       },
       "block_order": [
         "scrolling_text_hx7KJg",
-        "scrolling_text_AWwGEC",
         "scrolling_text_QUpijB"
       ],
       "name": "t:sections.scrolling_text.name",
@@ -303,13 +295,13 @@
         "direction": "left",
         "icon_between_item": "unset",
         "speed": 10,
-        "space_between_text": 40,
+        "space_between_text": 30,
         "font_size": 16,
         "font_weight": "body_weight",
         "uppercase": false,
         "use_heading_font": false,
-        "padding_top": 24,
-        "padding_bottom": 24,
+        "padding_top": 35,
+        "padding_bottom": 35,
         "reset_spacing": false
       }
     },
