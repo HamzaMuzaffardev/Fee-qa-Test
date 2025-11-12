@@ -303,7 +303,7 @@
         "direction": "left",
         "icon_between_item": "unset",
         "speed": 10,
-        "space_between_text": 60,
+        "space_between_text": 40,
         "font_size": 16,
         "font_weight": "body_weight",
         "uppercase": false,
@@ -319,7 +319,7 @@
         "section_width": "stretch_width",
         "color_scheme": "scheme-2b5c6c91-201d-4fb1-aba3-e6d562656976",
         "heading": "Fee's Top Picks",
-        "description": "",
+        "description": "Unmatched design—superior performance and customer satisfaction in one.",
         "show_view_all_button": false,
         "header_size": "large",
         "header_alignment": "center",
@@ -352,6 +352,7 @@
       "blocks": {
         "image_with_text_overlay_TtmqGD": {
           "type": "image_with_text_overlay",
+          "disabled": true,
           "settings": {
             "color_scheme": "scheme-3d10de96-a479-49bd-819c-e044746b4f3e",
             "content_width": "100%",
@@ -445,6 +446,65 @@
         "padding_top": 0,
         "padding_bottom": 0,
         "reset_spacing": true
+      }
+    },
+    "product_testimonials_3EmdfL": {
+      "type": "product-testimonials",
+      "blocks": {
+        "testimonials_items_Nwbjbz": {
+          "type": "testimonials_items",
+          "settings": {
+            "author_image": "shopify://shop_images/top_collection_900x600_c8ee5c74-e0b3-4726-aab9-0266b688d481.png",
+            "author_rating": 5,
+            "author_text": "<p>These are sooo pretty and very comfy. Perfect color as well. I love wearing these with a neutral top and Chelsea boots. Wicked cute...😍</p>",
+            "select_product": "fee-a-line-abaya-with-asymmetrical-collar-ready-to-wear-test",
+            "author_name": "Carie-Gosée"
+          }
+        },
+        "testimonials_items_LEjQAm": {
+          "type": "testimonials_items",
+          "settings": {
+            "author_image": "shopify://shop_images/top_collection_900x600_480_x_320_px_2_1.png",
+            "author_rating": 5,
+            "author_text": "<p>A perfect product, it keeps you very warm without over heating. True to size, I couldn't be happier with the purchase... Thank you! 🤗</p>",
+            "select_product": "fee-a-line-abaya-with-asymmetrical-collar-ready-to-wear-test",
+            "author_name": "Cameron Smith"
+          }
+        }
+      },
+      "block_order": [
+        "testimonials_items_Nwbjbz",
+        "testimonials_items_LEjQAm"
+      ],
+      "name": "t:sections.testimonials_product.presets.name",
+      "settings": {
+        "section_width": "fluid_container",
+        "color_scheme": "default",
+        "heading": "What Our Customers Say",
+        "description": "<p>Customers love our products and we always strive to please them all.</p>",
+        "header_alignment": "center",
+        "header_size": "large",
+        "design": "default",
+        "show_image": true,
+        "show_verified_buyer": true,
+        "img_position": "left",
+        "image_ratio": "square",
+        "custom_ratio": "",
+        "img_width": 30,
+        "framed": true,
+        "rate_color": "#FF9C05",
+        "items_per_row": 2,
+        "column_gap": 30,
+        "show_arrow": false,
+        "carousel_pagination": "disable",
+        "infinite": false,
+        "autoplay": false,
+        "autorotate_speed": 5,
+        "reveal": false,
+        "items_per_row_mobile": 1,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "reset_spacing": false
       }
     },
     "collection_list_iRbndH": {
@@ -560,6 +620,7 @@
     "scrolling_text_EpqhGY",
     "products_carousel_AdKeFt",
     "multi_content_YDk9nb",
+    "product_testimonials_3EmdfL",
     "collection_list_iRbndH",
     "banner_bottom_6xDfg3"
   ]
