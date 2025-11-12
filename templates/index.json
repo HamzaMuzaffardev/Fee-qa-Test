@@ -531,7 +531,7 @@
         "header_size": "medium",
         "header_alignment": "center",
         "column_gap": 0,
-        "content_background_color": "",
+        "content_background_color": "rgba(0,0,0,0)",
         "equal_height_adjustment": true,
         "carousel_on_mobile": false,
         "items_per_row_mobile": 1,
@@ -595,8 +595,8 @@
         "reveal": false,
         "items_per_row_mobile": 1,
         "padding_top": 60,
-        "padding_bottom": 30,
-        "reset_spacing": false
+        "padding_bottom": 0,
+        "reset_spacing": true
       }
     },
     "multi_content_c3L38q": {
@@ -697,8 +697,8 @@
         "equal_height_adjustment": false,
         "carousel_on_mobile": false,
         "items_per_row_mobile": 1,
-        "padding_top": 0,
-        "padding_bottom": 0,
+        "padding_top": 60,
+        "padding_bottom": 60,
         "reset_spacing": true
       }
     },
@@ -849,7 +849,7 @@
       "name": "t:sections.instagram.name",
       "settings": {
         "section_width": "fluid_container",
-        "color_scheme": "",
+        "color_scheme": "scheme-accf3b11-ba40-4a3e-bafb-243ece6683ec",
         "heading": "Shop by Gram",
         "description": "<p>Inspire and let yourself be inspired, from one unique fashion to another.</p>",
         "header_size": "medium",
