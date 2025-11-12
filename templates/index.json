@@ -253,7 +253,7 @@
       ],
       "name": "t:sections.multi_content.name",
       "settings": {
-        "section_width": "fluid_container",
+        "section_width": "stretch_width",
         "heading": "",
         "description": "",
         "header_size": "medium",
@@ -265,6 +265,51 @@
         "items_per_row_mobile": 1,
         "padding_top": 60,
         "padding_bottom": 0,
+        "reset_spacing": false
+      }
+    },
+    "scrolling_text_EpqhGY": {
+      "type": "scrolling-text",
+      "blocks": {
+        "scrolling_text_hx7KJg": {
+          "type": "scrolling_text",
+          "settings": {
+            "content": "Subscribe and get 10% off your first purchase"
+          }
+        },
+        "scrolling_text_AWwGEC": {
+          "type": "scrolling_text",
+          "settings": {
+            "image": "shopify://shop_images/Vector.svg",
+            "content": ""
+          }
+        },
+        "scrolling_text_QUpijB": {
+          "type": "scrolling_text",
+          "settings": {
+            "content": "Great-Free returns product within 10 days"
+          }
+        }
+      },
+      "block_order": [
+        "scrolling_text_hx7KJg",
+        "scrolling_text_AWwGEC",
+        "scrolling_text_QUpijB"
+      ],
+      "name": "t:sections.scrolling_text.name",
+      "settings": {
+        "section_width": "full_width",
+        "color_scheme": "scheme-4faf0e4d-27f4-4d02-bc51-617383bab1a9",
+        "direction": "left",
+        "icon_between_item": "unset",
+        "speed": 10,
+        "space_between_text": 60,
+        "font_size": 16,
+        "font_weight": "body_weight",
+        "uppercase": false,
+        "use_heading_font": false,
+        "padding_top": 24,
+        "padding_bottom": 24,
         "reset_spacing": false
       }
     },
@@ -512,6 +557,7 @@
     "slideshow_8KKtNU",
     "banner1_Bw3MUN",
     "multi_content_xqCWkw",
+    "scrolling_text_EpqhGY",
     "products_carousel_AdKeFt",
     "multi_content_YDk9nb",
     "collection_list_iRbndH",
