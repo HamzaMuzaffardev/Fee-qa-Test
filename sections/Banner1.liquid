@@ -469,7 +469,7 @@
             </svg></div>
   <div class="background">
     <div class="buttons">
-      <a href="{{ section.settings.button_url }}" class="button-{{ section.id }}" type="button" tabindex="0">
+      <a href="#" class="button-{{ section.id }}" type="button" tabindex="0">
         {{ section.settings.button_text }}
       </a>
     </div>
@@ -510,3 +510,94 @@
   });
 </script>
 
+{% schema %}
+{
+  "name": "Banner1 - Animated Arabic",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Header Settings"
+    },
+    {
+      "type": "text",
+      "id": "arabic_text",
+      "label": "Arabic Text",
+      "default": "تباهـــــــــــــــــــــــــي",
+      "info": "Enter the Arabic text to display in the header"
+    },
+    {
+      "type": "range",
+      "id": "header_position",
+      "min": -100,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Header Vertical Position",
+      "default": 0,
+      "info": "Adjust the vertical position of the header text"
+    },
+    {
+      "type": "header",
+      "content": "Color Settings"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "low_opacity_color",
+      "label": "Low Opacity Text Color",
+      "default": "#828282",
+      "info": "Color for the background Arabic text"
+    },
+    {
+      "type": "color",
+      "id": "high_opacity_color",
+      "label": "High Opacity Text Color",
+      "default": "#FFFFFF",
+      "info": "Color for the animated Arabic text"
+    },
+    {
+      "type": "header",
+      "content": "Button Settings"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "CLOTHES"
+    },
+   
+    {
+      "type": "color",
+      "id": "button_border_color",
+      "label": "Button Border Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#FFFFFF"
+    },
+    {
+      "type": "color",
+      "id": "button_hover_text_color",
+      "label": "Button Hover Text Color",
+      "default": "#000000",
+      "info": "Text color when hovering over the button"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner1 - Animated Arabic",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}
