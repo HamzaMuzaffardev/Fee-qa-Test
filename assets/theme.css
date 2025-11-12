@@ -1740,6 +1740,9 @@ multi-content.multi-content-js.relative.flex.flex-col-custom.flex-wrap.row-gap m
     border-radius: 24px !important;
     overflow: hidden;
 }
+multi-content.multi-content-js.relative.flex.flex-col-custom.flex-wrap.row-gap motion-element .section__block-inner{
+ background: #fff !important; 
+}
 svg path {
   stroke-dasharray: 100%;
   stroke-dashoffset: 100%;
