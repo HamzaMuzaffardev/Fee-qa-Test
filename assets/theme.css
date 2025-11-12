@@ -1683,7 +1683,12 @@ section#shopify-section-template--20069970641093__divider_TKLM6L {
 }
 
 @media only screen and (max-width: 1200px){}
-@media only screen and (max-width: 991px){}
+@media only screen and (max-width: 991px){
+  .buttons a {
+    padding: 14px 32x;
+    font-size: 15px !important;
+  }
+}
 @media only screen and (max-width: 767px){
   .second-section-template--20069970280645__banner1_Bw3MUN header h1 {
     right: 50px !important;
@@ -1695,5 +1700,9 @@ section#shopify-section-template--20069970641093__divider_TKLM6L {
   .second-section-template--20069970280645__banner1_Bw3MUN header h1 {
     margin: -70px 0 !important;
     right: 40px !important;
+  }
+  .buttons a {
+    padding: 11px 24px;
+    font-size: 14px !important;
   }
 }
