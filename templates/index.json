@@ -319,11 +319,95 @@
         "reset_spacing": false
       }
     },
+    "collection_list_xVrg7E": {
+      "type": "collection-list",
+      "blocks": {
+        "collection_RHgX3G": {
+          "type": "collection",
+          "settings": {
+            "collection": "frontpage",
+            "collection_title": ""
+          }
+        },
+        "collection_mDTDWT": {
+          "type": "collection",
+          "settings": {
+            "collection": "evening-dresses",
+            "collection_title": ""
+          }
+        },
+        "collection_RmNqMh": {
+          "type": "collection",
+          "settings": {
+            "collection": "exclusive-fee-collection-verse-one",
+            "collection_title": "Exclusive Fee"
+          }
+        },
+        "collection_nw68yF": {
+          "type": "collection",
+          "settings": {
+            "collection": "kaftans-collection",
+            "collection_title": ""
+          }
+        },
+        "collection_XDhwHL": {
+          "type": "collection",
+          "settings": {
+            "collection": "winter-collection",
+            "collection_title": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_RHgX3G",
+        "collection_mDTDWT",
+        "collection_RmNqMh",
+        "collection_nw68yF",
+        "collection_XDhwHL"
+      ],
+      "name": "t:sections.collection-list.name",
+      "settings": {
+        "section_width": "fluid_container",
+        "color_scheme": "default",
+        "heading": "Top Collections",
+        "description": "<p>Express your style with our standout collection—fashion meets sophistication.</p>",
+        "show_view_all_button": false,
+        "header_size": "medium",
+        "header_alignment": "center",
+        "display_mode": "carousel",
+        "image_ratio": "square",
+        "custom_ratio": "",
+        "items_per_row": 5,
+        "column_gap": 25,
+        "collection_information_position": "below_image",
+        "design": "default",
+        "text_alignment": "center",
+        "show_product_count": false,
+        "show_icon": false,
+        "show_description": false,
+        "font_size": 16,
+        "font_weight": "heading_weight",
+        "information_spacing": 12,
+        "rounded_image": false,
+        "image_custom_width": false,
+        "image_width": 200,
+        "show_arrow": false,
+        "carousel_pagination": "disable",
+        "infinite": false,
+        "autoplay": false,
+        "autorotate_speed": 5,
+        "reveal": false,
+        "items_per_row_mobile": 1,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "reset_spacing": false
+      }
+    },
     "products_carousel_AdKeFt": {
       "type": "products-carousel",
       "settings": {
         "section_width": "fluid_container",
-        "color_scheme": "scheme-2b5c6c91-201d-4fb1-aba3-e6d562656976",
+        "color_scheme": "scheme-accf3b11-ba40-4a3e-bafb-243ece6683ec",
         "heading": "Fee's Top Picks",
         "description": "Unmatched design—superior performance and customer satisfaction in one.",
         "show_view_all_button": false,
@@ -795,6 +879,7 @@
     "banner1_Bw3MUN",
     "multi_content_xqCWkw",
     "scrolling_text_EpqhGY",
+    "collection_list_xVrg7E",
     "products_carousel_AdKeFt",
     "multi_content_YDk9nb",
     "product_testimonials_3EmdfL",
