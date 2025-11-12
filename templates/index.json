@@ -117,28 +117,12 @@
         "header_position": 100,
         "background_color": "#000000",
         "low_opacity_color": "#828282",
-        "high_opacity_color": "#FFFFFF",
-        "button_text": "CLOTHES",
-        "button_url": "",
-        "button_border_color": "#FFFFFF",
-        "button_text_color": "#FFFFFF",
-        "button_hover_text_color": "#000000"
-      }
-    },
-    "banner1_HtaeNA": {
-      "type": "Banner1",
-      "name": "Banner1 Section",
-      "settings": {
-        "arabic_text": "تباهـــــــــــــــــــــــــي",
-        "header_position": 100,
-        "background_color": "#000000",
-        "low_opacity_color": "#828282",
         "high_opacity_color": "#ffffff",
         "button_text": "CLOTHES",
         "button_url": "",
         "button_border_color": "#ffffff",
         "button_text_color": "#ffffff",
-        "button_hover_text_color": "#ffffff"
+        "button_hover_text_color": "#000000"
       }
     },
     "products_carousel_AdKeFt": {
@@ -295,7 +279,6 @@
     "divider_tmbVey",
     "slideshow_8KKtNU",
     "banner1_Bw3MUN",
-    "banner1_HtaeNA",
     "products_carousel_AdKeFt",
     "multi_content_YDk9nb",
     "banner_bottom_6xDfg3"
