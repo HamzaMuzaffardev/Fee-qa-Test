@@ -337,7 +337,7 @@
         "settings": {
           "background": "#4c6042",
           "background_gradient": "",
-          "primary_color": "#4c6042",
+          "primary_color": "#fff",
           "text_color": "#ffffff",
           "heading_color": "#ffffff",
           "border_color": "#ebebeb",
