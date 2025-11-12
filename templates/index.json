@@ -268,10 +268,42 @@
             "collection": "frontpage",
             "collection_title": ""
           }
+        },
+        "collection_w7yNhH": {
+          "type": "collection",
+          "settings": {
+            "collection": "evening-dresses",
+            "collection_title": ""
+          }
+        },
+        "collection_iytNjM": {
+          "type": "collection",
+          "settings": {
+            "collection": "exclusive-fee-collection-verse-one",
+            "collection_title": ""
+          }
+        },
+        "collection_9wFRcJ": {
+          "type": "collection",
+          "settings": {
+            "collection": "kaftans-collection",
+            "collection_title": ""
+          }
+        },
+        "collection_AMwtAk": {
+          "type": "collection",
+          "settings": {
+            "collection": "winter-collection",
+            "collection_title": ""
+          }
         }
       },
       "block_order": [
-        "collection_G8NMDh"
+        "collection_G8NMDh",
+        "collection_w7yNhH",
+        "collection_iytNjM",
+        "collection_9wFRcJ",
+        "collection_AMwtAk"
       ],
       "name": "t:sections.collection-list.name",
       "settings": {
@@ -281,11 +313,11 @@
         "description": "",
         "show_view_all_button": false,
         "header_size": "medium",
-        "header_alignment": "left",
-        "display_mode": "carousel",
+        "header_alignment": "center",
+        "display_mode": "grid",
         "image_ratio": "adapt",
         "custom_ratio": "",
-        "items_per_row": 4,
+        "items_per_row": 3,
         "column_gap": 30,
         "collection_information_position": "overlay_image",
         "design": "default",
