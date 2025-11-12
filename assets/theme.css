@@ -1652,3 +1652,6 @@ mini-cart-remove-button.loading .remove-icon {
     width: 100%;
     justify-content: space-between;
 }
+.product-detail__information table {
+    display: none;
+}
