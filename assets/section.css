@@ -1,0 +1,9 @@
+.buttons a {
+    padding: 18px 40px;
+    border: 1px solid #fff;
+    border-radius: 100px;
+    text-decoration: none;
+    position: relative;
+    z-index: 9;    
+    color: #fff;
+}
