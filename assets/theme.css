@@ -1782,7 +1782,14 @@ section#shopify-section-template--20069970641093__divider_TKLM6L {
     font-size: 28px;
   }
   article.tenth-section.tenth-section-template--20069970280645__banner_bottom_6xDfg3 {
-      gap: 20px;
+      gap: 10px;
+  }
+  header.section-header h2 {
+    font-size: 28px !important;
+    margin-bottom: 24px !important;
+  }
+  .ninth-section-template--20069970280645__banner_bottom_6xDfg3 footer h2 {
+      font-size: 28px;
   }
 
 }
