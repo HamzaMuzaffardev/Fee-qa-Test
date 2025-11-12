@@ -1736,6 +1736,10 @@ article.ninth-section.ninth-section-template--20069970280645__banner_bottom_6xDf
     height: 100%;
     display; none !important;
 }
+multi-content.multi-content-js.relative.flex.flex-col-custom.flex-wrap.row-gap motion-element {
+    border-radius: 24px !important;
+    overflow: hidden;
+}
 svg path {
   stroke-dasharray: 100%;
   stroke-dashoffset: 100%;
