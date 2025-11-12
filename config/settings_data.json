@@ -165,6 +165,70 @@
       "top-search": {
         "type": "top-search",
         "settings": {}
+      },
+      "custom-font": {
+        "type": "custom-font",
+        "blocks": {
+          "image_xgJpRH": {
+            "type": "image",
+            "settings": {
+              "name": "Avenir Medium",
+              "custom_font_weight": "none",
+              "custom_font_url": "https://cdn.shopify.com/s/files/1/0746/3213/4853/files/AvenirLTStd-Medium.otf?v=1762932510",
+              "apply_h1": false,
+              "apply_h2": false,
+              "apply_h3": true,
+              "apply_h4": true,
+              "apply_h5": true,
+              "apply_h6": true,
+              "apply_span": true,
+              "apply_p": true,
+              "apply_a": true,
+              "apply_input": true,
+              "apply_label": true,
+              "apply_legend": true,
+              "apply_button": true,
+              "apply_summary": true,
+              "apply_select": true,
+              "apply_option": true,
+              "apply_small": true,
+              "apply_custom": ""
+            }
+          },
+          "image_7Nmbrw": {
+            "type": "image",
+            "settings": {
+              "name": "Avenir Bold",
+              "custom_font_weight": "none",
+              "custom_font_url": "https://cdn.shopify.com/s/files/1/0746/3213/4853/files/AvenirLTStd-Black.otf?v=1762932691",
+              "apply_h1": true,
+              "apply_h2": true,
+              "apply_h3": true,
+              "apply_h4": false,
+              "apply_h5": false,
+              "apply_h6": false,
+              "apply_span": false,
+              "apply_p": false,
+              "apply_a": false,
+              "apply_input": false,
+              "apply_label": false,
+              "apply_legend": false,
+              "apply_button": false,
+              "apply_summary": false,
+              "apply_select": false,
+              "apply_option": false,
+              "apply_small": false,
+              "apply_custom": ""
+            }
+          }
+        },
+        "block_order": [
+          "image_xgJpRH",
+          "image_7Nmbrw"
+        ],
+        "settings": {
+          "enable": true
+        }
       }
     },
     "content_for_index": [],
@@ -215,7 +279,7 @@
           "background_gradient": "",
           "primary_color": "#d0473e",
           "text_color": "#e5e3dd",
-          "heading_color": "#fff",
+          "heading_color": "#ffffff",
           "border_color": "#aca18e",
           "btn_primary_color": "#3b3b3c",
           "btn_primary_background": "#aca18e",
@@ -314,14 +378,14 @@
           "background": "#ffffff",
           "background_gradient": "",
           "primary_color": "#4c6042",
-          "text_color": "#fff",
-          "heading_color": "#fff",
+          "text_color": "#ffffff",
+          "heading_color": "#ffffff",
           "border_color": "#aca18e",
           "btn_primary_color": "#ffffff",
           "btn_primary_background": "#000000",
           "btn_primary_gradient": "",
           "btn_primary_hover_color": "#060606",
-          "btn_primary_hover_background": "#fff",
+          "btn_primary_hover_background": "#ffffff",
           "btn_primary_hover_background_gradient": "",
           "btn_outline_color": "#111111",
           "btn_outline_border_color": "#111111",
