@@ -1724,6 +1724,9 @@ section#shopify-section-template--20069970641093__divider_TKLM6L {
   .sec__content-inner.py-custom.px-custom.relative h2 {
     font-size: 32px;
   }
+  header.section-header h2 {
+    font-size: 32px !important;
+  }
 }
 @media only screen and (max-width: 767px){
   .second-section-template--20069970280645__banner1_Bw3MUN header h1 {
