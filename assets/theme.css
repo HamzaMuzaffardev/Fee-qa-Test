@@ -1701,6 +1701,14 @@ section#shopify-section-template--20069970641093__divider_TKLM6L {
     z-index: 9;    
     color: #fff;
 }
+.bottom-svg svg {
+    position: absolute;
+    bottom: 40px;
+}
+.content {
+    position: relative;
+    z-index: 1;
+}
 @media only screen and (max-width: 1200px){}
 @media only screen and (max-width: 991px){
   .buttons a {
