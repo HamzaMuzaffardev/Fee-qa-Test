@@ -142,7 +142,7 @@
             "custom_svg": "",
             "subheading": "",
             "heading": "Exclusive Fee",
-            "description": "<p>Description</p>",
+            "description": "<p>Exclusive, high-quality products crafted for those who value luxury and individuality.</p>",
             "first_button_label": "",
             "first_button_link": "",
             "first_button_type": "primary",
@@ -181,7 +181,7 @@
             "custom_svg": "",
             "subheading": "",
             "heading": "Winter Collection",
-            "description": "<p>Description</p>",
+            "description": "<p>Cozy, stylish winter essentials designed to keep you warm and fashionable all season long.</p>",
             "first_button_label": "",
             "first_button_link": "",
             "first_button_type": "primary",
@@ -220,7 +220,7 @@
             "custom_svg": "",
             "subheading": "",
             "heading": "Kaftans Collection",
-            "description": "<p>Description</p>",
+            "description": "<p>Elegant kaftans blending comfort and style, perfect for every occasion and effortless sophistication.</p>",
             "first_button_label": "",
             "first_button_link": "",
             "first_button_type": "primary",
@@ -282,11 +282,25 @@
           "settings": {
             "content": "Great-Free returns product within 10 days"
           }
+        },
+        "scrolling_text_QdCiFJ": {
+          "type": "scrolling_text",
+          "settings": {
+            "content": "Subscribe and get 10% off your first purchase"
+          }
+        },
+        "scrolling_text_wx9VKk": {
+          "type": "scrolling_text",
+          "settings": {
+            "content": "Great-Free returns product within 10 days"
+          }
         }
       },
       "block_order": [
         "scrolling_text_hx7KJg",
-        "scrolling_text_QUpijB"
+        "scrolling_text_QUpijB",
+        "scrolling_text_QdCiFJ",
+        "scrolling_text_wx9VKk"
       ],
       "name": "t:sections.scrolling_text.name",
       "settings": {
@@ -294,7 +308,7 @@
         "color_scheme": "scheme-4faf0e4d-27f4-4d02-bc51-617383bab1a9",
         "direction": "left",
         "icon_between_item": "unset",
-        "speed": 10,
+        "speed": 20,
         "space_between_text": 30,
         "font_size": 16,
         "font_weight": "body_weight",
