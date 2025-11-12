@@ -1747,6 +1747,13 @@ svg path {
   stroke-dasharray: 100%;
   stroke-dashoffset: 100%;
 }
+.section__header.mb-33.mb-sm-20.text-center h2 {
+    color: #fff;
+}
+
+.section__header.mb-33.mb-sm-20.text-center p {
+    color: #fff;
+}
 @media only screen and (max-width: 1200px){}
 @media only screen and (max-width: 991px){
   .buttons a {
