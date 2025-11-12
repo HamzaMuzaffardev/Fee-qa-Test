@@ -1655,3 +1655,6 @@ mini-cart-remove-button.loading .remove-icon {
 .product-detail__information table {
     display: none;
 }
+footer.product-sticky-hide.footer.color-scheme-4faf0e4d-27f4-4d02-bc51-617383bab1a9.gradient.border-top {
+    margin-top: 0px;
+}
