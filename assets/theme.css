@@ -1727,6 +1727,9 @@ header.section-header h2 {
 article.ninth-section.ninth-section-template--20069970280645__banner_bottom_6xDfg3 {
     padding-top: 80px;
 }
+.section.remove_spacing.sec__page-heading.color-scheme-accf3b11-ba40-4a3e-bafb-243ece6683ec.gradient.mb-60.align-center.justify-content-center.flex {
+    position: relative;
+}
 .text-svg {
     position: absolute;
     width: 100%;
