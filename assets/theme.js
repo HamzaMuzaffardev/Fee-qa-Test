@@ -9249,3 +9249,23 @@ class ProductWithBanner extends HTMLElement {
   }
 }
 customElements.define('product-with-banner', ProductWithBanner);
+
+// 
+
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.utils.toArray("svg path").forEach(path => {
+  gsap.fromTo(path, 
+    { strokeDashoffset: "100%" }, 
+    {
+      strokeDashoffset: "0%",
+      duration: 3,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: path,
+        start: "top 80%",   // when the SVG enters 80% from the top of viewport
+        toggleActions: "play none none none",
+      }
+    }
+  );
+});
