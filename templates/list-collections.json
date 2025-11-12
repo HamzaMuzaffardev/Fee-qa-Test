@@ -46,84 +46,35 @@
         "collection_GawBmm": {
           "type": "collection",
           "settings": {
-            "collection": "sweaters",
+            "collection": "frontpage",
             "collection_title": ""
           }
         },
         "collection_k6UJWD": {
           "type": "collection",
           "settings": {
-            "collection": "t-shirts",
+            "collection": "evening-dresses",
             "collection_title": ""
           }
         },
         "collection_Dh49Wa": {
           "type": "collection",
           "settings": {
-            "collection": "tops",
+            "collection": "exclusive-fee-collection-verse-one",
             "collection_title": ""
           }
         },
         "collection_qag64J": {
           "type": "collection",
           "settings": {
-            "collection": "activewear",
+            "collection": "kaftans-collection",
             "collection_title": ""
           }
         },
         "collection_Kk8pDP": {
           "type": "collection",
           "settings": {
-            "collection": "best-seller",
-            "collection_title": ""
-          }
-        },
-        "collection_ACrmpU": {
-          "type": "collection",
-          "settings": {
-            "collection": "blazers",
-            "collection_title": ""
-          }
-        },
-        "collection_zpFtkQ": {
-          "type": "collection",
-          "settings": {
-            "collection": "demin",
-            "collection_title": ""
-          }
-        },
-        "collection_Lb3mRX": {
-          "type": "collection",
-          "settings": {
-            "collection": "handbags",
-            "collection_title": ""
-          }
-        },
-        "collection_qirikr": {
-          "type": "collection",
-          "settings": {
-            "collection": "crop-top",
-            "collection_title": ""
-          }
-        },
-        "collection_HLUY4E": {
-          "type": "collection",
-          "settings": {
-            "collection": "dress",
-            "collection_title": ""
-          }
-        },
-        "collection_dHMiiC": {
-          "type": "collection",
-          "settings": {
-            "collection": "trending",
-            "collection_title": ""
-          }
-        },
-        "collection_pip9Fw": {
-          "type": "collection",
-          "settings": {
-            "collection": "shorts-1",
+            "collection": "winter-collection",
             "collection_title": ""
           }
         }
@@ -133,14 +84,7 @@
         "collection_k6UJWD",
         "collection_Dh49Wa",
         "collection_qag64J",
-        "collection_Kk8pDP",
-        "collection_ACrmpU",
-        "collection_zpFtkQ",
-        "collection_Lb3mRX",
-        "collection_qirikr",
-        "collection_HLUY4E",
-        "collection_dHMiiC",
-        "collection_pip9Fw"
+        "collection_Kk8pDP"
       ],
       "settings": {
         "section_width": "fluid_container",
