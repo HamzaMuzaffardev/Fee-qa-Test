@@ -43,7 +43,7 @@
             "email_placeholder": "Enter your email...",
             "button_label": "Sign Up",
             "note": "",
-            "content_width": "41.6666%"
+            "content_width": "50%"
           }
         }
       },
@@ -53,7 +53,7 @@
         "newsletter_Rk8BD6"
       ],
       "settings": {
-        "section_width": "fluid_container",
+        "section_width": "stretch_width",
         "color_scheme": "scheme-accf3b11-ba40-4a3e-bafb-243ece6683ec",
         "enable_back_top": true,
         "separator_line": "all-page",
@@ -65,7 +65,7 @@
         "payment_width": 340,
         "copyright_text": "2025© fee. All rights reserved | Powered by Codergize",
         "footer_heading_size": 16,
-        "padding_top": 60,
+        "padding_top": 80,
         "padding_bottom": 45,
         "reset_spacing_on_homepage": true
       }
