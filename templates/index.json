@@ -156,7 +156,7 @@
         "items_per_row_mobile": 2,
         "padding_top": 80,
         "padding_bottom": 80,
-        "reset_spacing": false
+        "reset_spacing": true
       }
     },
     "multi_content_YDk9nb": {
