@@ -26,7 +26,7 @@
         "description_TfxHmk": {
           "type": "description",
           "settings": {
-            "description": "<p>Please use the below form. You can also call customer service on +1 (973) 435-3638.</p>"
+            "description": "<p>Please use the below form. You can also call customer service on <a href=\"tel:+974 40408900\" title=\"tel:+974 40408900\">+974 40408900</a>.</p>"
           }
         }
       },
@@ -59,8 +59,8 @@
         "contact_E6FKVE": {
           "type": "contact",
           "settings": {
-            "heading": "Contact Us",
-            "description": "<p>Please submit all general enquiries in the contact form below and we look forward to hearing from you soon.</p>",
+            "heading": "Questions? Get in touch",
+            "description": "<p>Enter your details and message below and we'll get in touch asap.</p>",
             "show_privacy": true,
             "name": "Your name",
             "email": "",
