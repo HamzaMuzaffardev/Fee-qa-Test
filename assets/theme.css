@@ -1795,7 +1795,12 @@ multi-content.multi-content-js.relative.flex.flex-col-custom.flex-wrap.row-gap.r
       font-size: 28px;
   }
   .ninth-section-template--20069970280645__banner_bottom_6xDfg3 .section-header h2, .ninth-section-template--20069970280645__banner_bottom_6xDfg3 footer h2 {
-        font-size: 28px !important;
-    }
-
+      font-size: 28px !important;
+  }
+  .ninth-section-template--20069970280645__banner_bottom_6xDfg3 .content {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 16px;
+    width: 90%;
+  }
 }
