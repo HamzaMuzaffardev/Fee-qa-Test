@@ -1661,3 +1661,6 @@ footer.product-sticky-hide.footer.color-scheme-4faf0e4d-27f4-4d02-bc51-617383bab
 section#shopify-section-template--20069970641093__divider_TKLM6L {
     display: none;
 }
+.ninth-section-template--20069970280645__banner_bottom_6xDfg3 .content img {
+    width: unset !important;
+}
