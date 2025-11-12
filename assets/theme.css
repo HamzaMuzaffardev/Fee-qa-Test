@@ -1707,6 +1707,14 @@ section#shopify-section-template--20069970641093__divider_TKLM6L {
     padding: 14px 32x;
     font-size: 15px !important;
   }
+  h2.sec__content-heading.heading-letter-spacing.mt-0.mb-custom.fs-big.heading_weight {
+    font-size: 32px;
+    max-width: 60%;
+  }
+  motion-element.sec__content-des.opacity-0.effect_fadeinup.block.rich__text-m0.mb-big.fs-custom.heading_weight p {
+    max-width: 55%;
+    font-size: 16px;
+  }
 }
 @media only screen and (max-width: 767px){
   .second-section-template--20069970280645__banner1_Bw3MUN header h1 {
