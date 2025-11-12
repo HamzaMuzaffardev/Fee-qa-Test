@@ -1666,3 +1666,11 @@ section#shopify-section-template--20069970641093__divider_TKLM6L {
 }
 .content a:hover {
     color: #000 !important;
+}
+.sec__content-btn a:hover {
+    background: #FFF;
+    color: #000;
+}
+.sec__content-btn a {
+    border: 1px solid #000 !important;
+}
