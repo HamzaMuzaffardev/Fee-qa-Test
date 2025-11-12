@@ -1645,3 +1645,10 @@ mini-cart-remove-button.loading .remove-icon {
 .sec__icon-box-content-icon svg{
   color: var(--color-heading);
 }
+
+
+/*  */
+.flex.flex-wrap.gap-10.gap-xl-30.justify-center.justify-md-start {
+    width: 100%;
+    justify-content: space-between;
+}
