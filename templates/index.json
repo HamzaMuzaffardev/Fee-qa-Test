@@ -259,68 +259,56 @@
         "reset_spacing": true
       }
     },
-    "featured_product_tHdR8f": {
-      "type": "featured-product",
+    "collection_list_iRbndH": {
+      "type": "collection-list",
       "blocks": {
-        "badges_idtYtX": {
-          "type": "badges",
-          "settings": {}
-        },
-        "title_E7Gaxa": {
-          "type": "title",
+        "collection_G8NMDh": {
+          "type": "collection",
           "settings": {
-            "show_vendor": false
-          }
-        },
-        "rate_qHPGHD": {
-          "type": "rate",
-          "settings": {}
-        },
-        "price_tQRbK9": {
-          "type": "price",
-          "settings": {}
-        },
-        "description_DebQKR": {
-          "type": "description",
-          "settings": {}
-        },
-        "variant_picker_tdwVUy": {
-          "type": "variant_picker",
-          "settings": {
-            "variant_type": "swatches"
-          }
-        },
-        "buy_buttons_i98TTD": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": true,
-            "show_gift_card_recipient": true
+            "collection": "frontpage",
+            "collection_title": ""
           }
         }
       },
       "block_order": [
-        "badges_idtYtX",
-        "title_E7Gaxa",
-        "rate_qHPGHD",
-        "price_tQRbK9",
-        "description_DebQKR",
-        "variant_picker_tdwVUy",
-        "buy_buttons_i98TTD"
+        "collection_G8NMDh"
       ],
-      "name": "t:sections.featured-product.name",
+      "name": "t:sections.collection-list.name",
       "settings": {
-        "product": "",
-        "center": false,
-        "section_width": "container",
-        "color_scheme": "",
-        "desktop_media_width": 50,
-        "desktop_main_image_position": "left",
-        "desktop_layout": "thumbnail_bottom",
-        "enable_video_autoplay": false,
-        "enable_video_looping": false,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "reset_spacing": false
+        "section_width": "stretch_width",
+        "color_scheme": "scheme-0c75c9bd-4bac-4c11-b227-c731693817e0",
+        "heading": "WELCOME TO OUR SHOWROOM",
+        "description": "",
+        "show_view_all_button": false,
+        "header_size": "medium",
+        "header_alignment": "left",
+        "display_mode": "carousel",
+        "image_ratio": "adapt",
+        "custom_ratio": "",
+        "items_per_row": 2,
+        "column_gap": 30,
+        "collection_information_position": "overlay_image",
+        "design": "default",
+        "text_alignment": "center",
+        "show_product_count": false,
+        "show_icon": false,
+        "show_description": false,
+        "font_size": 16,
+        "font_weight": "heading_weight",
+        "information_spacing": 12,
+        "rounded_image": false,
+        "image_custom_width": false,
+        "image_width": 200,
+        "show_arrow": false,
+        "carousel_pagination": "disable",
+        "infinite": false,
+        "autoplay": false,
+        "autorotate_speed": 5,
+        "reveal": false,
+        "items_per_row_mobile": 1,
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "reset_spacing": true
       }
     },
     "banner_bottom_6xDfg3": {
@@ -347,7 +335,7 @@
     "banner1_Bw3MUN",
     "products_carousel_AdKeFt",
     "multi_content_YDk9nb",
-    "featured_product_tHdR8f",
+    "collection_list_iRbndH",
     "banner_bottom_6xDfg3"
   ]
 }
