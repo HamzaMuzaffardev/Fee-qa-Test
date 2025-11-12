@@ -411,7 +411,7 @@
             "second_button_type": "primary",
             "content_alignment": "center",
             "content_position": "middle-center",
-            "content_padding_block": 60,
+            "content_padding_block": 42,
             "content_padding_inline": 10,
             "content_below_image": true,
             "custom_svg_spacing_bottom": 30,
@@ -593,6 +593,7 @@
     },
     "banner_bottom_6xDfg3": {
       "type": "Banner-bottom",
+      "disabled": true,
       "name": "Banner Bottom Section",
       "settings": {
         "background_color": "#000000",
@@ -610,6 +611,72 @@
         "button_text_color": "#ffffff",
         "button_hover_text_color": "#000000"
       }
+    },
+    "instagram_3cVfdP": {
+      "type": "instagram",
+      "blocks": {
+        "instagram_manual_upload_NN9aLJ": {
+          "type": "instagram_manual_upload",
+          "settings": {
+            "image": "shopify://shop_images/top_collection_900x600_1.png",
+            "link": "#."
+          }
+        },
+        "instagram_manual_upload_A4NhAy": {
+          "type": "instagram_manual_upload",
+          "settings": {
+            "image": "shopify://shop_images/top_collection_900x600_2.png",
+            "link": "#."
+          }
+        },
+        "instagram_manual_upload_gznMka": {
+          "type": "instagram_manual_upload",
+          "settings": {
+            "image": "shopify://shop_images/top_collection_900x600_c8ee5c74-e0b3-4726-aab9-0266b688d481.png",
+            "link": "#."
+          }
+        },
+        "instagram_manual_upload_abTAaF": {
+          "type": "instagram_manual_upload",
+          "settings": {
+            "image": "shopify://shop_images/top_collection_900x600_1.png",
+            "link": "#."
+          }
+        }
+      },
+      "block_order": [
+        "instagram_manual_upload_NN9aLJ",
+        "instagram_manual_upload_A4NhAy",
+        "instagram_manual_upload_gznMka",
+        "instagram_manual_upload_abTAaF"
+      ],
+      "name": "t:sections.instagram.name",
+      "settings": {
+        "section_width": "fluid_container",
+        "color_scheme": "",
+        "heading": "Shop by Gram",
+        "description": "<p>Inspire and let yourself be inspired, from one unique fashion to another.</p>",
+        "header_size": "medium",
+        "header_alignment": "center",
+        "instagram_image_source": "manual_upload",
+        "instagram_access_token": "",
+        "image_ratio": "adapt",
+        "custom_ratio": "",
+        "display_mode": "grid",
+        "items_per_row": 4,
+        "column_gap": 30,
+        "show_arrow": false,
+        "carousel_pagination": "disable",
+        "infinite": false,
+        "autoplay": false,
+        "autorotate_speed": 5,
+        "reveal": false,
+        "carousel_on_mobile": false,
+        "items_per_row_mobile": 1,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "reset_spacing": false
+      }
     }
   },
   "order": [
@@ -622,6 +689,7 @@
     "multi_content_YDk9nb",
     "product_testimonials_3EmdfL",
     "collection_list_iRbndH",
-    "banner_bottom_6xDfg3"
+    "banner_bottom_6xDfg3",
+    "instagram_3cVfdP"
   ]
 }
