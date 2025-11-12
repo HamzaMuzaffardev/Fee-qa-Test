@@ -25,6 +25,7 @@
           "type": "slider_item",
           "settings": {
             "image": "shopify://shop_images/unnamed.webp",
+            "image_mobile": "shopify://shop_images/hero_section_desktop_480_x_600_px_1.png",
             "overlay_opacity": 0,
             "slider_effect": "effect_fadeinup",
             "subheading": "",
@@ -52,6 +53,7 @@
           "type": "slider_item",
           "settings": {
             "image": "shopify://shop_images/hero_section_desktop_8.png",
+            "image_mobile": "shopify://shop_images/hero_section_desktop_480_x_600_px_2.png",
             "overlay_opacity": 0,
             "slider_effect": "effect_fadeinup",
             "subheading": "",
@@ -85,7 +87,7 @@
         "section_width": "full_width",
         "slide_height": "full_screen",
         "desktop_height": 300,
-        "mobile_height": 480,
+        "mobile_height": 550,
         "color_scheme": "scheme-fc2810ca-9089-4b73-95f4-f0424fd21cc8",
         "subheading_font_size": 17,
         "subheading_font_weight": "subheading_weight",
