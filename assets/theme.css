@@ -1681,3 +1681,8 @@ section#shopify-section-template--20069970641093__divider_TKLM6L {
 .menu-mobile-title.min-h-55.min-h-1025-50.flex.align-center.px-30.py-5.gradient.hidden-1025.gap-30 {
     background: #4C6042 !important;
 }
+
+@media only screen and (max-width: 1200px){}
+@media only screen and (max-width: 991px){}
+@media only screen and (max-width: 767px){}
+@media only screen and (max-width: 480px){}
