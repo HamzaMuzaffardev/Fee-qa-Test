@@ -12,7 +12,7 @@
     padding: 50px 0;
   }
 
-  .ninth-section-{{ section.id }} .section-header h1 {
+  .ninth-section-{{ section.id }} .section-header h2 {
     text-align: center;
     margin: 0;
     padding: 0;
@@ -68,7 +68,7 @@
     gap: 12px;
   }
 
-  .ninth-section-{{ section.id }} footer h1 {
+  .ninth-section-{{ section.id }} footer h2 {
     margin: 0;
     padding: 0;
     font-size: 45px;
@@ -89,7 +89,7 @@
     padding-bottom: 50px;
   }
 
-  .tenth-section-{{ section.id }} .section-header h1 {
+  .tenth-section-{{ section.id }} .section-header h2 {
     color: {{ section.settings.text_color }};
     font-size: 90px;
     font-weight: 300;
@@ -132,14 +132,14 @@
   }
 
   @media (max-width: 1300px) {
-    .ninth-section-{{ section.id }} .section-header h1,
-    .ninth-section-{{ section.id }} footer h1 {
+    .ninth-section-{{ section.id }} .section-header h2,
+    .ninth-section-{{ section.id }} footer h2 {
       font-size: 35px;
     }
   }
 
   @media (max-width: 870px) {
-    .ninth-section-{{ section.id }} .section-header h1,
+    .ninth-section-{{ section.id }} .section-header h2,
     .ninth-section-{{ section.id }} footer h1 {
       font-size: 25px;
     }
@@ -152,18 +152,18 @@
     .ninth-section-{{ section.id }} {
       padding: 10px 0;
     }
-    .ninth-section-{{ section.id }} .section-header h1,
+    .ninth-section-{{ section.id }} .section-header h2,
     .ninth-section-{{ section.id }} footer h1 {
       font-size: 20px;
       text-align: center;
     }
-    .tenth-section-{{ section.id }} .section-header h1 {
+    .tenth-section-{{ section.id }} .section-header h2 {
       font-size: 40px;
     }
   }
 
   @media (max-width: 450px) {
-    .ninth-section-{{ section.id }} .section-header h1,
+    .ninth-section-{{ section.id }} .section-header h2,
     .ninth-section-{{ section.id }} footer h1 {
       font-size: 15px;
       text-align: center;
@@ -190,9 +190,9 @@
 
 <article class="ninth-section ninth-section-{{ section.id }}">
   <header class="section-header">
-    <h1 style="letter-spacing: 0.3em; opacity: 1;">
+    <h2 style="letter-spacing: 0.3em; opacity: 1;">
       {{ section.settings.instagram_title }}
-    </h1>
+    </h2>
   </header>
   
   <div class="background">
@@ -215,17 +215,17 @@
   </div>
   
   <footer>
-    <h1 style="letter-spacing: 0.1em;">
+    <h2 style="letter-spacing: 0.1em;">
       {{ section.settings.instagram_footer }}
-    </h1>
+    </h2>
   </footer>
 </article>
 
 <article class="tenth-section tenth-section-{{ section.id }}">
   <header class="section-header">
-    <h1 style="opacity: 1;">
+    <h2 style="opacity: 1;">
       {{ section.settings.arabic_title }}
-    </h1>
+    </h2>
   </header>
 
   <div class="background">
