@@ -1727,6 +1727,11 @@ header.section-header h2 {
 article.ninth-section.ninth-section-template--20069970280645__banner_bottom_6xDfg3 {
     padding-top: 80px;
 }
+.text-svg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
 @media only screen and (max-width: 1200px){}
 @media only screen and (max-width: 991px){
   .buttons a {
