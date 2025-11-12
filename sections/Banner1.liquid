@@ -469,7 +469,7 @@
             </svg></div>
   <div class="background">
     <div class="buttons">
-      <a href="#" class="button-{{ section.id }}" type="button" tabindex="0">
+      <a href="{{ section.settings.button_url }}" class="button-{{ section.id }}" type="button" tabindex="0">
         {{ section.settings.button_text }}
       </a>
     </div>
@@ -572,7 +572,11 @@
       "label": "Button Text",
       "default": "CLOTHES"
     },
-   
+    {
+        "type": "url",
+        "id": "button_url",
+        "label": "Button Link",
+    },
     {
       "type": "color",
       "id": "button_border_color",
