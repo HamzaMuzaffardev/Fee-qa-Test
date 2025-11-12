@@ -1681,7 +1681,26 @@ section#shopify-section-template--20069970641093__divider_TKLM6L {
 .menu-mobile-title.min-h-55.min-h-1025-50.flex.align-center.px-30.py-5.gradient.hidden-1025.gap-30 {
     background: #4C6042 !important;
 }
-
+ .second-section-{{ section.id }} header h1 {
+    margin: -50px 0;
+    padding: 0;
+    position: absolute;
+    right: 90px !important;
+    font-family: Cairo, sans-serif;
+    color: transparent;
+    font-size: 11vw !important;
+    text-align: right;
+    overflow: hidden;
+  }
+  .buttons a {
+    padding: 18px 40px;
+    border: 1px solid #fff;
+    border-radius: 100px;
+    text-decoration: none;
+    position: relative;
+    z-index: 9;    
+    color: #fff;
+}
 @media only screen and (max-width: 1200px){}
 @media only screen and (max-width: 991px){
   .buttons a {
