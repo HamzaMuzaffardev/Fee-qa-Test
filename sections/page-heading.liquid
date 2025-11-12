@@ -15,6 +15,9 @@
     class="section remove_spacing sec__page-heading color-{{ color_scheme }} gradient{% if background_image != blank %} bg-transparent relative mb-60{% else %} mb-60{% endif %} align-center justify-content-{{ section_st.alignment }}{% if t == 'cart' and cart == empty %} hidden{% else %} flex{% endif %}"
     style="{{ style | strip | strip_newlines }}"
   >
+    <div class="text-svg">
+      <svg viewBox="0 0 1440 94" fill="none" xmlns="http://www.w3.org/2000/svg" class="header-line"><path d="M0 79.8047C30 84.638 84.7 82.0047 63.5 32.8047C37 -28.6953 631 92.3047 751.5 79.8047C872 67.3047 878.628 12.638 857 14.5C781.5 21 964 143.305 1213 33.8046C1462 -75.6954 1582.5 127.305 1453 88.3046C1349.4 57.1046 1420.83 28.638 1469.5 18.3047" stroke="white"></path></svg>
+    </div>
     {%- if background_image != blank -%}
       <div class="overlay-bg">
         {%- assign image_alt = background_image.alt | default: 'product' | escape -%}
