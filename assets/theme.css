@@ -1794,5 +1794,8 @@ multi-content.multi-content-js.relative.flex.flex-col-custom.flex-wrap.row-gap.r
   .ninth-section-template--20069970280645__banner_bottom_6xDfg3 footer h2 {
       font-size: 28px;
   }
+  .ninth-section-template--20069970280645__banner_bottom_6xDfg3 .section-header h2, .ninth-section-template--20069970280645__banner_bottom_6xDfg3 footer h2 {
+        font-size: 28px !important;
+    }
 
 }
