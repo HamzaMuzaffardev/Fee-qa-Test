@@ -286,6 +286,7 @@
     },
     "related_products": {
       "type": "related-products",
+      "disabled": true,
       "settings": {
         "section_width": "container",
         "color_scheme": "",
@@ -304,6 +305,7 @@
     },
     "divider_HtLXd3": {
       "type": "divider",
+      "disabled": true,
       "settings": {
         "section_width": "container",
         "border_height": 1,
