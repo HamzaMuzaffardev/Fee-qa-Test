@@ -303,16 +303,6 @@
         "reset_spacing": false
       }
     },
-    "divider_HtLXd3": {
-      "type": "divider",
-      "disabled": true,
-      "settings": {
-        "section_width": "container",
-        "border_height": 1,
-        "border_color": "#ebebeb",
-        "reset_spacing": false
-      }
-    },
     "products_recently_viewed_GdCNUL": {
       "type": "products-recently-viewed",
       "settings": {
@@ -336,49 +326,6 @@
         "padding_bottom": 80,
         "reset_spacing": true
       }
-    },
-    "175010079788adbec2": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_576df3b_arQaXH": {
-          "type": "ai_gen_block_576df3b",
-          "settings": {
-            "label": "Enter your custom measurements",
-            "placeholder": "e.g., Bust: 36in, Waist: 28in, Length: 54in",
-            "property_name": "Custom Measurements",
-            "input_type": "textarea",
-            "required": true,
-            "max_length": 200,
-            "helper_text": "Please provide your measurements in inches or centimeters. Include bust, waist, hip, and desired length.",
-            "error_message": "Please enter your custom measurements",
-            "margin_top": 20,
-            "margin_bottom": 20,
-            "padding": 16,
-            "background_color": "#ffffff",
-            "border_color": "#e5e5e5",
-            "border_radius": 6,
-            "label_color": "#333333",
-            "label_font_size": 14,
-            "label_font_weight": "500",
-            "label_text_transform": "none",
-            "input_background_color": "#ffffff",
-            "input_text_color": "#333333",
-            "input_border_color": "#d1d5db",
-            "input_focus_border_color": "#3b82f6",
-            "input_font_size": 14,
-            "input_border_radius": 4,
-            "helper_color": "#6b7280",
-            "error_color": "#ef4444",
-            "helper_font_size": 12
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_576df3b_arQaXH"
-      ],
-      "disabled": true,
-      "settings": {}
     }
   },
   "order": [
@@ -391,8 +338,6 @@
     "1716793714ce89e457",
     "divider_TKLM6L",
     "related_products",
-    "divider_HtLXd3",
-    "products_recently_viewed_GdCNUL",
-    "175010079788adbec2"
+    "products_recently_viewed_GdCNUL"
   ]
 }
