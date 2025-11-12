@@ -1664,3 +1664,5 @@ section#shopify-section-template--20069970641093__divider_TKLM6L {
 .ninth-section-template--20069970280645__banner_bottom_6xDfg3 .content img {
     width: unset !important;
 }
+.content a:hover {
+    color: #000 !important;
