@@ -507,6 +507,109 @@
         "reset_spacing": false
       }
     },
+    "multi_content_c3L38q": {
+      "type": "multi-content",
+      "blocks": {
+        "image_with_text_overlay_xhrWgg": {
+          "type": "image_with_text_overlay",
+          "settings": {
+            "color_scheme": "scheme-4faf0e4d-27f4-4d02-bc51-617383bab1a9",
+            "content_width": "50%",
+            "vertical_align": "center",
+            "image": "shopify://shop_images/Untitled_design_-_2025-11-12T154234.494.png",
+            "mobile_image": "shopify://shop_images/Untitled_480_x_315_px.png",
+            "image_behavior": "none",
+            "image_link": "",
+            "image_overlay_opacity": 20,
+            "custom_svg": "",
+            "subheading": "Everyday Elegance",
+            "heading": "Today's Favorite",
+            "description": "",
+            "first_button_label": "Shop Now",
+            "first_button_link": "shopify://collections/all",
+            "first_button_type": "primary",
+            "second_button_label": "",
+            "second_button_link": "",
+            "second_button_type": "primary",
+            "content_alignment": "center",
+            "content_position": "middle-center",
+            "content_padding_block": 30,
+            "content_padding_inline": 30,
+            "content_below_image": false,
+            "custom_svg_spacing_bottom": 10,
+            "subheading_font_size": 12,
+            "subheading_font_weight": "subheading_weight",
+            "subheading_spacing_bottom": 10,
+            "heading_font_size": 36,
+            "heading_font_weight": "heading_weight",
+            "heading_uppercase": false,
+            "heading_spacing_bottom": 10,
+            "des_font_size": 14,
+            "des_font_weight": "body_weight",
+            "des_spacing_bottom": 10
+          }
+        },
+        "image_with_text_overlay_6g8Jik": {
+          "type": "image_with_text_overlay",
+          "settings": {
+            "color_scheme": "scheme-4faf0e4d-27f4-4d02-bc51-617383bab1a9",
+            "content_width": "50%",
+            "vertical_align": "center",
+            "image": "shopify://shop_images/Untitled_design_-_2025-11-12T154314.291.png",
+            "mobile_image": "shopify://shop_images/Untitled_480_x_315_px_1.png",
+            "image_behavior": "none",
+            "image_link": "",
+            "image_overlay_opacity": 20,
+            "custom_svg": "",
+            "subheading": "Curated for You",
+            "heading": "Evening Glamour",
+            "description": "",
+            "first_button_label": "Explore Styles",
+            "first_button_link": "shopify://collections",
+            "first_button_type": "primary",
+            "second_button_label": "",
+            "second_button_link": "",
+            "second_button_type": "primary",
+            "content_alignment": "center",
+            "content_position": "middle-center",
+            "content_padding_block": 30,
+            "content_padding_inline": 30,
+            "content_below_image": false,
+            "custom_svg_spacing_bottom": 10,
+            "subheading_font_size": 16,
+            "subheading_font_weight": "subheading_weight",
+            "subheading_spacing_bottom": 10,
+            "heading_font_size": 36,
+            "heading_font_weight": "heading_weight",
+            "heading_uppercase": false,
+            "heading_spacing_bottom": 10,
+            "des_font_size": 14,
+            "des_font_weight": "body_weight",
+            "des_spacing_bottom": 10
+          }
+        }
+      },
+      "block_order": [
+        "image_with_text_overlay_xhrWgg",
+        "image_with_text_overlay_6g8Jik"
+      ],
+      "name": "t:sections.multi_content.name",
+      "settings": {
+        "section_width": "fluid_container",
+        "heading": "",
+        "description": "",
+        "header_size": "medium",
+        "header_alignment": "center",
+        "column_gap": 30,
+        "content_background_color": "",
+        "equal_height_adjustment": false,
+        "carousel_on_mobile": false,
+        "items_per_row_mobile": 1,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "reset_spacing": true
+      }
+    },
     "collection_list_iRbndH": {
       "type": "collection-list",
       "blocks": {
@@ -689,6 +792,7 @@
     "products_carousel_AdKeFt",
     "multi_content_YDk9nb",
     "product_testimonials_3EmdfL",
+    "multi_content_c3L38q",
     "collection_list_iRbndH",
     "banner_bottom_6xDfg3",
     "instagram_3cVfdP"
