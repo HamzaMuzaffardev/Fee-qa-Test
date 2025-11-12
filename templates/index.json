@@ -546,7 +546,7 @@
         "testimonials_items_Nwbjbz": {
           "type": "testimonials_items",
           "settings": {
-            "author_image": "shopify://shop_images/top_collection_900x600_c8ee5c74-e0b3-4726-aab9-0266b688d481.png",
+            "author_image": "shopify://shop_images/Untitled_design_-_2025-11-12T180931.630.png",
             "author_rating": 5,
             "author_text": "<p>These are sooo pretty and very comfy. Perfect color as well. I love wearing these with a neutral top and Chelsea boots. Wicked cute...😍</p>",
             "select_product": "fee-a-line-abaya-with-asymmetrical-collar-ready-to-wear-test",
@@ -556,7 +556,7 @@
         "testimonials_items_LEjQAm": {
           "type": "testimonials_items",
           "settings": {
-            "author_image": "shopify://shop_images/top_collection_900x600_480_x_320_px_2_1.png",
+            "author_image": "shopify://shop_images/Untitled_design_-_2025-11-12T180943.929.png",
             "author_rating": 5,
             "author_text": "<p>A perfect product, it keeps you very warm without over heating. True to size, I couldn't be happier with the purchase... Thank you! 🤗</p>",
             "select_product": "fee-a-line-abaya-with-asymmetrical-collar-ready-to-wear-test",
@@ -571,7 +571,7 @@
       "name": "t:sections.testimonials_product.presets.name",
       "settings": {
         "section_width": "fluid_container",
-        "color_scheme": "default",
+        "color_scheme": "scheme-0c75c9bd-4bac-4c11-b227-c731693817e0",
         "heading": "What Our Customers Say",
         "description": "<p>Customers love our products and we always strive to please them all.</p>",
         "header_alignment": "center",
@@ -595,7 +595,7 @@
         "reveal": false,
         "items_per_row_mobile": 1,
         "padding_top": 60,
-        "padding_bottom": 0,
+        "padding_bottom": 60,
         "reset_spacing": true
       }
     },
