@@ -39,7 +39,7 @@
           "type": "link_list",
           "settings": {
             "heading": "Top Collections",
-            "menu": "footer",
+            "menu": "footer-collection",
             "content_width": "16%"
           }
         },
