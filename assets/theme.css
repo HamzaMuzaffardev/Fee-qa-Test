@@ -1754,6 +1754,26 @@ svg path {
 /* .section.sec__products-carousel .section__header.mb-33.mb-sm-20.text-center p {
     color: #fff;
 } */
+
+
+
+.insta-section-svg {
+    position: absolute;
+    top: 0px;
+    width: 90%;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.fluid_container {
+    position: relative;
+    z-index: 1;
+}
+
+.insta-section-svg svg path {
+    stroke: #000;
+}
 @media only screen and (min-width: 1200px){
   .sec__content.relative.z-1.flex.w-1024-full.middle-left.container.text-left.text-md-left {
     width: 100%;
