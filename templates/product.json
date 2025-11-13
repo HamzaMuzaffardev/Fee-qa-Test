@@ -32,6 +32,7 @@
         },
         "review_and_sold_AAbJC9": {
           "type": "review_and_sold",
+          "disabled": true,
           "settings": {
             "show_review": true,
             "show_sold_products": true,
@@ -64,6 +65,7 @@
         },
         "live_view_rzDP6G": {
           "type": "live_view",
+          "disabled": true,
           "settings": {
             "min_number": 10,
             "max_number": 40,
@@ -98,6 +100,7 @@
         },
         "stock_countdown_JNK9zi": {
           "type": "stock_countdown",
+          "disabled": true,
           "settings": {
             "message": "Hurry up! Only [count] items left in stock",
             "stock_items": 30
@@ -120,6 +123,7 @@
         },
         "trust_badge_qKXhpg": {
           "type": "trust_badge",
+          "disabled": true,
           "settings": {
             "message": "Guarantee Safe Checkout:",
             "image_width": 340
