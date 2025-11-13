@@ -1761,6 +1761,9 @@ svg path {
 section#shopify-section-template--20069970280645__custom_cta_R9GK4p h2 {
     font-size: 42px;
 }
+ .tenth-section-template--20069970280645__custom_cta_R9GK4p .content a {
+    padding: 11px 28px;
+  }
 .insta-section-svg {
     position: absolute;
     top: 0px;
