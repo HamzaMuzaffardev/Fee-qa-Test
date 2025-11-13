@@ -11,10 +11,26 @@
   "sections": {
     "main": {
       "type": "page-default",
-      "settings": {}
+      "disabled": true,
+      "settings": {
+        "section_width": "container",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "test_FqtxBK": {
+      "type": "test",
+      "name": "All Tags Cards",
+      "settings": {
+        "heading": "Browse by Tags",
+        "heading_size": "h2",
+        "cards_per_row": "2",
+        "show_tag_count": true
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "test_FqtxBK"
   ]
 }
