@@ -969,6 +969,19 @@
         "padding_bottom": 70,
         "reset_spacing": false
       }
+    },
+    "custom_cta_R9GK4p": {
+      "type": "custom-cta",
+      "name": "Custom CTA Section",
+      "settings": {
+        "arabic_title": "عندنا بعد أكثر",
+        "svg_code": "",
+        "button_text": "عرض جميع المنتجات",
+        "button_link": "",
+        "button_border_color": "#FFFFFF",
+        "button_text_color": "#FFFFFF",
+        "button_hover_text_color": "#000000"
+      }
     }
   },
   "order": [
@@ -985,6 +998,7 @@
     "collection_list_iRbndH",
     "banner_bottom_6xDfg3",
     "instagram_3cVfdP",
-    "icon_box_ExHbbe"
+    "icon_box_ExHbbe",
+    "custom_cta_R9GK4p"
   ]
 }
