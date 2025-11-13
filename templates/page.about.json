@@ -556,6 +556,75 @@
         "carousel_on_mobile": false,
         "items_per_row_mobile": 1,
         "padding_top": 0,
+        "padding_bottom": 0,
+        "reset_spacing": false
+      }
+    },
+    "multi_content_m4rBAb": {
+      "type": "multi-content",
+      "blocks": {
+        "image_rQMW93": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_-_2025-11-13T111337.262.png",
+            "image_behavior": "none",
+            "image_link": "",
+            "content_width": "50%",
+            "vertical_align": "start"
+          }
+        },
+        "text_yAYyha": {
+          "type": "text",
+          "settings": {
+            "color_scheme": "default",
+            "content_width": "50%",
+            "vertical_align": "center",
+            "image_link": "",
+            "subheading": "Delivering Quality, Creativity, and Trust",
+            "heading": "Why Choose Fee?",
+            "description": "<ul><li><strong>Customer Focused: </strong>A seamless and enjoyable shopping experience. Join us at FEE and discover the best in contemporary Arab fashion.</li><li><strong>Innovative Space: </strong>A vibrant community celebrating creativity and innovation.</li><li><strong>Talented Designers: </strong>Showcasing diverse styles from local and international designers.</li></ul>",
+            "collection": "",
+            "timer": "",
+            "expired_message": "Time expired",
+            "style": "default",
+            "font_size": 36,
+            "spacing_bottom": 30,
+            "first_button_label": "Shop Now",
+            "first_button_link": "shopify://collections/best-seller",
+            "first_button_type": "primary",
+            "second_button_label": "",
+            "second_button_link": "",
+            "second_button_type": "primary",
+            "content_alignment": "left",
+            "subheading_font_size": 15,
+            "subheading_font_weight": "heading_weight",
+            "subheading_spacing_bottom": 14,
+            "heading_font_size": 36,
+            "heading_font_weight": "heading_weight",
+            "heading_uppercase": false,
+            "heading_spacing_bottom": 20,
+            "des_font_size": 15,
+            "des_font_weight": "body_weight",
+            "des_spacing_bottom": 30
+          }
+        }
+      },
+      "block_order": [
+        "image_rQMW93",
+        "text_yAYyha"
+      ],
+      "settings": {
+        "section_width": "container",
+        "heading": "",
+        "description": "",
+        "header_size": "medium",
+        "header_alignment": "center",
+        "column_gap": 30,
+        "content_background_color": "",
+        "equal_height_adjustment": false,
+        "carousel_on_mobile": false,
+        "items_per_row_mobile": 1,
+        "padding_top": 0,
         "padding_bottom": 80,
         "reset_spacing": false
       }
@@ -758,6 +827,7 @@
     "rich_text_yjfBc8",
     "multi_content_yUFjXW",
     "multi_content_Phq6nD",
+    "multi_content_m4rBAb",
     "divider_TAXJn3",
     "rich_text_ej4aJ8",
     "multi_content_cnGW9D"
