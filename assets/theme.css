@@ -1780,6 +1780,9 @@ section#shopify-section-template--20069970280645__multi_content_c3L38q .section_
 section#shopify-section-template--20069970280645__instagram_3cVfdP .section.sec__instagram.color-scheme-2b5c6c91-201d-4fb1-aba3-e6d562656976.gradient.hover_zoom {
     overflow: hidden !important;
 }
+section#shopify-section-template--20069970280645__multi_content_xqCWkw .section__block-inner.gradient.hover-effect.color-scheme-4faf0e4d-27f4-4d02-bc51-617383bab1a9.flex.relative {
+    height: 450px;
+}
 @media only screen and (min-width: 1200px){
   .sec__content.relative.z-1.flex.w-1024-full.middle-left.container.text-left.text-md-left {
     width: 100%;
@@ -1837,6 +1840,9 @@ section#shopify-section-template--20069970280645__instagram_3cVfdP .section.sec_
   section#shopify-section-template--20069970280645__multi_content_c3L38q .section__block-inner.gradient.hover-effect.color-scheme-4faf0e4d-27f4-4d02-bc51-617383bab1a9.flex.relative {
     height: 420px;
   }
+  section#shopify-section-template--20069970280645__multi_content_xqCWkw .section__block-inner.gradient.hover-effect.color-scheme-4faf0e4d-27f4-4d02-bc51-617383bab1a9.flex.relative {
+    height: 380px;
+  }
 }
 @media only screen and (max-width: 480px){
   .second-section-template--20069970280645__banner1_Bw3MUN header h1 {
@@ -1881,5 +1887,8 @@ section#shopify-section-template--20069970280645__instagram_3cVfdP .section.sec_
   .tenth-section-template--20069970280645__banner_bottom_6xDfg3 .content a{
     font-size: 14px !important;
     padding; 12px 24px !important;
+  }
+  section#shopify-section-template--20069970280645__multi_content_xqCWkw .section__block-inner.gradient.hover-effect.color-scheme-4faf0e4d-27f4-4d02-bc51-617383bab1a9.flex.relative {
+    height: 320px;
   }
 }
