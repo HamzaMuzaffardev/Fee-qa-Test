@@ -1760,7 +1760,7 @@ svg path {
 .insta-section-svg {
     position: absolute;
     top: 0px;
-    width: 90%;
+    width: 100%;
     height: 100%;
     left: 50%;
     transform: translateX(-50%);
@@ -1776,6 +1776,9 @@ svg path {
 }
 section#shopify-section-template--20069970280645__multi_content_c3L38q .section__block-inner.gradient.hover-effect.color-scheme-4faf0e4d-27f4-4d02-bc51-617383bab1a9.flex.relative {
     height: 550px;
+}
+section#shopify-section-template--20069970280645__instagram_3cVfdP {
+    overflow: hidden;
 }
 @media only screen and (min-width: 1200px){
   .sec__content.relative.z-1.flex.w-1024-full.middle-left.container.text-left.text-md-left {
