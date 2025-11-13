@@ -9254,7 +9254,7 @@ customElements.define('product-with-banner', ProductWithBanner);
 
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.utils.toArray("svg path").forEach(path => {
+gsap.utils.toArray(".animation-svg-main svg path").forEach(path => {
   gsap.fromTo(path, 
     { strokeDashoffset: "100%" }, 
     {
