@@ -24,7 +24,7 @@
             "store_address": true,
             "store_phone": false,
             "store_email": false,
-            "content_width": "33.333%"
+            "content_width": "25%"
           }
         },
         "link_list_JTq77M": {
@@ -32,6 +32,14 @@
           "settings": {
             "heading": "Fee Help Center",
             "menu": "main-menu",
+            "content_width": "16%"
+          }
+        },
+        "link_list_YdJENQ": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Top Collections",
+            "menu": "footer",
             "content_width": "16%"
           }
         },
@@ -43,13 +51,14 @@
             "email_placeholder": "Enter your email...",
             "button_label": "Sign Up",
             "note": "",
-            "content_width": "50%"
+            "content_width": "41.6666%"
           }
         }
       },
       "block_order": [
         "store_info_tUhcyD",
         "link_list_JTq77M",
+        "link_list_YdJENQ",
         "newsletter_Rk8BD6"
       ],
       "settings": {
