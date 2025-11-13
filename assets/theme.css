@@ -1863,6 +1863,9 @@ section#shopify-section-template--20069970280645__multi_content_xqCWkw .section_
   section#shopify-section-template--20069970280645__custom_cta_R9GK4p h2 {
     font-size: 32px;
   }
+  .sub-info {
+    margin-bottom: 40px;
+  }
 }
 @media only screen and (max-width: 480px){
   .second-section-template--20069970280645__banner1_Bw3MUN header h1 {
