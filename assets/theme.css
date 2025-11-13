@@ -1747,6 +1747,9 @@ section#shopify-section-template--20069970280645__instagram_3cVfdP .insta-sectio
     height: 100%;
     width: 100%;
 }
+.level0:hover>menu-item>a, .level0:hover>menu-item open-children-toggle {
+    color: #fff !important;
+}
 /* .animation-svg-main svg path {
   stroke-dasharray: 100%;
   stroke-dashoffset: 100%;
