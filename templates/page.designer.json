@@ -22,7 +22,7 @@
       "type": "test",
       "name": "Tag Cards Collection",
       "settings": {
-        "heading": "Browse by Tags",
+        "heading": "",
         "heading_size": "h2",
         "layout": "grid",
         "columns_desktop": 4,
