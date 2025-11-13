@@ -1756,9 +1756,11 @@ svg path {
 } */
 
 .tenth-section-template--20069970280645__custom_cta_R9GK4p .background {
-    width: 70% !important;
+    width: 60% !important;
 }
-
+section#shopify-section-template--20069970280645__custom_cta_R9GK4p h2 {
+    font-size: 42px;
+}
 .insta-section-svg {
     position: absolute;
     top: 0px;
@@ -1844,6 +1846,9 @@ section#shopify-section-template--20069970280645__multi_content_xqCWkw .section_
   }
   section#shopify-section-template--20069970280645__multi_content_xqCWkw .section__block-inner.gradient.hover-effect.color-scheme-4faf0e4d-27f4-4d02-bc51-617383bab1a9.flex.relative {
     height: 380px;
+  }
+  section#shopify-section-template--20069970280645__custom_cta_R9GK4p h2 {
+    font-size: 32px;
   }
 }
 @media only screen and (max-width: 480px){
