@@ -18,6 +18,43 @@
         "padding_bottom": 0
       }
     },
+    "page_heading_fAgEW8": {
+      "type": "page-heading",
+      "blocks": {
+        "breadcrumb_wYpUrq": {
+          "type": "breadcrumb",
+          "settings": {}
+        },
+        "heading_7KgYQa": {
+          "type": "heading",
+          "settings": {
+            "page_title": "Our Designer",
+            "header_size": "default"
+          }
+        },
+        "description_XcgMqD": {
+          "type": "description",
+          "settings": {
+            "description": "<p>Meet the creative minds behind our unique designs.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "breadcrumb_wYpUrq",
+        "heading_7KgYQa",
+        "description_XcgMqD"
+      ],
+      "name": "Page Heading",
+      "settings": {
+        "section_width": "stretch_width",
+        "color_scheme": "scheme-accf3b11-ba40-4a3e-bafb-243ece6683ec",
+        "alignment": "center",
+        "overlay_opacity": 0,
+        "height": "adapt",
+        "padding_top": 80,
+        "padding_bottom": 80
+      }
+    },
     "test_KK3aqy": {
       "type": "test",
       "name": "Tag Cards Collection",
@@ -35,6 +72,7 @@
   },
   "order": [
     "main",
+    "page_heading_fAgEW8",
     "test_KK3aqy"
   ]
 }
