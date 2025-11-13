@@ -1743,6 +1743,10 @@ multi-content.multi-content-js.relative.flex.flex-col-custom.flex-wrap.row-gap m
 multi-content.multi-content-js.relative.flex.flex-col-custom.flex-wrap.row-gap motion-element .section__block-inner{
  background: #fff !important; 
 }
+section#shopify-section-template--20069970280645__instagram_3cVfdP .insta-section-svg.animation-svg-main svg {
+    height: 100%;
+    width: 100%;
+}
 /* .animation-svg-main svg path {
   stroke-dasharray: 100%;
   stroke-dashoffset: 100%;
