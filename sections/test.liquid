@@ -1,105 +1,18 @@
-
-{% comment %}
-  Section: All Tags in Card Format
-  Place this in your theme sections or page template
-{% endcomment %}
-
-<section class="tags-section">
-  <div class="tags-container">
-    <h2 class="section-title">All Tags</h2>
-    
-    <div class="tags-grid">
-      {% for tag in collection.all_tags %}
-        <div class="tag-card">
-          <a href="{{ collection.url }}/{{ tag | handle }}" class="tag-link">
-            <div class="tag-content">
-              <span class="tag-name">{{ tag }}</span>
-              <span class="tag-count">({{ collection.products_count }})</span>
-            </div>
-          </a>
-        </div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-<style>
-  .tags-section {
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .section-title {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 2rem;
-    color: #333;
-  }
-
-  .tags-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 15px;
-    margin: 0 auto;
-  }
-
-  .tag-card {
-    background: #fff;
-    border: 1px solid #e1e1e1;
-    border-radius: 8px;
-    padding: 0;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  }
-
-  .tag-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    border-color: #007bff;
-  }
-
-  .tag-link {
-    display: block;
-    padding: 20px;
-    text-decoration: none;
-    color: inherit;
-    height: 100%;
-  }
-
-  .tag-content {
-    text-align: center;
-  }
-
-  .tag-name {
-    font-weight: 600;
-    font-size: 1.1rem;
-    color: #333;
-    display: block;
-  }
-
-  .tag-count {
-    font-size: 0.9rem;
-    color: #666;
-    margin-top: 5px;
-    display: block;
-  }
-</style>
-
 {% schema %}
 {
-  "name": "All Tags Cards",
+  "name": "Tag Cards Collection",
+  "class": "tags-collection-section",
   "settings": [
     {
       "type": "text",
       "id": "heading",
-      "label": "Section Heading",
+      "label": "Heading",
       "default": "Browse by Tags"
     },
     {
       "type": "select",
       "id": "heading_size",
-      "label": "Heading Size",
+      "label": "Heading size",
       "options": [
         {
           "value": "h2",
@@ -118,40 +31,316 @@
     },
     {
       "type": "select",
-      "id": "cards_per_row",
-      "label": "Cards per Row",
+      "id": "layout",
+      "label": "Layout",
       "options": [
         {
-          "value": "2",
-          "label": "2"
+          "value": "grid",
+          "label": "Grid"
         },
         {
-          "value": "3",
-          "label": "3"
-        },
-        {
-          "value": "4",
-          "label": "4"
-        },
-        {
-          "value": "5",
-          "label": "5"
+          "value": "flex",
+          "label": "Flexible"
         }
       ],
-      "default": "4"
+      "default": "grid"
+    },
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "label": "Columns on desktop",
+      "default": 4
+    },
+    {
+      "type": "range",
+      "id": "columns_mobile",
+      "min": 1,
+      "max": 3,
+      "step": 1,
+      "label": "Columns on mobile",
+      "default": 2
     },
     {
       "type": "checkbox",
-      "id": "show_tag_count",
-      "label": "Show Product Count",
+      "id": "show_product_count",
+      "label": "Show product count",
       "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "group_by_type",
+      "label": "Group tags by type",
+      "info": "Groups tags with prefixes like 'color-', 'size-' etc.",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_all_tags",
+      "label": "Show all tags",
+      "info": "If disabled, only show tags from current collection",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "tag_group",
+      "name": "Tag Group",
+      "settings": [
+        {
+          "type": "text",
+          "id": "group_name",
+          "label": "Group name",
+          "info": "e.g., Color, Size, Material"
+        },
+        {
+          "type": "text",
+          "id": "tag_prefix",
+          "label": "Tag prefix",
+          "info": "e.g., 'color-' for tags like 'color-red', 'color-blue'"
+        }
+      ]
     }
   ],
   "presets": [
     {
-      "name": "All Tags Cards",
-      "category": "Collection"
+      "name": "Tag Cards Collection",
+      "category": "Collection",
+      "blocks": []
     }
   ]
 }
 {% endschema %}
+
+<style>
+  .tags-collection-section {
+    padding: {{ section.settings.section_padding }}px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .section-heading {
+    text-align: center;
+    margin-bottom: 40px;
+    color: {{ section.settings.heading_color }};
+  }
+
+  .section-heading h1,
+  .section-heading h2,
+  .section-heading h3 {
+    margin: 0;
+    color: inherit;
+  }
+
+  .tags-grid-layout {
+    display: grid;
+    grid-template-columns: repeat({{ section.settings.columns_desktop }}, 1fr);
+    gap: {{ section.settings.card_spacing }}px;
+    margin: 0 auto;
+  }
+
+  .tags-flex-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: {{ section.settings.card_spacing }}px;
+    justify-content: center;
+  }
+
+  .tag-card {
+    background: {{ section.settings.card_background }};
+    border: 1px solid {{ section.settings.card_border }};
+    border-radius: {{ section.settings.card_radius }}px;
+    padding: 0;
+    transition: all 0.3s ease;
+    box-shadow: {{ section.settings.card_shadow }};
+    text-align: center;
+  }
+
+  .tag-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    border-color: {{ section.settings.card_border_hover }};
+    background: {{ section.settings.card_background_hover }};
+  }
+
+  .tag-link {
+    display: block;
+    padding: 20px 15px;
+    text-decoration: none;
+    color: inherit;
+    height: 100%;
+  }
+
+  .tag-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: {{ section.settings.text_color }};
+    display: block;
+    margin-bottom: 5px;
+    text-transform: capitalize;
+  }
+
+  .tag-count {
+    font-size: 0.9rem;
+    color: {{ section.settings.count_color }};
+    background: {{ section.settings.count_background }};
+    padding: 2px 8px;
+    border-radius: 12px;
+    display: inline-block;
+  }
+
+  .tag-group {
+    margin-bottom: 50px;
+  }
+
+  .group-title {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    color: #444;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .tags-grid-layout {
+      grid-template-columns: repeat({{ section.settings.columns_mobile }}, 1fr);
+      gap: 15px;
+    }
+    
+    .tags-collection-section {
+      padding: 20px 15px;
+    }
+    
+    .tag-link {
+      padding: 15px 10px;
+    }
+    
+    .tag-name {
+      font-size: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .tags-grid-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<div class="tags-collection-section">
+  {%- if section.settings.heading != blank -%}
+    <div class="section-heading">
+      <{{ section.settings.heading_size }}>{{ section.settings.heading }}</{{ section.settings.heading_size }}>
+    </div>
+  {%- endif -%}
+
+  {%- liquid
+    assign collection_handle = collection.handle | default: 'all'
+    assign current_collection = collections[collection_handle]
+  -%}
+
+  {%- if section.settings.group_by_type and section.blocks.size > 0 -%}
+    {% comment %} Grouped tags layout {% endcomment %}
+    {%- for block in section.blocks -%}
+      {%- assign group_tags = '' | split: '' -%}
+      {%- for tag in current_collection.all_tags -%}
+        {%- if tag contains block.settings.tag_prefix -%}
+          {%- assign group_tags = group_tags | push: tag -%}
+        {%- endif -%}
+      {%- endfor -%}
+      
+      {%- if group_tags.size > 0 -%}
+        <div class="tag-group" {{ block.shopify_attributes }}>
+          <h3 class="group-title">{{ block.settings.group_name | default: block.settings.tag_prefix | capitalize }}</h3>
+          <div class="tags-{{ section.settings.layout }}-layout">
+            {%- for tag in group_tags -%}
+              <div class="tag-card">
+                <a href="{{ current_collection.url }}/{{ tag | handle }}" class="tag-link">
+                  <div class="tag-content">
+                    <span class="tag-name">{{ tag | remove: block.settings.tag_prefix | capitalize }}</span>
+                    {%- if section.settings.show_product_count -%}
+                      {%- assign tag_product_count = 0 -%}
+                      {%- for product in current_collection.products -%}
+                        {%- if product.tags contains tag -%}
+                          {%- assign tag_product_count = tag_product_count | plus: 1 -%}
+                        {%- endif -%}
+                      {%- endfor -%}
+                      <span class="tag-count">{{ tag_product_count }}</span>
+                    {%- endif -%}
+                  </div>
+                </a>
+              </div>
+            {%- endfor -%}
+          </div>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+
+    {% comment %} Show ungrouped tags {% endcomment %}
+    {%- assign ungrouped_tags = '' | split: '' -%}
+    {%- for tag in current_collection.all_tags -%}
+      {%- assign is_grouped = false -%}
+      {%- for block in section.blocks -%}
+        {%- if tag contains block.settings.tag_prefix -%}
+          {%- assign is_grouped = true -%}
+          {%- break -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- unless is_grouped -%}
+        {%- assign ungrouped_tags = ungrouped_tags | push: tag -%}
+      {%- endunless -%}
+    {%- endfor -%}
+
+    {%- if ungrouped_tags.size > 0 -%}
+      <div class="tag-group">
+        <h3 class="group-title">Other Tags</h3>
+        <div class="tags-{{ section.settings.layout }}-layout">
+          {%- for tag in ungrouped_tags -%}
+            <div class="tag-card">
+              <a href="{{ current_collection.url }}/{{ tag | handle }}" class="tag-link">
+                <div class="tag-content">
+                  <span class="tag-name">{{ tag }}</span>
+                  {%- if section.settings.show_product_count -%}
+                    {%- assign tag_product_count = 0 -%}
+                    {%- for product in current_collection.products -%}
+                      {%- if product.tags contains tag -%}
+                        {%- assign tag_product_count = tag_product_count | plus: 1 -%}
+                      {%- endif -%}
+                    {%- endfor -%}
+                    <span class="tag-count">{{ tag_product_count }}</span>
+                  {%- endif -%}
+                </div>
+              </a>
+            </div>
+          {%- endfor -%}
+        </div>
+      </div>
+    {%- endif -%}
+
+  {%- else -%}
+    {% comment %} Simple all tags layout {% endcomment %}
+    <div class="tags-{{ section.settings.layout }}-layout">
+      {%- for tag in current_collection.all_tags -%}
+        <div class="tag-card">
+          <a href="{{ current_collection.url }}/{{ tag | handle }}" class="tag-link">
+            <div class="tag-content">
+              <span class="tag-name">{{ tag }}</span>
+              {%- if section.settings.show_product_count -%}
+                {%- assign tag_product_count = 0 -%}
+                {%- for product in current_collection.products -%}
+                  {%- if product.tags contains tag -%}
+                    {%- assign tag_product_count = tag_product_count | plus: 1 -%}
+                  {%- endif -%}
+                {%- endfor -%}
+                <span class="tag-count">{{ tag_product_count }}</span>
+              {%- endif -%}
+            </div>
+          </a>
+        </div>
+      {%- endfor -%}
+    </div>
+  {%- endif -%}
+</div>
