@@ -46,12 +46,11 @@
 {%- endcapture -%}
 <div
   class="section{% if section_st.padding_top < 30 %} pt-min{% endif %}{% if section_st.padding_bottom < 30 %} pb-min{% endif %} sec__instagram color-{{ color_scheme }} gradient{{ reset_spacing }} {{ settings.hover_effect }}{% if reveal %} overflow-hidden{% endif %}"
-  style="{{ style | strip | strip_newlines }}"
->
+  style="{{ style | strip | strip_newlines }} position: relative;" >
   <div class="insta-section-svg">
   {{ section.settings.svg_code }}
   </div>
-  <div class="{{ section_width }}" style="position: relative;">
+  <div class="{{ section_width }}">
     {%- if heading != blank or description != blank -%}
       <div class="section__header mb-33 mb-sm-20 text-{{ section_st.header_alignment }}{% if section_st.section_width == 'full_width' %} px-20{% endif %}">
         {%- if section_st.heading != blank -%}
