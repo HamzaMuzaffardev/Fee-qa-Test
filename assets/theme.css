@@ -1747,13 +1747,13 @@ svg path {
   stroke-dasharray: 100%;
   stroke-dashoffset: 100%;
 }
-.section.sec__products-carousel .section__header.mb-33.mb-sm-20.text-center h2 {
+/* .section.sec__products-carousel .section__header.mb-33.mb-sm-20.text-center h2 {
     color: #fff;
 }
 
 .section.sec__products-carousel .section__header.mb-33.mb-sm-20.text-center p {
     color: #fff;
-}
+} */
 @media only screen and (min-width: 1200px){
   .sec__content.relative.z-1.flex.w-1024-full.middle-left.container.text-left.text-md-left {
     width: 100%;
