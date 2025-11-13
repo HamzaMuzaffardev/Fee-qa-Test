@@ -1,12 +1,183 @@
 
+<style>
+  .tags-section {
+    padding: 50px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .tags-section__heading {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+  }
+  
+  .tags-grid {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat({{ section.settings.cards_per_row }}, 1fr);
+  }
+  
+  @media (max-width: 768px) {
+    .tags-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .tags-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  .tag-card {
+    background: #fff;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  
+  .tag-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    border-color: #333;
+    text-decoration: none;
+    color: #333;
+  }
+  
+  .tag-card__name {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: capitalize;
+  }
+  
+  .tag-card__count {
+    font-size: 14px;
+    color: #666;
+    background: #f5f5f5;
+    padding: 4px 8px;
+    border-radius: 12px;
+    display: inline-block;
+  }
+  
+  .no-tags {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    grid-column: 1 / -1;
+  }
+</style>
+
+<div class="tags-section">
+  {% if section.settings.heading != blank %}
+    <{{ section.settings.heading_size }} class="tags-section__heading">
+      {{ section.settings.heading }}
+    </{{ section.settings.heading_size }}>
+  {% endif %}
+  
+  <div class="tags-grid">
+    {%- assign all_tags = collection.all_tags -%}
+    
+    {% if all_tags.size > 0 %}
+      {% for tag in all_tags %}
+        {%- assign tag_handle = tag | handle -%}
+        {%- assign tag_url = '/collections/all/' | append: tag_handle -%}
+        
+        {%- assign tag_product_count = 0 -%}
+        {% for product in collection.products %}
+          {% if product.tags contains tag %}
+            {%- assign tag_product_count = tag_product_count | plus: 1 -%}
+          {% endif %}
+        {% endfor %}
+        
+        <a href="{{ tag_url }}" class="tag-card">
+          <div class="tag-card__name">{{ tag }}</div>
+          {% if section.settings.show_tag_count %}
+            <div class="tag-card__count">{{ tag_product_count }} product{% if tag_product_count != 1 %}s{% endif %}</div>
+          {% endif %}
+        </a>
+      {% endfor %}
+    {% else %}
+      <div class="no-tags">
+        No tags available
+      </div>
+    {% endif %}
+  </div>
+</div>
+
 {% schema %}
 {
-  "name": "Test Tag Section",
-  "tag": "section",
+  "name": "All Tags Cards",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "Browse by Tags"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "label": "Heading Size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "Medium"
+        },
+        {
+          "value": "h1",
+          "label": "Large"
+        },
+        {
+          "value": "h3",
+          "label": "Small"
+        }
+      ],
+      "default": "h2"
+    },
+    {
+      "type": "select",
+      "id": "cards_per_row",
+      "label": "Cards per Row",
+      "options": [
+        {
+          "value": "2",
+          "label": "2"
+        },
+        {
+          "value": "3",
+          "label": "3"
+        },
+        {
+          "value": "4",
+          "label": "4"
+        },
+        {
+          "value": "5",
+          "label": "5"
+        }
+      ],
+      "default": "4"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_tag_count",
+      "label": "Show Product Count",
+      "default": true
+    }
+  ],
   "presets": [
     {
-      "name": "Test Tag Section",
-      "category": "Custom Sections"
+      "name": "All Tags Cards",
+      "category": "Collection"
     }
   ]
 }
