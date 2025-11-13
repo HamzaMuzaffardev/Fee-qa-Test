@@ -84,17 +84,17 @@
             "collection_title": ""
           }
         },
-        "collection_jK9Xhk": {
+        "collection_p8E98N": {
           "type": "collection",
           "settings": {
-            "collection": "",
+            "collection": "fee",
             "collection_title": ""
           }
         }
       },
       "block_order": [
         "collection_GeGgE8",
-        "collection_jK9Xhk"
+        "collection_p8E98N"
       ],
       "name": "t:sections.collection-list.name",
       "settings": {
