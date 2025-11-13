@@ -69,9 +69,13 @@
       padding: 14px 30px;
     }
   }
+.bottom-cta {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+}
 </style>
 
-<article class="tenth-section tenth-section-{{ section.id }}">
+<article class="tenth-section tenth-section-{{ section.id }} bottom-cta">
   <header class="section-header">
     <h2 style="opacity: 1;">
       {{ section.settings.arabic_title }}
@@ -169,6 +173,26 @@
       "id": "button_hover_text_color",
       "label": "Button Hover Text Color",
       "default": "#000000"
+    },
+    {
+        "type": "range",
+        "id": "padding_top",
+        "min": 0,
+        "max": 200,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding Top",
+        "default": 50
+    },
+    {
+        "type": "range",
+        "id": "padding_bottom",
+        "min": 0,
+        "max": 200,
+        "step": 5,
+        "unit": "px",
+        "label": "Padding Bottom",
+        "default": 50
     }
   ],
   "presets": [
