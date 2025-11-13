@@ -18,19 +18,23 @@
         "padding_bottom": 0
       }
     },
-    "test_FqtxBK": {
+    "test_KK3aqy": {
       "type": "test",
-      "name": "All Tags Cards",
+      "name": "Tag Cards Collection",
       "settings": {
         "heading": "Browse by Tags",
         "heading_size": "h2",
-        "cards_per_row": "2",
-        "show_tag_count": true
+        "layout": "grid",
+        "columns_desktop": 4,
+        "columns_mobile": 2,
+        "show_product_count": true,
+        "group_by_type": false,
+        "show_all_tags": true
       }
     }
   },
   "order": [
     "main",
-    "test_FqtxBK"
+    "test_KK3aqy"
   ]
 }
