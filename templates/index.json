@@ -594,7 +594,7 @@
             "mobile_image": "shopify://shop_images/Untitled_480_x_315_px_1.png",
             "image_behavior": "none",
             "image_link": "",
-            "image_overlay_opacity": 20,
+            "image_overlay_opacity": 10,
             "custom_svg": "",
             "subheading": "Curated for You",
             "heading": "Evening Glamour",
@@ -635,7 +635,7 @@
         "description": "",
         "header_size": "medium",
         "header_alignment": "center",
-        "column_gap": 30,
+        "column_gap": 20,
         "content_background_color": "",
         "equal_height_adjustment": false,
         "carousel_on_mobile": false,
@@ -816,28 +816,56 @@
         "instagram_manual_upload_NN9aLJ": {
           "type": "instagram_manual_upload",
           "settings": {
-            "image": "shopify://shop_images/top_collection_900x600_1.png",
+            "image": "shopify://shop_images/7cmN0NLrcMauPJUI8OjR.avif",
             "link": "#."
           }
         },
         "instagram_manual_upload_A4NhAy": {
           "type": "instagram_manual_upload",
           "settings": {
-            "image": "shopify://shop_images/top_collection_900x600_2.png",
+            "image": "shopify://shop_images/UObs6kgI7EEUQUQDxxGO.avif",
             "link": "#."
           }
         },
         "instagram_manual_upload_gznMka": {
           "type": "instagram_manual_upload",
           "settings": {
-            "image": "shopify://shop_images/top_collection_900x600_c8ee5c74-e0b3-4726-aab9-0266b688d481.png",
+            "image": "shopify://shop_images/7AD23yHNeh0FLoYYaDOF.avif",
             "link": "#."
           }
         },
         "instagram_manual_upload_abTAaF": {
           "type": "instagram_manual_upload",
           "settings": {
-            "image": "shopify://shop_images/top_collection_900x600_1.png",
+            "image": "shopify://shop_images/a3Nm0uLdBFL8uqhWUqjH.avif",
+            "link": "#."
+          }
+        },
+        "instagram_manual_upload_xdqCzN": {
+          "type": "instagram_manual_upload",
+          "settings": {
+            "image": "shopify://shop_images/itKXTZRRPx0ahcThMbmc.avif",
+            "link": "#."
+          }
+        },
+        "instagram_manual_upload_BzCAgz": {
+          "type": "instagram_manual_upload",
+          "settings": {
+            "image": "shopify://shop_images/VBgXDT0LEnn3OCbn0Wkj.avif",
+            "link": "#."
+          }
+        },
+        "instagram_manual_upload_zpMwHQ": {
+          "type": "instagram_manual_upload",
+          "settings": {
+            "image": "shopify://shop_images/a3CntramHAA2rfucrE4J.avif",
+            "link": "#."
+          }
+        },
+        "instagram_manual_upload_yKCkUC": {
+          "type": "instagram_manual_upload",
+          "settings": {
+            "image": "shopify://shop_images/cU2m2cdZJ5daQT4SBumn.avif",
             "link": "#."
           }
         }
@@ -846,7 +874,11 @@
         "instagram_manual_upload_NN9aLJ",
         "instagram_manual_upload_A4NhAy",
         "instagram_manual_upload_gznMka",
-        "instagram_manual_upload_abTAaF"
+        "instagram_manual_upload_abTAaF",
+        "instagram_manual_upload_xdqCzN",
+        "instagram_manual_upload_BzCAgz",
+        "instagram_manual_upload_zpMwHQ",
+        "instagram_manual_upload_yKCkUC"
       ],
       "name": "t:sections.instagram.name",
       "settings": {
@@ -862,7 +894,7 @@
         "custom_ratio": "",
         "display_mode": "grid",
         "items_per_row": 4,
-        "column_gap": 30,
+        "column_gap": 20,
         "show_arrow": false,
         "carousel_pagination": "disable",
         "infinite": false,
