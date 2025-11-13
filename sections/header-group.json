@@ -17,7 +17,7 @@
         "announcement_YydVwd": {
           "type": "announcement",
           "settings": {
-            "text": "DELIVERY WITHIN THE SAME DAY IN QAT",
+            "text": "DELIVERY WITHIN THE SAME DAY IN QATAR",
             "countdown_deadline": ""
           }
         }
@@ -115,19 +115,19 @@
         "sticky_header_mobile": true,
         "transparent_header": false,
         "transparent_mobile": false,
-        "transparent_text_icon_color": "#fff",
+        "transparent_text_icon_color": "#ffffff",
         "mega_menu": "main-menu",
         "dropdowns_animation": "down-to-up",
         "uppercase_first": false,
         "hot": "Hot",
-        "label_color_hot": "#fff",
-        "label_background_hot": "#fff",
+        "label_color_hot": "#ffffff",
+        "label_background_hot": "#ffffff",
         "new": "New",
         "label_color_new": "#ffffff",
         "label_background_new": "#516cf4",
         "sale": "Sale",
         "label_color_sale": "#ffffff",
-        "label_background_sale": "#D0473E",
+        "label_background_sale": "#d0473e",
         "popular": "Popular",
         "label_color_popular": "#ffffff",
         "label_background_popular": "#14854e",
@@ -135,7 +135,7 @@
         "menu_tab": "unset",
         "collection_list": [],
         "menu_mobile_color": "#ffffff",
-        "menu_mobile_background": "#D0473E",
+        "menu_mobile_background": "#d0473e",
         "show_search": true,
         "show_account_icon": true,
         "show_wishlist_icon": true,
