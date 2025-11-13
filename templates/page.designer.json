@@ -57,6 +57,7 @@
     },
     "test_KK3aqy": {
       "type": "test",
+      "disabled": true,
       "name": "Tag Cards Collection",
       "settings": {
         "heading": "",
@@ -66,13 +67,78 @@
         "columns_mobile": 3,
         "show_product_count": false,
         "group_by_type": true,
-        "show_all_tags": false
+        "show_all_tags": false,
+        "padding_top": 0,
+        "padding_bottom": 40,
+        "padding_top_mobile": 0,
+        "padding_bottom_mobile": 20
+      }
+    },
+    "collection_list_jmppae": {
+      "type": "collection-list",
+      "blocks": {
+        "collection_GeGgE8": {
+          "type": "collection",
+          "settings": {
+            "collection": "depunto-official",
+            "collection_title": ""
+          }
+        },
+        "collection_jK9Xhk": {
+          "type": "collection",
+          "settings": {
+            "collection": "",
+            "collection_title": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_GeGgE8",
+        "collection_jK9Xhk"
+      ],
+      "name": "t:sections.collection-list.name",
+      "settings": {
+        "section_width": "fluid_container",
+        "color_scheme": "",
+        "heading": "",
+        "description": "",
+        "show_view_all_button": false,
+        "header_size": "medium",
+        "header_alignment": "left",
+        "display_mode": "carousel",
+        "image_ratio": "adapt",
+        "custom_ratio": "",
+        "items_per_row": 4,
+        "column_gap": 30,
+        "collection_information_position": "overlay_image",
+        "design": "default",
+        "text_alignment": "center",
+        "show_product_count": false,
+        "show_icon": false,
+        "show_description": false,
+        "font_size": 16,
+        "font_weight": "heading_weight",
+        "information_spacing": 12,
+        "rounded_image": false,
+        "image_custom_width": false,
+        "image_width": 200,
+        "show_arrow": false,
+        "carousel_pagination": "disable",
+        "infinite": false,
+        "autoplay": false,
+        "autorotate_speed": 5,
+        "reveal": false,
+        "items_per_row_mobile": 1,
+        "padding_top": 0,
+        "padding_bottom": 80,
+        "reset_spacing": false
       }
     }
   },
   "order": [
     "main",
     "page_heading_fAgEW8",
-    "test_KK3aqy"
+    "test_KK3aqy",
+    "collection_list_jmppae"
   ]
 }
