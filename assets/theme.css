@@ -1758,6 +1758,13 @@ svg path {
 /* .tenth-section-template--20069970280645__custom_cta_R9GK4p .background {
     width: 60% !important;
 } */
+
+.sub-info {
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 0px;
+}
 section#shopify-section-template--20069970280645__custom_cta_R9GK4p .bottom-cta {
     gap: 0px;
 }
@@ -1903,5 +1910,8 @@ section#shopify-section-template--20069970280645__multi_content_xqCWkw .section_
   }
   section#shopify-section-template--20069970280645__multi_content_xqCWkw .section__block-inner.gradient.hover-effect.color-scheme-4faf0e4d-27f4-4d02-bc51-617383bab1a9.flex.relative {
     height: 320px;
+  }
+  .sub-info {
+    font-size: 15px;
   }
 }
