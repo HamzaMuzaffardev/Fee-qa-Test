@@ -1743,10 +1743,10 @@ multi-content.multi-content-js.relative.flex.flex-col-custom.flex-wrap.row-gap m
 multi-content.multi-content-js.relative.flex.flex-col-custom.flex-wrap.row-gap motion-element .section__block-inner{
  background: #fff !important; 
 }
-svg path {
+/* .animation-svg-main svg path {
   stroke-dasharray: 100%;
   stroke-dashoffset: 100%;
-}
+} */
 /* .section.sec__products-carousel .section__header.mb-33.mb-sm-20.text-center h2 {
     color: #fff;
 } */
