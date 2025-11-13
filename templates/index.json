@@ -255,7 +255,7 @@
       ],
       "name": "t:sections.multi_content.name",
       "settings": {
-        "section_width": "container",
+        "section_width": "fluid_container",
         "heading": "",
         "description": "",
         "header_size": "medium",
