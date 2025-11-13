@@ -62,11 +62,11 @@
         "heading": "",
         "heading_size": "h2",
         "layout": "grid",
-        "columns_desktop": 4,
-        "columns_mobile": 2,
-        "show_product_count": true,
-        "group_by_type": false,
-        "show_all_tags": true
+        "columns_desktop": 3,
+        "columns_mobile": 3,
+        "show_product_count": false,
+        "group_by_type": true,
+        "show_all_tags": false
       }
     }
   },
