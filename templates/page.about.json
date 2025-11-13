@@ -154,7 +154,7 @@
       ],
       "settings": {
         "section_width": "container",
-        "color_scheme": "",
+        "color_scheme": "scheme-2b5c6c91-201d-4fb1-aba3-e6d562656976",
         "heading": "",
         "description": "",
         "header_size": "medium",
@@ -172,8 +172,8 @@
         "des_font_size": 15,
         "des_font_weight": "body_weight",
         "des_spacing_bottom": 0,
-        "padding_top": 0,
-        "padding_bottom": 0,
+        "padding_top": 40,
+        "padding_bottom": 40,
         "reset_spacing": false
       }
     },
