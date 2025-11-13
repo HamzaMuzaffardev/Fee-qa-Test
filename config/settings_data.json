@@ -321,7 +321,7 @@
           "text_color": "#444444",
           "heading_color": "#111111",
           "border_color": "#ebebeb",
-          "btn_primary_color": "#ffffff",
+          "btn_primary_color": "#fff",
           "btn_primary_background": "#111111",
           "btn_primary_gradient": "",
           "btn_primary_hover_color": "#ffffff",
