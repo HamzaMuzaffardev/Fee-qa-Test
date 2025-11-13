@@ -1778,7 +1778,7 @@ section#shopify-section-template--20069970280645__multi_content_c3L38q .section_
     height: 550px;
 }
 section#shopify-section-template--20069970280645__instagram_3cVfdP {
-    overflow: hidden;
+    overflow: hidden !important;
 }
 @media only screen and (min-width: 1200px){
   .sec__content.relative.z-1.flex.w-1024-full.middle-left.container.text-left.text-md-left {
