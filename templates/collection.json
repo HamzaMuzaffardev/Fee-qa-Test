@@ -85,7 +85,7 @@
           "type": "categories",
           "settings": {
             "title": "Products Category",
-            "menu": ""
+            "menu": "footer-collection"
           }
         },
         "filter_giBtHK": {
@@ -103,6 +103,7 @@
         "image_banner_UUJxtT": {
           "type": "image_banner",
           "settings": {
+            "image": "shopify://shop_images/fb5AOxN0j9KjHAjmHvnt.avif",
             "url": "shopify://collections",
             "open_link": true
           }
