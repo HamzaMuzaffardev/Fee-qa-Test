@@ -1651,6 +1651,9 @@ mini-cart-remove-button.loading .remove-icon {
 section#shopify-section-template--20069970542789__rich_text_qMbJGD h2 {
     text-align: center !important;
 }
+.disclosure__list.custom-scrollbar.transition.shadow.invisible.z-10.absolute.left-0.right-0.color-default {
+    min-width: 0rem;
+}
 section#shopify-section-template--20069970542789__rich_text_qMbJGD p {
     text-align: center !important;
 }
