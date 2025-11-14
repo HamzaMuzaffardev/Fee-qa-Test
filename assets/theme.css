@@ -1648,6 +1648,12 @@ mini-cart-remove-button.loading .remove-icon {
 .section__header h2 {
     text-align: center !important;
 }
+section#shopify-section-template--20069970542789__rich_text_qMbJGD h2 {
+    text-align: center !important;
+}
+section#shopify-section-template--20069970542789__rich_text_qMbJGD p {
+    text-align: center !important;
+}
 
 /*  */
 .flex.flex-wrap.gap-10.gap-xl-30.justify-center.justify-md-start {
