@@ -6,6 +6,14 @@
   font-style: normal;
   font-display: swap;
 }
+/* Bahij TheSans Arabic Plain Font */
+@font-face {
+  font-family: 'Bahij TheSans Arabic Plain';
+  src: url('https://cdn.shopify.com/s/files/1/0746/3213/4853/files/Bahij_The_Sans_Arabic_Plain_.com.ttf?v=1763127092') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 /* Apply to Arabic language */
 [lang="ar"] h1,
@@ -48,4 +56,19 @@
 [lang="ar"] h3 span {
   font-family: 'Bahij TheSans Arabic', sans-serif !important;
   font-weight: bold;
+}
+
+/* Specific text elements */
+[lang="ar"] p,
+[lang="ar"] a,
+[lang="ar"] li,
+[lang="ar"] td,
+[lang="ar"] th,
+[lang="ar"] label,
+[lang="ar"] input,
+[lang="ar"] textarea,
+[lang="ar"] select,
+[lang="ar"] button {
+  font-family: 'Bahij TheSans Arabic Plain', sans-serif !important;
+  direction: rtl;
 }
