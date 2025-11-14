@@ -1654,6 +1654,9 @@ section#shopify-section-template--20069970542789__rich_text_qMbJGD h2 {
 .disclosure__list.custom-scrollbar.transition.shadow.invisible.z-10.absolute.left-0.right-0.color-default {
     min-width: 0rem;
 }
+.sec__icon-box-item.flex.flex-column.align-center.gap-custom.align-center h3 {
+    text-align: center;
+}
 section#shopify-section-template--20069970542789__rich_text_qMbJGD p {
     text-align: center !important;
 }
