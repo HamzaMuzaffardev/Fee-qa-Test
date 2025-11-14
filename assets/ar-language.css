@@ -68,6 +68,7 @@
 [lang="ar"] input,
 [lang="ar"] textarea,
 [lang="ar"] select,
+[lang="ar"] div,
 [lang="ar"] button {
   font-family: 'Bahij TheSans Arabic Plain', sans-serif !important;
   direction: rtl;
