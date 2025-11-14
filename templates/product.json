@@ -235,19 +235,26 @@
         "scrolling_text_dEP8jr": {
           "type": "scrolling_text",
           "settings": {
-            "content": "Free returns within 30 days"
+            "content": "Crafted for everyday comfort and style"
           }
         },
         "scrolling_text_bPAypi": {
           "type": "scrolling_text",
           "settings": {
-            "content": "Unlimited delivery for only $175"
+            "content": "Premium quality designed for daily use"
+          }
+        },
+        "scrolling_text_349At8": {
+          "type": "scrolling_text",
+          "settings": {
+            "content": "Experience comfort with modern minimal design"
           }
         }
       },
       "block_order": [
         "scrolling_text_dEP8jr",
-        "scrolling_text_bPAypi"
+        "scrolling_text_bPAypi",
+        "scrolling_text_349At8"
       ],
       "custom_css": [],
       "settings": {
@@ -255,8 +262,8 @@
         "color_scheme": "scheme-c78bfb21-5aff-497b-be68-98f01962f564",
         "direction": "left",
         "icon_between_item": "star",
-        "speed": 10,
-        "space_between_text": 65,
+        "speed": 15,
+        "space_between_text": 30,
         "font_size": 20,
         "font_weight": "subheading_weight",
         "uppercase": false,
@@ -311,7 +318,7 @@
       "type": "products-recently-viewed",
       "settings": {
         "section_width": "container",
-        "color_scheme": "scheme-0c75c9bd-4bac-4c11-b227-c731693817e0",
+        "color_scheme": "scheme-2b5c6c91-201d-4fb1-aba3-e6d562656976",
         "heading": "Recently Viewed",
         "description": "Explore your recently viewed items, blending quality and style for a refined living experience.",
         "header_size": "medium",
