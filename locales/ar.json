@@ -1496,7 +1496,8 @@
         },
         "price_update": {
           "title": "تحديث الأسعار",
-          "description": "لقد تغيرت أسعار هذه العناصر وتم تحديثها في سلة التسوق الخاصة بك."
+          "description": "لقد تغيرت أسعار هذه العناصر وتم تحديثها في سلة التسوق الخاصة بك.",
+          "updated_price": "السعر المحدث"
         },
         "price_and_quantity_update": {
           "title": "تحديث السعر والكمية",
@@ -1555,7 +1556,8 @@
             "one": "طريقة التسليم المختارة لم تعد متاحة لهذا العنصر.",
             "other": "طريقة التسليم المختارة لم تعد متاحة لهذه العناصر."
           }
-        }
+        },
+        "out_of_stock_in_context_label": "هذا المنتج غير متوفر في بلدك/منطقتك."
       },
       "contextual_availability": {
         "title": {
@@ -1693,7 +1695,103 @@
             "other": "%{count} عناصر"
           }
         },
-        "alternative_payment_currency_total": "تم تحصيل الرسوم كـ %{amount_due}"
+        "alternative_payment_currency_total": "تم تحصيل الرسوم كـ %{amount_due}",
+        "for_add_on": "لـ: %{group_title}",
+        "from_shop_heading": "من %{shop_name}",
+        "from_other_stores_heading": "من المتاجر الأخرى",
+        "order_discounts_apply_to_local_shop": "تطبق خصومات الطلب فقط على العناصر من %{shop_name}",
+        "gift_cards_apply_to_local_shop": "بطاقات الهدايا تنطبق فقط على العناصر من %{shop_name}",
+        "add_discount_or_gift_card": "أضف رمز خصم أو بطاقة هدايا",
+        "unconfirmed_label": "غير مؤكد",
+        "shipping_discount_title": "خصم الشحن",
+        "shipping_pending_message": "غير متوفر بعد",
+        "shipping_policy_link": "تكاليف الشحن",
+        "taxes_label": "الضرائب",
+        "estimated_taxes_label": "الضرائب المقدرة",
+        "estimated_taxes_label_short": "مُقدَّر",
+        "information_estimated_taxes_label": "الضرائب (تقديرية)",
+        "estimated_taxes_finalization_tooltip_content": "سيتم تأكيد الضريبة النهائية والمبلغ الإجمالي عبر البريد الإلكتروني أو رسالة نصية بعد تقديم طلبك.",
+        "order_total_label": "إجمالي الطلب",
+        "price_before_discount_aria_text": "السعر الأصلي",
+        "price_after_discount_aria_text": "سعر مخفض",
+        "discount_code_aria_text": "رمز الخصم",
+        "total_savings": "إجمالي المدخرات",
+        "total_label": "المجموع",
+        "total_due_label": "المجموع المستحق",
+        "total_paid_label": "إجمالي المبلغ المدفوع",
+        "total_price_label": "السعر الإجمالي",
+        "total_outstanding_label": "المبلغ المستحق الدفع",
+        "deposit_label": "إيداع",
+        "total_due_today_label": "الإجمالي المستحق اليوم",
+        "total_due_later_label": "الإجمالي المستحق لاحقًا",
+        "partial_total_label": "المجموع",
+        "free_total_label": "حر",
+        "free_shipping_total_label": "حر",
+        "paid_label": "مدفوع",
+        "payment_due_label": "الدفع المستحق",
+        "vat_label_html": "بما في ذلك %{amount} في الضرائب",
+        "duties_included_label": "الإجمالي يشمل الضرائب والرسوم. لا توجد رسوم إضافية عند التوصيل.",
+        "discount_and_gift_card_savings_notice": "بعد %{discount_amount} في الخصومات و%{gift_card_amount} في بطاقات الهدايا",
+        "discount_savings_notice": "بعد %{discount_amount} في الخصومات",
+        "gift_card_savings_notice": "بعد %{gift_card_amount} في بطاقات الهدايا",
+        "cost_table_title": "ملخص التكلفة",
+        "cost_table_item_column_header": "غرض",
+        "cost_table_value_column_header": "قيمة",
+        "description_label": "وصف",
+        "price_label": "سعر",
+        "price_per_item": {
+          "accessibility_label": "%{price} لكل عنصر",
+          "label": "%{price}/للوحدة"
+        },
+        "quantity_label": "كمية",
+        "product_change_label": "يتغير",
+        "product_image_label": "صورة المنتج",
+        "product_image_quantity_label": "كمية",
+        "scroll_order_summary": "قم بالتمرير للحصول على المزيد من العناصر",
+        "expand_order_summary_short": "يعرض",
+        "collapse_order_summary_short": "يخفي",
+        "expand_order_summary": "إظهار ملخص الطلب",
+        "collapse_order_summary": "إخفاء ملخص الطلب",
+        "original_price": "السعر الأصلي",
+        "sale_price": "سعر البيع",
+        "total_updated_label": "السعر الإجمالي المحدث:",
+        "order_total_updated_label": "تم تحديث الإجمالي",
+        "total_already_paid_label": "مدفوع",
+        "unit_price": {
+          "accessible_separator": "لكل",
+          "content_html": "%{السعر}%{الفاصل المتاح}%{لكل وحدة}",
+          "per_item": {
+            "single": "%{price} لكل منهما",
+            "one": "%{price} لكل %{count} عنصر",
+            "other": "%{price} لكل %{count} عنصر"
+          },
+          "per_unit": {
+            "single": "%{السعر}/%{الوحدة}",
+            "plural": "%{السعر}/%{العدد}%{الوحدة}"
+          }
+        },
+        "gift_card_ending": "بطاقة الهدايا تنتهي بـ %{last_characters}",
+        "estimated_tax_label": "الضريبة المقدرة",
+        "multiple_shipping_lines_label": "إجمالي الشحن",
+        "recurring_subtotal_label": "المجموع الفرعي المتكرر",
+        "recurring_total_label": "المجموع المتكرر",
+        "recurring_total_tooltip": "لا يشمل الشحن أو الضرائب أو الرسوم أو أي خصومات قابلة للتطبيق.",
+        "confirmation_number_label": "رقم التأكيد #%{confirmation_number}",
+        "higher_value_discount_applied": "لا يمكن استخدام <strong style=\"text-transform:uppercase\">%{code}</strong> مع الخصومات الحالية لديك.",
+        "percent_off_shipping": "%{percent}% خصم على الشحن",
+        "amount_off_shipping": "%{amount} خصم على الشحن",
+        "deferred_payment_info": {
+          "title": "يجب دفع %{amount_due} في %{due_at}",
+          "description_html": "للاستفسارات حول طلبك، يرجى التواصل معنا عبر %{contact_us}.",
+          "paid_today": "إجمالي المبلغ المدفوع اليوم",
+          "paid_today_next": "تم الدفع اليوم",
+          "due_on_fulfillment_title": "يجب دفع %{amount_due} عند التنفيذ",
+          "due_on_receipt_title": "يجب دفع %{amount_due} عند الاستلام"
+        },
+        "deferred_balance_info": {
+          "title": "الرصيد البالغ {{amount_due}} مستحق في {{due_at}}",
+          "due_on_fulfillment_title": "الرصيد البالغ {{amount_due}} مستحق عند التنفيذ"
+        }
       },
       "contact": {
         "governorate_label": "محافظة",
@@ -1760,7 +1858,10 @@
         "region_placeholder": "منطقة",
         "region_none": "لم يتم تحديد أي شيء",
         "prefecture_label": "المحافظة",
-        "prefecture_placeholder": "المحافظة"
+        "prefecture_placeholder": "المحافظة",
+        "email_rollup_accessibility_label": "خيارات البريد الإلكتروني",
+        "phone_rollup_accessibility_label": "خيارات الهاتف",
+        "phone_country_code_label": "رقم الهاتف رمز البلد"
       },
       "delivery_options": {
         "free_total_label": "حر",
@@ -1783,7 +1884,8 @@
         "pickup_point_method_definition": "الشحن إلى نقطة الاستلام",
         "retail_method_definition": "الشحن بالتجزئة",
         "none_method_definition": "لا يوجد شحن",
-        "subscription_pickup_information": "سيتم تطبيق طريقة التسليم هذه على جميع العناصر الموجودة في هذا الطلب وعلى جميع الطلبات المستقبلية لهذا الاشتراك."
+        "subscription_pickup_information": "سيتم تطبيق طريقة التسليم هذه على جميع العناصر الموجودة في هذا الطلب وعلى جميع الطلبات المستقبلية لهذا الاشتراك.",
+        "company_location_no_address_banner": "سيتم إرسال الطلبات المرسلة إلى مواقع ليس لها عنوان للمراجعة."
       },
       "customer_account": {
         "not_user_label": "ليس %{first_name}؟",
@@ -1800,7 +1902,8 @@
           "other": "لقد قمت بحفظ {{count}} عنوان."
         },
         "saved_address_option_link": "استخدم عنوانًا محفوظًا",
-        "saved_address_modal_title": "استخدم عنواني المحفوظ"
+        "saved_address_modal_title": "استخدم عنواني المحفوظ",
+        "rollup_accessibility_label": "خيارات الحساب"
       },
       "field_errors": {
         "credit_card_number_invalid": "أدخل رقم بطاقة صالحًا",
@@ -2192,7 +2295,8 @@
             "local_pickup_no_delivery_strategy_available": "لم يتم العثور على استراتيجية توصيل محلية متاحة.",
             "origin_location_id_required": "مطلوب معرف موقع المنشأ عند طلب طريقة التسليم بالتجزئة.",
             "invalid_origin_location_id": "لم يتم العثور على موقع يطابق معرف موقع الأصل.",
-            "origin_location_id_not_allowed": "لا تدعم طرق التسليم المطلوبة معرف موقع المنشأ."
+            "origin_location_id_not_allowed": "لا تدعم طرق التسليم المطلوبة معرف موقع المنشأ.",
+            "selected_pickup_option_no_longer_available": "لم يعد خيار الاستلام المحدد مسبقًا متاحًا."
           },
           "discount": {
             "discounts_not_allowed_for_b2b": "لا يُسمح بالخصومات في متاجر B2B.",
@@ -2486,7 +2590,8 @@
           "add_file": "إضافة ملف",
           "invalid_file_type": "نوع الملف غير مدعوم",
           "dragged_over": "إسقاط الملف للتحميل"
-        }
+        },
+        "remove_chip": "إزالة العنصر"
       },
       "address_management": {
         "confirm_address_deletion": "هل أنت متأكد أنك تريد حذف العنوان {{address}} ؟"
@@ -2631,6 +2736,17 @@
           "description": "لن تتلقى أي تذكيرات أخرى بشأن عربة التسوق منا."
         },
         "accept_shop_pay_marketing_checkbox_label": "اشترك في قائمتي للحصول على الأخبار والعروض من هذا المتجر"
+      },
+      "remote_merchandise_only": {
+        "title": "أكمل عملية الشراء الخاصة بك",
+        "remote_only_notice": "تُباع هذه المنتجات وتُشحن من قِبل متاجر أخرى. يُرجى مراجعة كل متجر لإتمام عملية الشراء.",
+        "return_to_store_label": "العودة إلى المتجر",
+        "detail_item_label": {
+          "one": "{{count}} عنصر",
+          "other": "{{count}} عناصر"
+        },
+        "checkout_on_shop_label": "قم بإجراء الدفع على %{shop_name}",
+        "single_shop_transition": "سيتم إعادة توجيهك إلى %{advertiser} لإكمال عملية الشراء."
       }
     },
     "notices": {
