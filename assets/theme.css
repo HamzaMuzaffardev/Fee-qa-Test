@@ -1807,6 +1807,9 @@ section#shopify-section-template--20069970280645__instagram_3cVfdP .section.sec_
 section#shopify-section-template--20069970280645__multi_content_xqCWkw .section__block-inner.gradient.hover-effect.color-scheme-4faf0e4d-27f4-4d02-bc51-617383bab1a9.flex.relative {
     height: 450px;
 }
+.section__header p {
+    text-align: center !important;
+}
 @media only screen and (min-width: 1200px){
   .sec__content.relative.z-1.flex.w-1024-full.middle-left.container.text-left.text-md-left {
     width: 100%;
