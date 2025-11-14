@@ -918,7 +918,8 @@
         },
         "local_pickup": {
           "search_address": "البحث عن العنوان",
-          "rollup_title": "موقع المتجر"
+          "rollup_title": "موقع المتجر",
+          "rollup_accessibility_label": "خيارات موقع الاستلام"
         },
         "missing_shipping_address": "عنوان الشحن مفقود",
         "split_shipping_merchandise_quantity_label_standard": "%{quantity} عنصر",
@@ -1001,11 +1002,43 @@
         "local_delivery": "التوصيل المحلي",
         "prime_not_available": {
           "default": "خدمة التوصيل المميزة غير متاحة لطلبك. تم تحديث خيارات الشحن."
-        }
+        },
+        "shipping_method_rollup_accessibility_label": "خيارات طريقة الشحن",
+        "shipping_address_rollup_accessibility_label": "خيارات عنوان الشحن",
+        "split_shipping_first_shipment_notice": "سيصل طلبك الأول خلال %{quantity_shipments}"
       },
       "localized_fields": {
         "additional_information": {
-          "title": "معلومات إضافية"
+          "title": "معلومات إضافية",
+          "tax_credential_br": "صندوق التقاعد المركزي/صندوق التقاعد الوطني",
+          "shipping_credential_br": "صندوق التقاعد المركزي/صندوق التقاعد الوطني",
+          "shipping_credential_kr": "قانون الجمارك الشخصية",
+          "shipping_credential_cn": "رقم هوية المقيم",
+          "tax_credential_it": "كوديس فيسكالي (اختياري)",
+          "tax_email_it": "PEC (اختياري)",
+          "tax_credential_cl": "شبق",
+          "shipping_credential_cl": "شبق",
+          "tax_credential_co": "سيدولا/إيفا",
+          "tax_credential_type_co": "تيبو سيدولا",
+          "shipping_credential_co": "سيدولا/إيفا",
+          "shipping_credential_type_co": "تيبو سيدولا",
+          "tax_credential_cr": "رقم التعريف/RUT",
+          "shipping_credential_cr": "رقم التعريف/RUT",
+          "tax_credential_id": "مشروع المياه والصرف الصحي الوطني",
+          "shipping_credential_id": "مشروع المياه والصرف الصحي الوطني",
+          "tax_credential_my": "رقم التعريف الضريبي/التسجيل",
+          "shipping_credential_my": "رقم التعريف الضريبي/التسجيل",
+          "shipping_credential_mx": "طلب التعليقات",
+          "tax_credential_mx": "طلب التعليقات",
+          "tax_credential_type_mx": "النظام المالي",
+          "tax_credential_use_mx": "استخدام CFDI",
+          "tax_credential_pe": "مدير الاستخبارات الوطنية/شرطة ألستر الملكية/الشرطة المدنية",
+          "shipping_credential_pe": "مدير الاستخبارات الوطنية/شرطة ألستر الملكية/الشرطة المدنية",
+          "tax_credential_pt": "صندوق التأمين الوطني/صندوق التأمين ضد المخاطر",
+          "shipping_credential_pt": "صندوق التأمين الوطني/صندوق التأمين ضد المخاطر",
+          "tax_credential_es": "مدير الاستخبارات الوطنية/مدير الاستخبارات الوطنية",
+          "shipping_credential_es": "مدير الاستخبارات الوطنية/مدير الاستخبارات الوطنية",
+          "shipping_credential_tw": "رقم الهوية الوطنية/ضريبة القيمة المضافة"
         }
       },
       "payment": {
@@ -1298,7 +1331,51 @@
         "apple": {
           "connect": "انقر هنا لتوصيل حساب Apple Pay الخاص بك",
           "not_available": "خدمة Apple Pay غير متوفرة في هذا المتصفح. لربط حساب Apple Pay الخاص بك، ستحتاج إلى استخدام Safari على جهاز Apple."
-        }
+        },
+        "discount_show_more_warnings": {
+          "one": "عرض %{count} المزيد",
+          "other": "عرض %{count} المزيد"
+        },
+        "bank_account_vaulted_company_location": "تم حفظ الحساب البنكي لهذا الموقع",
+        "crypto_payment_method": {
+          "description": "الاتصال بشكل آمن بمحفظتك على الشبكة الأساسية",
+          "tooltip": "لن يتم مشاركة رصيد محفظتك وعنوانك ويمكن خصم المبلغ المطلوب فقط"
+        },
+        "crypto_modal": {
+          "header": "ادفع %{shop_name} %{total_price} USDC",
+          "error": {
+            "refresh": "ينعش",
+            "close": "يغلق",
+            "sandbox_error": "لقد حدث خطأ ما",
+            "web_component_error": "حدثت مشكلة أثناء تحميل هذه الصفحة"
+          }
+        },
+        "billing_address_rollup_accessibility_label": "خيارات عنوان الفاتورة",
+        "usdc_cashback_title": "استرداد نقدي بنسبة 1%",
+        "usdc_cashback_additional_info": "احصل على 1% مرة أخرى في USDC مباشرة في محفظتك.",
+        "usdc_cashback_terms": "تطبق الشروط",
+        "business_customer_with_bank_account_vaulting_payment_label": "احفظ طريقة الدفع هذه عند إتمام عملية الشراء، واسمح لـ %{company} بخصم المبلغ من حسابك مقابل عمليات الشراء المستقبلية التي توافق عليها لهذا الموقع، حتى تقوم بإلغاء الاشتراك. يمكن لجميع جهات الاتصال المُخصصة لهذا الموقع استخدام طريقة الدفع هذه.",
+        "gift_card_store_credit": {
+          "add_label": "إضافة بطاقة هدية أو رصيد متجر",
+          "manage_label": "إدارة بطاقات الهدايا أو رصيد المتجر"
+        },
+        "gift_card_checkbox_label": "تطبيق بطاقة الهدايا",
+        "custom_onsite_payment_method_modal": {
+          "title": "تأكيد الدفع المخصص في الموقع"
+        },
+        "markets_pro_disclaimer_label": "بالنقر أدناه وإتمام طلبك، فإنك توافق على شراء سلعك/منتجاتك من Global-e بصفتها التاجر المسجل لهذه المعاملة، وفقًا لشروط %{markets_pro_terms} و%{privacy_policy} الخاصة بـ Global-e. Global-e هي مزود خدمة توصيل دولية لـ %{shop_name}.",
+        "markets_pro_disclaimer_terms_and_conditions": "الشروط والأحكام",
+        "markets_pro_disclaimer_privacy_policy": "سياسة الخصوصية",
+        "markets_pro_disclaimer_terms_and_conditions_title": "شروط وأحكام التاجر المسجل",
+        "markets_pro_disclaimer_privacy_policy_title": "سياسة الخصوصية لتاجر السجلات",
+        "markets_pro_disclaimer_label_express_checkout": "من خلال الشراء، فإنك توافق على %{markets_pro_terms} و%{privacy_policy} الخاصة بشركة Global-e، موفر الخدمة الدولي لدينا",
+        "markets_pro_disclaimer_express_terms_and_conditions": "شروط",
+        "markets_pro_disclaimer_express_privacy_policy": "سياسة الخصوصية",
+        "purchase_order_number": {
+          "title": "رقم الطلب",
+          "label": "رقم الطلب (اختياري)"
+        },
+        "alternative_payment_currency_total_notice": "ملاحظة: سيتم تحصيل رسوم %{amount_due} منك."
       },
       "shop_policies": {
         "terms_of_sale": "شروط البيع",
@@ -1791,6 +1868,40 @@
         "deferred_balance_info": {
           "title": "الرصيد البالغ {{amount_due}} مستحق في {{due_at}}",
           "due_on_fulfillment_title": "الرصيد البالغ {{amount_due}} مستحق عند التنفيذ"
+        },
+        "payment_terms_totals": {
+          "due_today": "الإجمالي المستحق اليوم",
+          "due_today_next": "المستحق اليوم",
+          "due_later": "الإجمالي المستحق %{due_at}",
+          "due_on_fulfillment": "الإجمالي المستحق عند التنفيذ",
+          "due_on_fulfillment_next": "مستحق عند الوفاء",
+          "due_on_receipt": "الإجمالي المستحق عند الاستلام",
+          "due_later_checkout_to_draft": "الإجمالي المستحق لاحقًا",
+          "total_paid": "إجمالي المبلغ المدفوع"
+        },
+        "maximum_discount_code_limit_reached": "لقد وصلت إلى الحد الأقصى لعدد أكواد الخصم. يُرجى إزالة أي كود حالي لاستخدام <strong style=\"text-transform:uppercase\">%{code}</strong> .",
+        "discount_code_application_failed": "<strong style=\"text-transform:uppercase\">%{code}</strong> لا يعمل حاليًا. تواصل معنا للمساعدة.",
+        "due_on_fulfillment": "مستحق عند الوفاء",
+        "subscriptions": "الاشتراكات",
+        "duties_label": "الواجبات",
+        "duties_and_taxes_label": "الرسوم والضرائب",
+        "error_duties_tooltip": "يتم شحن هذا الطلب من بلد آخر، لذلك قد يتم فرض الرسوم والضرائب عند التسليم.",
+        "may_be_charged_on_delivery": "قد يتم فرض رسوم عند التسليم",
+        "total_updated_label_with_price": "السعر الإجمالي المحدث: %{totalPrice}",
+        "updated_shipping_method": "تم تحديث طريقة الشحن: %{shipping_method}",
+        "recurring_payments": "المدفوعات المتكررة",
+        "recurring_total_multiple_label": "يتضمن هذا الطلب رسومًا متكررة لعناصر متعددة.",
+        "deferred_total_due_date_label": "الإجمالي المستحق {{date}}",
+        "deferred_total_due_date_label_next": "تاريخ الاستحقاق %{date}",
+        "full_price": "السعر الكامل: %{price}",
+        "custom_discount": "خصم مخصص",
+        "expand_component_information": {
+          "one": "إظهار %{count} عنصر",
+          "other": "إظهار %{count} عنصر"
+        },
+        "collapse_component_information": {
+          "one": "إخفاء %{count} عنصر",
+          "other": "إخفاء %{count} من العناصر"
         }
       },
       "contact": {
