@@ -1645,7 +1645,9 @@ mini-cart-remove-button.loading .remove-icon {
 .sec__icon-box-content-icon svg{
   color: var(--color-heading);
 }
-
+.section__header h2 {
+    text-align: center !important;
+}
 
 /*  */
 .flex.flex-wrap.gap-10.gap-xl-30.justify-center.justify-md-start {
