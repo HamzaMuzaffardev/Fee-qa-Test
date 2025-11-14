@@ -73,3 +73,7 @@
   font-family: 'Bahij TheSans Arabic Plain', sans-serif !important;
   direction: rtl;
 }
+.disclosure__list.custom-scrollbar.transition.shadow.invisible.z-10.absolute.left-0.right-0.color-default li {
+    width: 100%;
+    text-align: end;
+}
