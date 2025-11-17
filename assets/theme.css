@@ -1795,6 +1795,10 @@ section#shopify-section-template--20069970280645__instagram_3cVfdP .insta-sectio
     color: #fff;
 }
 
+.product-addons__content.ask-question__content table tbody tr {
+    text-align: center;
+}
+
 .sub-info {
     color: #fff;
     font-size: 18px;
