@@ -1800,6 +1800,13 @@ section#shopify-section-template--20069970280645__instagram_3cVfdP .insta-sectio
     text-align: center;
 }
 
+input[type="number"] {
+    width: 100%;
+    /* max-width: 95%; */
+    border-radius: 5px;
+    margin: 0 auto !important;
+}
+
 .sub-info {
     color: #fff;
     font-size: 18px;
