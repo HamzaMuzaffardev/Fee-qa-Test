@@ -1799,7 +1799,9 @@ section#shopify-section-template--20069970280645__instagram_3cVfdP .insta-sectio
 .product-addons__content.ask-question__content table tbody tr {
     text-align: center;
 }
-
+header.header.relative.section.pt-min.pb-min.gradient.remove_spacing.color-scheme-f359b902-236c-4382-a8b3-688347284ff8.border-bottom.popup-search-mobile {
+    z-index: 1;
+}
 input[type="number"] {
     width: 100%;
     /* max-width: 95%; */
