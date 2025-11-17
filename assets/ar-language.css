@@ -77,7 +77,9 @@
     width: 100%;
     text-align: end;
 }
-
+[lang="ar"] body.gradient.rounded-style.rtl.index {
+    direction: ltr !important;
+  }
 @media only screen and (max-width: 480px){
   body.gradient.rounded-style.rtl.index {
     direction: ltr !important;
