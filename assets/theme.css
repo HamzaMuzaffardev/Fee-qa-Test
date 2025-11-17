@@ -1805,6 +1805,7 @@ input[type="number"] {
     /* max-width: 95%; */
     border-radius: 5px;
     margin: 0 auto !important;
+    text-align: center;
 }
 
 .sub-info {
