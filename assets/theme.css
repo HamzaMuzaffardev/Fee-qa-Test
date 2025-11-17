@@ -1778,6 +1778,23 @@ section#shopify-section-template--20069970280645__instagram_3cVfdP .insta-sectio
     width: 60% !important;
 } */
 
+.product-addons__content.ask-question__content table {
+    width: 100%;
+}
+
+.product-addons__content.ask-question__content table thead {
+    background: #000;
+    color: #fff;
+}
+
+.product-addons__content.ask-question__content table tbody tr>:nth-child(1) {
+    background: #000;
+}
+
+.product-addons__content.ask-question__content table tbody tr>:nth-child(1) strong {
+    color: #fff;
+}
+
 .sub-info {
     color: #fff;
     font-size: 18px;
