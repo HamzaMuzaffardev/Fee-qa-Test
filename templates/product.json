@@ -86,7 +86,7 @@
             "variant_type": "swatches",
             "show_size_guide": true,
             "size_guide_label": "Size guide",
-            "size_guide_page": ""
+            "size_guide_page": "{{ product.metafields.custom.custom_size_chart.value }}"
           }
         },
         "product_addons_YRaprz": {
