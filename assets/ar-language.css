@@ -88,6 +88,10 @@
   [lang="ar"] .second-section-template--20069970280645__banner1_Bw3MUN header h1 {
       font-size: 13vw !important;
   }
+  [lang="ar"] article.second-section.second-section-template--20069970280645__banner1_Bw3MUN header h1 {
+        font-size: 12vw !important;
+        right: 20px !important;
+    }
 }
 
 article.second-section.second-section-template--20069970280645__banner1_Bw3MUN header h1 {
