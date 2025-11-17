@@ -1,8 +1,8 @@
 {% liquid
-   if request.locale.iso_code == 'en' 
-  
+  if request.locale.iso_code == 'en' 
+
  else 
- 
+
  endif  
 
   assign font_family_body = 'Alexandria'
@@ -27,6 +27,7 @@
     | asset_url
     | preload_tag: as: 'font', type: 'font/ttf', crossorigin: 'anonymous'
   }}
+  
   {% style %}
     @font-face {
       font-family: "Alexandria";
