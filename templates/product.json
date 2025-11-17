@@ -136,7 +136,7 @@
             "heading": "Description",
             "content": "",
             "use_product_description": true,
-            "open": false
+            "open": true
           }
         },
         "collapsible_row_eLaQpR": {
