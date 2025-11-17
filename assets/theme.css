@@ -1802,6 +1802,21 @@ section#shopify-section-template--20069970280645__instagram_3cVfdP .insta-sectio
 header.header.relative.section.pt-min.pb-min.gradient.remove_spacing.color-scheme-f359b902-236c-4382-a8b3-688347284ff8.border-bottom.popup-search-mobile {
     z-index: 1;
 }
+
+/* section#shopify-section-template--20069970280645__multi_content_xqCWkw {}
+
+.section#shopify-section-template--20069970280645__multi_content_xqCWkw .sec__content-inner.py-custom.px-custom.relative.x-min-value.y-min-value h2 {
+    text-align: center !important;
+} */
+
+h2.sec__content-heading.heading-letter-spacing.mt-0.mb-custom.fs-custom.heading_weight {
+    text-align: center;
+}
+
+.sec__content-des.rich__text-m0.mb-custom.fs-custom.body_weight p {
+    text-align: center !important;
+}
+
 input[type="number"] {
     width: 100%;
     /* max-width: 95%; */
