@@ -177,7 +177,7 @@
 -%}
   {% if show_product_badges %}
     <div
-      class=" fs-small flex flex-column flex-wrap gap-custom {{ class }}"
+      class="product__badges fs-small flex flex-column flex-wrap gap-custom {{ class }}"
       style="--gap: 3;"
       data-sale-color="{{ settings.sale_color }}"
       data-sold-out-color="{{ settings.sold_out_color }}"
@@ -191,7 +191,7 @@
     >
       {%- if sale and show_sale and sale_badge_type != 'scrolling' -%}
         <div
-          class="-sale {% if sale_badge_type == 'price' %}-type-price{% elsif sale_badge_type == 'percent' %}-type-percent{% endif %} -inner align-self-start px-15 sale inline-flex content-center subheading_weight text-center lh-normal"
+          class="product__badges-sale {% if sale_badge_type == 'price' %}product__badges-type-price{% elsif sale_badge_type == 'percent' %}product__badges-type-percent{% endif %} product__badges-inner align-self-start px-15 sale inline-flex content-center subheading_weight text-center lh-normal"
           style="--badges-color: {{ settings.sale_color }};--badges-bg:{{ settings.sale_background }};"
         >
           {%- assign p = compare_at_price | minus: price -%}
@@ -212,7 +212,7 @@
       {%- endif -%}
       {%- if sold_out and show_sold_out -%}
         <div
-          class="-sold-out -inner align-self-start px-15 sold-out inline-flex content-center subheading_weight text-center lh-normal"
+          class="product__badges-sold-out product__badges-inner align-self-start px-15 sold-out inline-flex content-center subheading_weight text-center lh-normal"
           style="--badges-color: {{ settings.sold_out_color }};--badges-bg:{{ settings.sold_out_background }};"
         >
           {{ 'products.product.sold_out' | t }}
@@ -220,7 +220,7 @@
       {%- else -%}
         {%- if pre_order and show_pre_order -%}
           <div
-            class="-pre-order -inner align-self-start px-15 pre-order inline-flex content-center subheading_weight text-center lh-normal"
+            class="product__badges-pre-order product__badges-inner align-self-start px-15 pre-order inline-flex content-center subheading_weight text-center lh-normal"
             style="--badges-color: {{ settings.pre_order_color }};--badges-bg:{{ settings.pre_order_background }};"
           >
             {{ 'products.product.pre_order' | t }}
@@ -229,7 +229,7 @@
       {%- endif -%}
       {% if show_new and diff_days < new_badge_display_period %}
         <div
-          class="-new -inner align-self-start px-15 pre-order inline-flex content-center subheading_weight text-center lh-normal"
+          class="product__badges-new product__badges-inner align-self-start px-15 pre-order inline-flex content-center subheading_weight text-center lh-normal"
           style="--badges-color: {{ settings.new_color }};--badges-bg:{{ settings.new_background }};"
         >
           {{ 'products.product.label.new_label' | t }}
@@ -237,7 +237,7 @@
       {% endif %}
       {% if card_product.metafields.custom.custom_product_badge %}
         <div
-          class="-custom -inner align-self-start px-15 pre-order inline-flex content-center subheading_weight text-center lh-normal"
+          class="product__badges-custom product__badges-inner align-self-start px-15 pre-order inline-flex content-center subheading_weight text-center lh-normal"
           style="--badges-color: {{ settings.custom_badge_color }};--badges-bg:{{ settings.custom_badge_background }};"
         >
           {{ card_product.metafields.custom.custom_product_badge }}
@@ -245,7 +245,7 @@
       {% endif %}
       {% if subscription > 0 %}
         <div
-          class="-custom subscription -inner align-self-start px-15 pre-order inline-flex content-center subheading_weight text-center lh-normal"
+          class="product__badges-custom subscription product__badges-inner align-self-start px-15 pre-order inline-flex content-center subheading_weight text-center lh-normal"
           style="--badges-color: #111;--badges-bg: #F8BA26;"
         >
           {{- 'products.product.label.subscription' | t -}}
@@ -256,7 +256,7 @@
       {% if sale and sale_badge_addons == 'countdown' and card_product.metafields.custom.countdown_timer %}
         {{ 'countdown.css' | asset_url | stylesheet_tag }}
         <div
-          class="hidden -sale-countdown transition btn {% if countdown_style == 'normal' %}bg-white{% endif %} shadow text-center content-center absolute z-5  left-1025-15 right-1025-15  bottom-1025-15  max-w-custom mx-auto fadeIn {{ countdown_style }}"
+          class="hidden product__badges-sale-countdown transition btn {% if countdown_style == 'normal' %}bg-white{% endif %} shadow text-center content-center absolute z-5  left-1025-15 right-1025-15  bottom-1025-15  max-w-custom mx-auto fadeIn {{ countdown_style }}"
           style="--countdown-text-weight: var(--heading-weight);--btn-padding-y: {% if countdown_style == 'normal' %} 1.15rem {% else %} 1rem 0rem {%endif%}; --max-width: {% if countdown_style == 'normal' %}19rem {% else %} 100% {% endif %} ;"
         >
           <countdown-timer
@@ -281,7 +281,7 @@
           endif
         %}
         <div
-          class="-sale-scrolling marquee flex overflow-hidden w-full justify-center fs-custom absolute inset-x-0 bottom-0 pointer-none py-10 uppercase heading_weight"
+          class="product__badges-sale-scrolling marquee flex overflow-hidden w-full justify-center fs-custom absolute inset-x-0 bottom-0 pointer-none py-10 uppercase heading_weight"
           data-text-product-scrolling="{{ scrolling_text }}"
           style="--speed: 15s;--badges-color: {{ settings.scrolling_color }};--badges-bg:{{ settings.scrolling_background }};"
         >
