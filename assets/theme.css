@@ -1851,7 +1851,7 @@ section#shopify-section-template--20069970280645__custom_cta_R9GK4p .tenth-secti
 
 .fluid_container {
     position: relative;
-    z-index: 1;
+    /* z-index: 1; */
 }
 
 .insta-section-svg svg path {
