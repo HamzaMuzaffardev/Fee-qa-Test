@@ -105,6 +105,33 @@
       margin: 0;
     }
   }
+  {% if request.locale.iso_code == 'en' %}
+  .second-section-template--20069970280645__banner1_Bw3MUN header h1 {
+    margin: -50px 0;
+    padding: 0;
+    position: absolute;
+    right: 90px !important;
+    font-family: Cairo, sans-serif;
+    color: transparent;
+    font-size: 8vw !important;
+    text-align: right;
+    overflow: hidden;
+  }
+{% else %}
+ .second-section-template--20069970280645__banner1_Bw3MUN header h1 {
+    margin: -50px 0;
+    padding: 0;
+    position: absolute;
+    right: 90px !important;
+    font-family: Cairo, sans-serif;
+    color: transparent;
+    font-size: 11vw !important;
+    text-align: right;
+    overflow: hidden;
+  }
+{% endif %}
+  
+
 {% endstyle %}
 
 <article class="second-section second-section-{{ section.id }}">
