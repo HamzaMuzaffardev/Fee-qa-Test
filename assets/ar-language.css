@@ -119,3 +119,6 @@ article.second-section.second-section-template--20069970280645__banner1_Bw3MUN h
 [lang="ar"] motion-element.mb-custom.block.scroll-trigger.slide_in .text-center {
     text-align: center !important;
 }
+[lang="ar"] .p-20.py-30.section__block-inner.gradient.color-default p {
+    text-align: start !important;
+}
