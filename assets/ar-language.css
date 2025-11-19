@@ -100,3 +100,6 @@ article.second-section.second-section-template--20069970280645__banner1_Bw3MUN h
       font-family: Bahij TheSans Arabic, sans-serif !important;
   line-height: normal !important;;
 }
+[lang="ar"] div#shopify-section-template--20069970837701__main h1 {
+    text-align: center;
+}
