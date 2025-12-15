@@ -148,7 +148,7 @@
         "direction": "left",
         "icon_between_item": "petal",
         "speed": 18,
-        "space_between_text": 40,
+        "space_between_text": 50,
         "font_size": 18,
         "font_weight": "body_weight",
         "uppercase": false,
