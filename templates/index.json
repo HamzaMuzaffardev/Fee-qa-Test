@@ -568,7 +568,7 @@
             "content_alignment": "center",
             "content_position": "bottom-center",
             "content_padding_block": 30,
-            "content_padding_inline": 15,
+            "content_padding_inline": 60,
             "content_below_image": false,
             "custom_svg_spacing_bottom": 10,
             "subheading_font_size": 12,
@@ -577,10 +577,10 @@
             "heading_font_size": 36,
             "heading_font_weight": "heading_weight",
             "heading_uppercase": false,
-            "heading_spacing_bottom": 10,
+            "heading_spacing_bottom": 20,
             "des_font_size": 14,
             "des_font_weight": "body_weight",
-            "des_spacing_bottom": 10
+            "des_spacing_bottom": 40
           }
         },
         "image_with_text_overlay_6g8Jik": {
@@ -607,7 +607,7 @@
             "content_alignment": "center",
             "content_position": "bottom-center",
             "content_padding_block": 30,
-            "content_padding_inline": 15,
+            "content_padding_inline": 60,
             "content_below_image": false,
             "custom_svg_spacing_bottom": 10,
             "subheading_font_size": 16,
@@ -616,10 +616,10 @@
             "heading_font_size": 36,
             "heading_font_weight": "heading_weight",
             "heading_uppercase": false,
-            "heading_spacing_bottom": 10,
+            "heading_spacing_bottom": 20,
             "des_font_size": 14,
             "des_font_weight": "body_weight",
-            "des_spacing_bottom": 10
+            "des_spacing_bottom": 40
           }
         }
       },
