@@ -1991,3 +1991,7 @@ section#shopify-section-template--20069970280645__multi_content_xqCWkw .section_
     font-size: 15px;
   }
 }
+
+.shopify-section.page-title p {
+    text-align: center !important;
+}
