@@ -1998,3 +1998,10 @@ section#shopify-section-template--20069970280645__multi_content_xqCWkw .section_
 .collection-item__name.btn-white{
     width: max-content !important;
 }
+motion-element.sec__content-des.block.scroll-trigger.slide_in.rich__text-m0.mb-custom.fs-custom.body_weight p {
+    text-align: center !important;
+}
+
+h2.mt-0.sec__content-heading.heading-letter-spacing.mb-custom.fs-medium.heading_weight {
+    text-align: center !important;
+}
