@@ -139,7 +139,7 @@
             "image": "shopify://shop_images/top_collection_900x600_c8ee5c74-e0b3-4726-aab9-0266b688d481.png",
             "mobile_image": "shopify://shop_images/top_collection_900x600_480_x_320_px.png",
             "image_behavior": "zoom-in",
-            "image_link": "shopify://collections/exclusive-fee-collection-verse-one",
+            "image_link": "shopify://collections/exclusive-fee-collection",
             "image_overlay_opacity": 0,
             "custom_svg": "",
             "subheading": "",
@@ -342,7 +342,7 @@
         "collection_RmNqMh": {
           "type": "collection",
           "settings": {
-            "collection": "exclusive-fee-collection-verse-one",
+            "collection": "exclusive-fee-collection",
             "collection_title": "Exclusive Fee"
           }
         },
@@ -725,7 +725,7 @@
         "collection_iytNjM": {
           "type": "collection",
           "settings": {
-            "collection": "exclusive-fee-collection-verse-one",
+            "collection": "exclusive-fee-collection",
             "collection_title": "Exclusive Fee"
           }
         },
