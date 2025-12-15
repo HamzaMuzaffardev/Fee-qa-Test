@@ -61,7 +61,7 @@
           "type": "collection",
           "settings": {
             "collection": "exclusive-fee-collection-verse-one",
-            "collection_title": "Exclusive Fee"
+            "collection_title": "Exclusive FEE Designs"
           }
         },
         "collection_qag64J": {
@@ -91,13 +91,13 @@
         "color_scheme": "default",
         "type": "selected",
         "sort_collections": "alphabetical",
-        "image_ratio": "adapt",
+        "image_ratio": "portrait",
         "show_product_count": false,
         "design": "default",
         "text_alignment": "center",
         "font_size": 16,
         "items_to_show": 8,
-        "items_per_row": 4,
+        "items_per_row": 3,
         "column_gap": 30,
         "pagination": "load_more_button",
         "button_show_more": "Load more",
