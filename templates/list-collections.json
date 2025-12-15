@@ -101,7 +101,7 @@
         "column_gap": 30,
         "pagination": "load_more_button",
         "button_show_more": "Load more",
-        "padding_top": 0,
+        "padding_top": 80,
         "padding_bottom": 80
       }
     }
