@@ -24,8 +24,7 @@
         "slider_item_YipJd4": {
           "type": "slider_item",
           "settings": {
-            "image": "shopify://shop_images/unnamed.webp",
-            "image_mobile": "shopify://shop_images/hero_section_desktop_480_x_600_px_1.png",
+            "image": "shopify://shop_images/unnamed_3.jpg",
             "overlay_opacity": 0,
             "slider_effect": "effect_fadeinup",
             "subheading": "",
