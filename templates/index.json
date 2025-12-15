@@ -174,8 +174,7 @@
             "color_scheme": "scheme-4faf0e4d-27f4-4d02-bc51-617383bab1a9",
             "content_width": "33.3333%",
             "vertical_align": "center",
-            "image": "shopify://shop_images/unnamed_2.png",
-            "mobile_image": "shopify://shop_images/top_collection_900x600_480_x_320_px_2_1.png",
+            "image": "shopify://shop_images/unnamed_5.png",
             "image_behavior": "none",
             "image_link": "shopify://collections/verse-1",
             "image_overlay_opacity": 0,
@@ -213,7 +212,7 @@
             "color_scheme": "scheme-4faf0e4d-27f4-4d02-bc51-617383bab1a9",
             "content_width": "33.3333%",
             "vertical_align": "center",
-            "image": "shopify://shop_images/unnamed_ac9b9c2d-3dff-477c-bf4b-c478066e2be0.png",
+            "image": "shopify://shop_images/unnamed_6.png",
             "image_behavior": "none",
             "image_link": "shopify://collections/winter-collection",
             "image_overlay_opacity": 0,
@@ -652,9 +651,9 @@
           "settings": {
             "author_image": "shopify://shop_images/Untitled_design_-_2025-11-12T180931.630.png",
             "author_rating": 5,
-            "author_text": "<p>Absolutely love this classic abaya! The fabric is high-quality, drapes beautifully, and is incredibly comfortable for daily wear. A timeless wardrobe essential. Highly recommended!</p>",
+            "author_text": "<p>“I feel like Fee abayas were designed to be like me. A refined cut, comfortable fabric, and elegance that requires no effort.”</p>",
             "select_product": "depunto-classic-black-abaya",
-            "author_name": "Reem A."
+            "author_name": "Reem — Fee Customer"
           }
         },
         "testimonials_items_LEjQAm": {
@@ -662,9 +661,9 @@
           "settings": {
             "author_image": "shopify://shop_images/Untitled_design_-_2025-11-12T180943.929.png",
             "author_rating": 5,
-            "author_text": "<p>This abaya is truly elegant. The monochrome design is striking and sophisticated. It fits perfectly and feels luxurious. Perfect for special occasions! I'm very impressed.</p>",
+            "author_text": "<p>“What I loved most about Fee abayas is the feeling of comfort combined with elegance. The design is simple yet thoughtful, and it gives you a quiet presence that lasts all day long.”</p>",
             "select_product": "depunto-elegant-monochrome-long-abaya",
-            "author_name": "Fatima M."
+            "author_name": "Fatimah — Fee Customer"
           }
         }
       },
@@ -676,8 +675,8 @@
       "settings": {
         "section_width": "fluid_container",
         "color_scheme": "default",
-        "heading": "What Our Customers Say",
-        "description": "<p>Customers love our products and we always strive to please them all.</p>",
+        "heading": "Real Experiences with Fee",
+        "description": "<p>Reviews from customers who chose Fee to be a part of their daily style.</p>",
         "header_alignment": "center",
         "header_size": "large",
         "design": "default",
