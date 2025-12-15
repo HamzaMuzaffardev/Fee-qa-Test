@@ -35,6 +35,7 @@
       "blocks": {
         "subheading_aXhCec": {
           "type": "subheading",
+          "disabled": true,
           "settings": {
             "subheading": "Welcome to Fee",
             "font_size": 15,
@@ -46,9 +47,9 @@
         "heading_LbN4kp": {
           "type": "heading",
           "settings": {
-            "heading": "Modest Elegance. Redefined.",
+            "heading": "Fee platform",
             "font_size": 50,
-            "font_weight": "heading_weight",
+            "font_weight": "subheading_weight",
             "uppercase": false,
             "spacing_bottom": 10
           }
@@ -56,7 +57,7 @@
         "description_4JjTUX": {
           "type": "description",
           "settings": {
-            "description": "<p>With deep cultural roots and modern inspiration, we offer thoughtfully curated collections that combine timeless modesty with contemporary grace.</p>",
+            "description": "<p>A Qatari platform specializing in supporting talented designers and selling selected fashions through a reliable digital experience that links creativity and quality.</p>",
             "font_size": 15,
             "font_weight": "body_weight",
             "spacing_bottom": 10
@@ -113,6 +114,50 @@
         "reset_spacing": true
       }
     },
+    "scrolling_text_gGPeGq": {
+      "type": "scrolling-text",
+      "blocks": {
+        "scrolling_text_dDJ86e": {
+          "type": "scrolling_text",
+          "settings": {
+            "content": "Digital platform for selling fashion"
+          }
+        },
+        "scrolling_text_NPwtMi": {
+          "type": "scrolling_text",
+          "settings": {
+            "content": "Support and marketing for designers"
+          }
+        },
+        "scrolling_text_Kn7BF6": {
+          "type": "scrolling_text",
+          "settings": {
+            "content": "Storage and delivery within Qatar"
+          }
+        }
+      },
+      "block_order": [
+        "scrolling_text_dDJ86e",
+        "scrolling_text_NPwtMi",
+        "scrolling_text_Kn7BF6"
+      ],
+      "name": "t:sections.scrolling_text.name",
+      "settings": {
+        "section_width": "full_width",
+        "color_scheme": "scheme-4faf0e4d-27f4-4d02-bc51-617383bab1a9",
+        "direction": "left",
+        "icon_between_item": "petal",
+        "speed": 18,
+        "space_between_text": 40,
+        "font_size": 18,
+        "font_weight": "body_weight",
+        "uppercase": false,
+        "use_heading_font": false,
+        "padding_top": 40,
+        "padding_bottom": 40,
+        "reset_spacing": false
+      }
+    },
     "counter_bjDJxc": {
       "type": "counter",
       "blocks": {
@@ -123,7 +168,7 @@
             "ending_number": 5,
             "unit": "+",
             "heading": "Collections",
-            "description": "<p>Reflecting every season, style, and story.</p>"
+            "description": "<p>Digital platform for selling fashion</p>"
           }
         },
         "counter_jQdJhG": {
@@ -152,6 +197,7 @@
         "counter_jQdJhG",
         "counter_FmWY3q"
       ],
+      "disabled": true,
       "settings": {
         "section_width": "container",
         "color_scheme": "scheme-2b5c6c91-201d-4fb1-aba3-e6d562656976",
@@ -383,7 +429,7 @@
             "content_width": "50%",
             "vertical_align": "center",
             "image_link": "",
-            "subheading": "Where Design Meets Distinction",
+            "subheading": "",
             "heading": "Our Vision",
             "description": "<p>We bridge the gap between talented designers and discerning customers, providing a seamless shopping experience that combines speed, quality, and exclusivity. We aim to be the leading fashion platform in the GCC region and beyond.</p>",
             "collection": "",
@@ -398,7 +444,7 @@
             "second_button_label": "",
             "second_button_link": "",
             "second_button_type": "primary",
-            "content_alignment": "left",
+            "content_alignment": "center",
             "subheading_font_size": 15,
             "subheading_font_weight": "heading_weight",
             "subheading_spacing_bottom": 14,
@@ -432,6 +478,75 @@
         "reset_spacing": false
       }
     },
+    "multi_content_Phq6nD": {
+      "type": "multi-content",
+      "blocks": {
+        "text_4HeFjG": {
+          "type": "text",
+          "settings": {
+            "color_scheme": "scheme-1",
+            "content_width": "50%",
+            "vertical_align": "center",
+            "image_link": "",
+            "subheading": "",
+            "heading": "Our Mission",
+            "description": "<p>Fee platform works to support designers from within and outside Qatar, by providing a platform for sales and marketing, and storage and delivery services, ensuring that their products reach customers with high quality and a reliable buying experience.</p>",
+            "collection": "",
+            "timer": "",
+            "expired_message": "Time expired",
+            "style": "default",
+            "font_size": 36,
+            "spacing_bottom": 30,
+            "first_button_label": "Learn More",
+            "first_button_link": "shopify://collections/activewear",
+            "first_button_type": "primary",
+            "second_button_label": "",
+            "second_button_link": "",
+            "second_button_type": "primary",
+            "content_alignment": "center",
+            "subheading_font_size": 15,
+            "subheading_font_weight": "heading_weight",
+            "subheading_spacing_bottom": 12,
+            "heading_font_size": 36,
+            "heading_font_weight": "heading_weight",
+            "heading_uppercase": false,
+            "heading_spacing_bottom": 24,
+            "des_font_size": 15,
+            "des_font_weight": "body_weight",
+            "des_spacing_bottom": 30
+          }
+        },
+        "image_cMzQ9f": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_-_2025-11-13T111329.470.png",
+            "image_behavior": "none",
+            "image_link": "",
+            "content_width": "50%",
+            "vertical_align": "start"
+          }
+        }
+      },
+      "block_order": [
+        "text_4HeFjG",
+        "image_cMzQ9f"
+      ],
+      "settings": {
+        "section_width": "container",
+        "heading": "",
+        "description": "",
+        "header_size": "medium",
+        "header_alignment": "center",
+        "column_gap": 30,
+        "content_background_color": "",
+        "equal_height_adjustment": false,
+        "carousel_on_mobile": false,
+        "items_per_row_mobile": 1,
+        "padding_top": 0,
+        "padding_bottom": 0,
+        "reset_spacing": false
+      }
+    },
     "rich_text_yjfBc8": {
       "type": "rich-text",
       "blocks": {
@@ -445,7 +560,7 @@
         "description_NKGpBk": {
           "type": "description",
           "settings": {
-            "description": "<p><em>\" </em>Modesty is not just what we wear — it’s how we carry ourselves. At Heshma Line, we dress the woman who values both tradition and confidence.<em>\"</em></p>",
+            "description": "<p><em>\" </em>Modesty is not just what we wear — it’s how we carry ourselves. At FEE Line, we dress the woman who values both tradition and confidence.<em>\"</em></p>",
             "font_size": 18,
             "font_weight": "body_weight",
             "spacing_bottom": 15
@@ -491,75 +606,6 @@
         "reset_spacing": false
       }
     },
-    "multi_content_Phq6nD": {
-      "type": "multi-content",
-      "blocks": {
-        "text_4HeFjG": {
-          "type": "text",
-          "settings": {
-            "color_scheme": "scheme-1",
-            "content_width": "50%",
-            "vertical_align": "center",
-            "image_link": "",
-            "subheading": "Empowering Designers, Inspiring Style",
-            "heading": "Our Mission",
-            "description": "<p>We support and promote creative designers from Qatar and around the world, giving them a platform to reach a wider audience. Our commitment is to provide unique, high-quality products and exceptional service.</p>",
-            "collection": "",
-            "timer": "",
-            "expired_message": "Time expired",
-            "style": "default",
-            "font_size": 36,
-            "spacing_bottom": 30,
-            "first_button_label": "Learn More",
-            "first_button_link": "shopify://collections/activewear",
-            "first_button_type": "primary",
-            "second_button_label": "",
-            "second_button_link": "",
-            "second_button_type": "primary",
-            "content_alignment": "left",
-            "subheading_font_size": 15,
-            "subheading_font_weight": "heading_weight",
-            "subheading_spacing_bottom": 12,
-            "heading_font_size": 36,
-            "heading_font_weight": "heading_weight",
-            "heading_uppercase": false,
-            "heading_spacing_bottom": 24,
-            "des_font_size": 15,
-            "des_font_weight": "body_weight",
-            "des_spacing_bottom": 30
-          }
-        },
-        "image_cMzQ9f": {
-          "type": "image",
-          "settings": {
-            "image": "shopify://shop_images/Untitled_design_-_2025-11-13T111329.470.png",
-            "image_behavior": "none",
-            "image_link": "",
-            "content_width": "50%",
-            "vertical_align": "start"
-          }
-        }
-      },
-      "block_order": [
-        "text_4HeFjG",
-        "image_cMzQ9f"
-      ],
-      "settings": {
-        "section_width": "container",
-        "heading": "",
-        "description": "",
-        "header_size": "medium",
-        "header_alignment": "center",
-        "column_gap": 30,
-        "content_background_color": "",
-        "equal_height_adjustment": false,
-        "carousel_on_mobile": false,
-        "items_per_row_mobile": 1,
-        "padding_top": 0,
-        "padding_bottom": 0,
-        "reset_spacing": false
-      }
-    },
     "multi_content_m4rBAb": {
       "type": "multi-content",
       "blocks": {
@@ -580,9 +626,9 @@
             "content_width": "50%",
             "vertical_align": "center",
             "image_link": "",
-            "subheading": "Delivering Quality, Creativity, and Trust",
-            "heading": "Why Choose Fee?",
-            "description": "<ul><li><strong>Customer Focused: </strong>A seamless and enjoyable shopping experience. Join us at FEE and discover the best in contemporary Arab fashion.</li><li><strong>Innovative Space: </strong>A vibrant community celebrating creativity and innovation.</li><li><strong>Talented Designers: </strong>Showcasing diverse styles from local and international designers.</li></ul>",
+            "subheading": "",
+            "heading": "Our working Method",
+            "description": "<p>Registration via the Fee platform<br/>Review and approval of the designer's portfolio<br/>Definition of product types and quantities<br/>Signing of exclusive contracts<br/>Provision of product images according to Fee standards<br/>Delivery of products to Fee warehouses within Qatar<br/>Product inspection and approval for sale</p>",
             "collection": "",
             "timer": "",
             "expired_message": "Time expired",
@@ -595,7 +641,7 @@
             "second_button_label": "",
             "second_button_link": "",
             "second_button_type": "primary",
-            "content_alignment": "left",
+            "content_alignment": "center",
             "subheading_font_size": 15,
             "subheading_font_weight": "heading_weight",
             "subheading_spacing_bottom": 14,
@@ -626,7 +672,76 @@
         "items_per_row_mobile": 1,
         "padding_top": 0,
         "padding_bottom": 80,
-        "reset_spacing": false
+        "reset_spacing": true
+      }
+    },
+    "multi_content_giX7P3": {
+      "type": "multi-content",
+      "blocks": {
+        "text_3BxhPh": {
+          "type": "text",
+          "settings": {
+            "color_scheme": "default",
+            "content_width": "50%",
+            "vertical_align": "center",
+            "image_link": "",
+            "subheading": "",
+            "heading": "Why Fee?",
+            "description": "<p>A trusted online fashion retailer<br/>Marketing and operational support for designers<br/>Storage and delivery within Qatar according to specified standards<br/>Clear and transparent financial commitments to designers</p>",
+            "collection": "",
+            "timer": "",
+            "expired_message": "Time expired",
+            "style": "default",
+            "font_size": 36,
+            "spacing_bottom": 30,
+            "first_button_label": "Shop Now",
+            "first_button_link": "shopify://collections/best-seller",
+            "first_button_type": "primary",
+            "second_button_label": "",
+            "second_button_link": "",
+            "second_button_type": "primary",
+            "content_alignment": "center",
+            "subheading_font_size": 15,
+            "subheading_font_weight": "heading_weight",
+            "subheading_spacing_bottom": 14,
+            "heading_font_size": 36,
+            "heading_font_weight": "heading_weight",
+            "heading_uppercase": false,
+            "heading_spacing_bottom": 20,
+            "des_font_size": 15,
+            "des_font_weight": "body_weight",
+            "des_spacing_bottom": 30
+          }
+        },
+        "image_gDyzzX": {
+          "type": "image",
+          "settings": {
+            "image": "shopify://shop_images/Untitled_design_-_2025-11-13T111337.262.png",
+            "image_behavior": "none",
+            "image_link": "",
+            "content_width": "50%",
+            "vertical_align": "start"
+          }
+        }
+      },
+      "block_order": [
+        "text_3BxhPh",
+        "image_gDyzzX"
+      ],
+      "settings": {
+        "section_width": "container",
+        "heading": "",
+        "description": "",
+        "header_size": "medium",
+        "header_alignment": "center",
+        "column_gap": 30,
+        "content_background_color": "",
+        "equal_height_adjustment": false,
+        "carousel_on_mobile": false,
+        "items_per_row_mobile": 1,
+        "padding_top": 0,
+        "padding_bottom": 80,
+        "reset_spacing": true
       }
     },
     "divider_TAXJn3": {
@@ -814,22 +929,68 @@
         "padding_bottom": 0,
         "reset_spacing": false
       }
+    },
+    "rich_text_Ppaeh3": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_HgW8YM": {
+          "type": "heading",
+          "settings": {
+            "heading": "Join the Fee platform and discover a professionally designed buying and selling experience.",
+            "font_size": 36,
+            "font_weight": "heading_weight",
+            "uppercase": false,
+            "spacing_bottom": 24
+          }
+        },
+        "button_fV7yP8": {
+          "type": "button",
+          "settings": {
+            "first_button_label": "Shop Now",
+            "first_button_link": "shopify://collections/all",
+            "first_button_type": "primary",
+            "second_button_label": "",
+            "second_button_link": "",
+            "second_button_type": "primary",
+            "spacing_bottom": 10
+          }
+        }
+      },
+      "block_order": [
+        "heading_HgW8YM",
+        "button_fV7yP8"
+      ],
+      "name": "t:sections.rich_text.name",
+      "settings": {
+        "section_width": "container",
+        "color_scheme": "scheme-2b5c6c91-201d-4fb1-aba3-e6d562656976",
+        "content_alignment": "center",
+        "content_max_width": 100,
+        "enable_expand_content": false,
+        "expand_content_button": "See all Information",
+        "padding_top": 80,
+        "padding_bottom": 80,
+        "reset_spacing": false
+      }
     }
   },
   "order": [
     "page-heading",
     "rich_text_qMbJGD",
     "multi_content_mBYATd",
+    "scrolling_text_gGPeGq",
     "counter_bjDJxc",
     "divider_jTBGQJ",
     "rich_text_td9KN9",
     "multi_content_VbbiBa",
     "multi_content_yUFjXW",
-    "rich_text_yjfBc8",
     "multi_content_Phq6nD",
+    "rich_text_yjfBc8",
     "multi_content_m4rBAb",
+    "multi_content_giX7P3",
     "divider_TAXJn3",
     "rich_text_ej4aJ8",
-    "multi_content_cnGW9D"
+    "multi_content_cnGW9D",
+    "rich_text_Ppaeh3"
   ]
 }
