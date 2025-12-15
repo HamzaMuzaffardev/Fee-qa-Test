@@ -47,7 +47,7 @@
           "type": "newsletter",
           "settings": {
             "heading": "Sign Up to Newsletter",
-            "description": "Sign up for 10% off your first purchase and free shipping. Updates information on Sales and Offers.",
+            "description": "",
             "email_placeholder": "Enter your email...",
             "button_label": "Sign Up",
             "note": "",
