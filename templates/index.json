@@ -25,6 +25,7 @@
           "type": "slider_item",
           "settings": {
             "image": "shopify://shop_images/hero_section_desktop.png",
+            "image_mobile": "shopify://shop_images/hero_section_desktop.png",
             "overlay_opacity": 0,
             "slider_effect": "effect_fadeinup",
             "subheading": "",
@@ -47,39 +48,10 @@
             "content_box_opacity": 100,
             "content_alignment_mobile": "left"
           }
-        },
-        "slider_item_gcWKYx": {
-          "type": "slider_item",
-          "settings": {
-            "image": "shopify://shop_images/hero_section_desktop_8.png",
-            "image_mobile": "shopify://shop_images/hero_section_desktop_480_x_600_px_2.png",
-            "overlay_opacity": 0,
-            "slider_effect": "effect_fadeinup",
-            "subheading": "",
-            "heading": "Exclusive Fashion by Arab Designers - Curated for You",
-            "description": "<p>Verse One by Fee is Officially out! Shop NOW only from FEE</p>",
-            "first_button_label": "Shop Now",
-            "first_button_link": "shopify://collections/all",
-            "first_button_style": false,
-            "second_button_label": "",
-            "second_button_link": "",
-            "second_button_style": false,
-            "content_alignment": "left",
-            "content_position": "middle-left",
-            "content_width": "container",
-            "content_max_width": 60,
-            "content_padding_block": 70,
-            "content_padding_inline": 15,
-            "show_content_background": false,
-            "content_background": "#ffffff",
-            "content_box_opacity": 100,
-            "content_alignment_mobile": "left"
-          }
         }
       },
       "block_order": [
-        "slider_item_YipJd4",
-        "slider_item_gcWKYx"
+        "slider_item_YipJd4"
       ],
       "custom_css": [],
       "settings": {
@@ -136,6 +108,7 @@
             "content_width": "33.3333%",
             "vertical_align": "center",
             "image": "shopify://shop_images/6.png",
+            "mobile_image": "shopify://shop_images/6.png",
             "image_behavior": "zoom-in",
             "image_link": "shopify://collections/simple-aura",
             "image_overlay_opacity": 0,
@@ -174,6 +147,7 @@
             "content_width": "33.3333%",
             "vertical_align": "center",
             "image": "shopify://shop_images/5_4e5dcf64-51ff-413d-8f3d-d44c0706d231.png",
+            "mobile_image": "shopify://shop_images/5_4e5dcf64-51ff-413d-8f3d-d44c0706d231.png",
             "image_behavior": "none",
             "image_link": "shopify://collections/verse-1",
             "image_overlay_opacity": 0,
@@ -212,6 +186,7 @@
             "content_width": "33.3333%",
             "vertical_align": "center",
             "image": "shopify://shop_images/4_a59ce136-e896-40bf-8eee-386328feb998.png",
+            "mobile_image": "shopify://shop_images/4_a59ce136-e896-40bf-8eee-386328feb998.png",
             "image_behavior": "none",
             "image_link": "shopify://collections/winter-collection",
             "image_overlay_opacity": 0,
@@ -549,6 +524,7 @@
             "content_width": "50%",
             "vertical_align": "center",
             "image": "shopify://shop_images/3_9c7ade2e-fc95-402a-b84a-51bb61841a2d.png",
+            "mobile_image": "shopify://shop_images/3_9c7ade2e-fc95-402a-b84a-51bb61841a2d.png",
             "image_behavior": "none",
             "image_link": "",
             "image_overlay_opacity": 10,
@@ -587,6 +563,7 @@
             "content_width": "50%",
             "vertical_align": "center",
             "image": "shopify://shop_images/2_69bc7ad3-7d33-457a-9487-5a92f7bb0209.png",
+            "mobile_image": "shopify://shop_images/2_69bc7ad3-7d33-457a-9487-5a92f7bb0209.png",
             "image_behavior": "none",
             "image_link": "",
             "image_overlay_opacity": 10,
