@@ -25,7 +25,7 @@
           "type": "slider_item",
           "settings": {
             "image": "shopify://shop_images/hero_section_desktop.png",
-            "image_mobile": "shopify://shop_images/2_10.png",
+            "image_mobile": "shopify://shop_images/hero_section_desktop_480_x_600_px_b4560574-0f3a-4482-9a61-0ba874af6c38.png",
             "overlay_opacity": 0,
             "slider_effect": "effect_fadeinup",
             "subheading": "",
