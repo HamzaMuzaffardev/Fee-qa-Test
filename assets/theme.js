@@ -9274,29 +9274,27 @@ gsap.utils.toArray(".animation-svg-main svg path").forEach(path => {
 // 
 
 
-document.addEventListener('DOMContentLoaded', function() {
-  // 1. Find the Add to Cart button
-  const atcButton = document.querySelector('form[action="/cart/add"] button[type="submit"]');
+document.addEventListener('click', function(e) {
+  // Select the Add to Cart button (works for most themes like Dawn)
+  const atcButton = e.target.closest('button[name="add"], .product-form__submit');
   
   if (atcButton) {
-    atcButton.addEventListener('click', function(e) {
-      const measurements = document.querySelectorAll('table.abaya-measurements input');
-      let allValid = true;
+    const fields = document.querySelectorAll('.abaya-field');
+    let isValid = true;
 
-      measurements.forEach(input => {
-        if (input.value.trim() === "") {
-          allValid = false;
-          input.style.border = "2px solid #ff0000"; // Highlight error
-        } else {
-          input.style.border = ""; // Clear highlight
-        }
-      });
-
-      if (!allValid) {
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        alert("Please fill in all measurements before adding to cart.");
+    fields.forEach(field => {
+      if (field.value.trim() === "") {
+        isValid = false;
+        field.style.border = "2px solid red"; // Highlight missing info
+      } else {
+        field.style.border = "1px solid #ccc"; // Reset if filled
       }
-    }, true); // Use 'true' to capture the event early
+    });
+
+    if (!isValid) {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      alert("Please fill in ALL measurement fields before adding to cart.");
+    }
   }
-});
+}, true); // The 'true' is critical to stop Shopify's AJAX early
