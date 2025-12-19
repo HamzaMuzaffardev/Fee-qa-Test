@@ -9276,7 +9276,7 @@ gsap.utils.toArray(".animation-svg-main svg path").forEach(path => {
 
 document.addEventListener('click', function(e) {
   // Select the Add to Cart button (works for most themes like Dawn)
-  const atcButton = e.target.closest('button[name="add"], .product-form__submit');
+  const atcButton = e.target.closest('button[name="add"], .add_to_cart_button');
   
   if (atcButton) {
     const fields = document.querySelectorAll('.abaya-field');
