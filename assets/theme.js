@@ -9269,3 +9269,38 @@ gsap.utils.toArray(".animation-svg-main svg path").forEach(path => {
     }
   );
 });
+
+
+// 
+
+document.addEventListener('DOMContentLoaded', function() {
+    const addToCartBtn = document.querySelector('.add_to_cart_button'); // Ensure this matches your button class
+    const inputs = document.querySelectorAll('.abaya-measurements input');
+
+    addToCartBtn.addEventListener('click', function(e) {
+        let allFilled = true;
+        let firstEmptyInput = null;
+
+        // Loop through each input in the table
+        inputs.forEach(input => {
+            if (input.value.trim() === "") {
+                allFilled = false;
+                input.style.border = "2px solid red"; // Highlight missing field
+                if (!firstEmptyInput) firstEmptyInput = input;
+            } else {
+                input.style.border = ""; // Reset border if filled
+            }
+        });
+
+        if (!allFilled) {
+            // Prevent the product from being added to the cart
+            e.preventDefault();
+            e.stopPropagation();
+            
+            alert("Please provide all measurements before adding to cart.");
+            
+            // Scroll to the first empty field
+            firstEmptyInput.focus();
+        }
+    });
+});
