@@ -9273,34 +9273,31 @@ gsap.utils.toArray(".animation-svg-main svg path").forEach(path => {
 
 // 
 
+<script>
 document.addEventListener('DOMContentLoaded', function() {
-    const addToCartBtn = document.querySelector('.add_to_cart_button'); // Ensure this matches your button class
-    const inputs = document.querySelectorAll('.abaya-measurements input');
+  // 1. Find the Add to Cart button
+  const atcButton = document.querySelector('form[action="/cart/add"] button[type="submit"]');
+  
+  if (atcButton) {
+    atcButton.addEventListener('click', function(e) {
+      const measurements = document.querySelectorAll('table.abaya-measurements input');
+      let allValid = true;
 
-    addToCartBtn.addEventListener('click', function(e) {
-        let allFilled = true;
-        let firstEmptyInput = null;
-
-        // Loop through each input in the table
-        inputs.forEach(input => {
-            if (input.value.trim() === "") {
-                allFilled = false;
-                input.style.border = "2px solid red"; // Highlight missing field
-                if (!firstEmptyInput) firstEmptyInput = input;
-            } else {
-                input.style.border = ""; // Reset border if filled
-            }
-        });
-
-        if (!allFilled) {
-            // Prevent the product from being added to the cart
-            e.preventDefault();
-            e.stopPropagation();
-            
-            alert("Please provide all measurements before adding to cart.");
-            
-            // Scroll to the first empty field
-            firstEmptyInput.focus();
+      measurements.forEach(input => {
+        if (input.value.trim() === "") {
+          allValid = false;
+          input.style.border = "2px solid #ff0000"; // Highlight error
+        } else {
+          input.style.border = ""; // Clear highlight
         }
-    });
+      });
+
+      if (!allValid) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        alert("Please fill in all measurements before adding to cart.");
+      }
+    }, true); // Use 'true' to capture the event early
+  }
 });
+</script>
