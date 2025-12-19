@@ -9272,29 +9272,3 @@ gsap.utils.toArray(".animation-svg-main svg path").forEach(path => {
 
 
 // 
-
-
-document.addEventListener('click', function(e) {
-  // Select the Add to Cart button (works for most themes like Dawn)
-  const atcButton = e.target.closest('button[name="add"], .add_to_cart_button');
-  
-  if (atcButton) {
-    const fields = document.querySelectorAll('.abaya-field');
-    let isValid = true;
-
-    fields.forEach(field => {
-      if (field.value.trim() === "") {
-        isValid = false;
-        field.style.border = "2px solid red"; // Highlight missing info
-      } else {
-        field.style.border = "1px solid #ccc"; // Reset if filled
-      }
-    });
-
-    if (!isValid) {
-      e.preventDefault();
-      e.stopImmediatePropagation();
-      alert("Please fill in ALL measurement fields before adding to cart.");
-    }
-  }
-}, true); // The 'true' is critical to stop Shopify's AJAX early
