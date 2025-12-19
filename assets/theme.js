@@ -9273,7 +9273,7 @@ gsap.utils.toArray(".animation-svg-main svg path").forEach(path => {
 
 // 
 
-<script>
+
 document.addEventListener('DOMContentLoaded', function() {
   // 1. Find the Add to Cart button
   const atcButton = document.querySelector('form[action="/cart/add"] button[type="submit"]');
@@ -9300,4 +9300,3 @@ document.addEventListener('DOMContentLoaded', function() {
     }, true); // Use 'true' to capture the event early
   }
 });
-</script>
