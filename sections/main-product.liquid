@@ -955,6 +955,14 @@
               >
                 {{ block_st.custom_liquid }}
               </div>
+            {%- when 'custom_measurements' -%}
+              {% comment %} Custom Measurements Form {% endcomment %}
+              <div
+                class="product-detail__custom-measurements{% if enable_skeleton_loading %} skeleton-loading{% endif %}"
+                {{ block.shopify_attributes }}
+              >
+                {% render 'custom-measurements', product: product %}
+              </div>
             {%- when 'more_colors' -%}
               {% comment %} More color {% endcomment %}
               {% if product.metafields.custom.more_colors != blank %}
@@ -2130,6 +2138,12 @@
           "info": "t:sections.main-product.blocks.custom_liquid.settings.custom_liquid.info"
         }
       ]
+    },
+    {
+      "type": "custom_measurements",
+      "limit": 1,
+      "name": "Custom Measurements",
+      "settings": []
     },
     {
       "type": "text",
