@@ -1,0 +1,263 @@
+/* Custom Measurements Form Styles */
+
+.custom-measurements-wrapper {
+  margin: 20px 0;
+  padding: 20px;
+  background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+  border-radius: 12px;
+  border: 1px solid #e8e8e8;
+}
+
+.custom-measurements-wrapper .measurements-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--color-heading, #1a1a1a);
+}
+
+.custom-measurements-wrapper .measurements-header svg {
+  flex-shrink: 0;
+}
+
+.custom-measurements-wrapper .measurements-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-heading, #1a1a1a);
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.custom-measurements-wrapper .measurements-subtitle {
+  font-size: 13px;
+  color: #666;
+  margin: 0 0 15px 0;
+  line-height: 1.5;
+}
+
+.custom-measurements-wrapper .measurements-required-note {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #d32f2f;
+  margin-bottom: 15px;
+  padding: 8px 12px;
+  background: #fff5f5;
+  border-radius: 6px;
+  border-left: 3px solid #d32f2f;
+}
+
+.custom-measurements-wrapper .measurements-required-note svg {
+  flex-shrink: 0;
+}
+
+.custom-measurements-wrapper .measurements-required-note span {
+  font-weight: 500;
+}
+
+/* Table Styles */
+.custom-measurements-wrapper .abaya-measurements {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.custom-measurements-wrapper .abaya-measurements thead {
+  background: var(--color-heading, #1a1a1a);
+}
+
+.custom-measurements-wrapper .abaya-measurements thead th {
+  padding: 12px 15px;
+  text-align: left;
+  font-size: 13px;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.custom-measurements-wrapper .abaya-measurements tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+.custom-measurements-wrapper .abaya-measurements tbody tr:nth-child(even) {
+  background: #fafafa;
+}
+
+.custom-measurements-wrapper .abaya-measurements tbody tr:hover {
+  background: #f0f7ff;
+}
+
+.custom-measurements-wrapper .abaya-measurements tbody tr.row-error {
+  background: #fff5f5;
+}
+
+.custom-measurements-wrapper .abaya-measurements td {
+  padding: 10px 15px;
+  border-bottom: 1px solid #eee;
+  font-size: 14px;
+}
+
+.custom-measurements-wrapper .abaya-measurements td:first-child {
+  color: #333;
+  font-weight: 500;
+  position: relative;
+  padding-left: 20px;
+}
+
+.custom-measurements-wrapper .abaya-measurements td:first-child::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background: var(--color-primary, #333);
+  border-radius: 50%;
+}
+
+.custom-measurements-wrapper .abaya-measurements tr.row-error td:first-child::before {
+  background: #d32f2f;
+}
+
+/* Required indicator */
+.custom-measurements-wrapper .required-indicator {
+  color: #d32f2f;
+  font-weight: bold;
+  margin-left: 3px;
+}
+
+/* Input Styles */
+.custom-measurements-wrapper .abaya-measurements input[type="number"] {
+  width: 100%;
+  max-width: 120px;
+  padding: 10px 12px;
+  border: 1.5px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  transition: all 0.2s ease;
+  background: white;
+  -moz-appearance: textfield;
+}
+
+.custom-measurements-wrapper .abaya-measurements input[type="number"]::-webkit-outer-spin-button,
+.custom-measurements-wrapper .abaya-measurements input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.custom-measurements-wrapper .abaya-measurements input[type="number"]:focus {
+  outline: none;
+  border-color: var(--color-primary, #333);
+  box-shadow: 0 0 0 3px rgba(0,0,0,0.08);
+}
+
+.custom-measurements-wrapper .abaya-measurements input[type="number"].input-error {
+  border-color: #d32f2f;
+  background: #fff5f5;
+}
+
+.custom-measurements-wrapper .abaya-measurements input[type="number"].input-error:focus {
+  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.15);
+}
+
+/* Error Message */
+.custom-measurements-wrapper .measurements-error {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
+  padding: 12px 15px;
+  background: #fff5f5;
+  border: 1px solid #ffcdd2;
+  border-radius: 8px;
+  color: #c62828;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.custom-measurements-wrapper .measurements-error.show {
+  display: flex;
+}
+
+.custom-measurements-wrapper .measurements-error svg {
+  flex-shrink: 0;
+}
+
+/* Button State - when measurements required but not filled */
+.product-form__submit.measurements-required,
+.product_submit_button.measurements-required {
+  position: relative;
+}
+
+.product-form__submit.measurements-required::after,
+.product_submit_button.measurements-required::after {
+  content: '↑ Fill measurements first';
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 11px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.2s ease;
+  pointer-events: none;
+}
+
+.product-form__submit.measurements-required:hover::after,
+.product_submit_button.measurements-required:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Range hint text */
+.custom-measurements-wrapper .input-hint {
+  display: block;
+  font-size: 11px;
+  color: #888;
+  margin-top: 4px;
+  text-align: center;
+}
+
+/* Mobile Responsive */
+@media (max-width: 767px) {
+  .custom-measurements-wrapper {
+    padding: 15px;
+    margin: 15px 0;
+  }
+  
+  .custom-measurements-wrapper .abaya-measurements td {
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+  
+  .custom-measurements-wrapper .abaya-measurements td:first-child {
+    padding-left: 15px;
+  }
+  
+  .custom-measurements-wrapper .abaya-measurements input[type="number"] {
+    max-width: 90px;
+    padding: 8px 10px;
+    font-size: 13px;
+  }
+  
+  .custom-measurements-wrapper .measurements-title {
+    font-size: 14px;
+  }
+}
+
