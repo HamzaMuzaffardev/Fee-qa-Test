@@ -23,13 +23,17 @@ class CustomMeasurementsValidator {
 
     this.measurementsWrapper = measurementsForm;
     this.requiredInputs = measurementsForm.querySelectorAll('input[required]');
-    this.productForm = document.querySelector('product-form form, .feature-product-form');
+    this.allInputs = measurementsForm.querySelectorAll('input[type="number"]');
+    this.productForm = document.querySelector('product-form form[data-type="add-to-cart-form"], form.feature-product-form');
     this.submitButton = document.querySelector('.product-form__submit, .product_submit_button');
     this.errorMessage = measurementsForm.querySelector('.measurements-error');
     
-    if (!this.productForm || !this.submitButton) return;
+    if (!this.submitButton) return;
 
-    // Initially disable the add to cart button
+    // Move inputs inside the form so they get submitted
+    this.moveInputsToForm();
+
+    // Initially check the button state
     this.updateButtonState();
     
     // Listen for input changes
@@ -40,10 +44,45 @@ class CustomMeasurementsValidator {
     });
 
     // Intercept form submission
-    this.productForm.addEventListener('submit', (e) => this.handleSubmit(e), true);
+    if (this.productForm) {
+      this.productForm.addEventListener('submit', (e) => this.handleSubmit(e), true);
+    }
     
     // Also intercept the submit button click
     this.submitButton.addEventListener('click', (e) => this.handleButtonClick(e), true);
+  }
+
+  moveInputsToForm() {
+    // If we found the product form, we need to ensure inputs are inside it
+    // We'll create hidden inputs inside the form that mirror the visible ones
+    if (!this.productForm) return;
+
+    this.allInputs.forEach(input => {
+      const inputName = input.name;
+      
+      // Check if a hidden input already exists in the form
+      let hiddenInput = this.productForm.querySelector(`input[name="${inputName}"][type="hidden"]`);
+      
+      if (!hiddenInput) {
+        // Create a hidden input inside the form
+        hiddenInput = document.createElement('input');
+        hiddenInput.type = 'hidden';
+        hiddenInput.name = inputName;
+        hiddenInput.className = 'measurement-hidden-input';
+        this.productForm.appendChild(hiddenInput);
+      }
+      
+      // Sync the visible input with the hidden input
+      const syncValue = () => {
+        hiddenInput.value = input.value;
+      };
+      
+      input.addEventListener('input', syncValue);
+      input.addEventListener('change', syncValue);
+      
+      // Initial sync
+      syncValue();
+    });
   }
 
   validateSingleInput(input) {
@@ -52,13 +91,13 @@ class CustomMeasurementsValidator {
     const max = parseFloat(input.max);
     const row = input.closest('tr');
     
-    if (input.required && (!input.value || isNaN(value))) {
+    if (input.required && (!input.value || input.value.trim() === '' || isNaN(value))) {
       input.classList.add('input-error');
       row?.classList.add('row-error');
       return false;
     }
     
-    if (input.value && (value < min || value > max)) {
+    if (input.value && input.value.trim() !== '' && (value < min || value > max)) {
       input.classList.add('input-error');
       row?.classList.add('row-error');
       return false;
@@ -78,9 +117,9 @@ class CustomMeasurementsValidator {
       const min = parseFloat(input.min);
       const max = parseFloat(input.max);
       const row = input.closest('tr');
-      const label = row?.querySelector('td:first-child')?.textContent?.trim() || 'Field';
+      const label = row?.querySelector('td:first-child')?.textContent?.replace('*', '').trim() || 'Field';
       
-      if (!input.value || isNaN(value)) {
+      if (!input.value || input.value.trim() === '' || isNaN(value)) {
         isValid = false;
         input.classList.add('input-error');
         row?.classList.add('row-error');
@@ -112,7 +151,7 @@ class CustomMeasurementsValidator {
 
   showError(message) {
     if (this.errorMessage) {
-      this.errorMessage.textContent = message;
+      this.errorMessage.querySelector('span').textContent = message;
       this.errorMessage.classList.add('show');
     }
     
@@ -156,6 +195,9 @@ class CustomMeasurementsValidator {
       this.showError(message);
       return false;
     }
+    
+    // Sync all values one more time before submission
+    this.syncAllValues();
   }
 
   handleSubmit(e) {
@@ -173,6 +215,22 @@ class CustomMeasurementsValidator {
       this.showError(message);
       return false;
     }
+    
+    // Sync all values one more time before submission
+    this.syncAllValues();
+  }
+
+  syncAllValues() {
+    // Sync all visible input values to their hidden counterparts
+    if (!this.productForm) return;
+    
+    this.allInputs.forEach(input => {
+      const inputName = input.name;
+      const hiddenInput = this.productForm.querySelector(`input[name="${inputName}"][type="hidden"]`);
+      if (hiddenInput) {
+        hiddenInput.value = input.value;
+      }
+    });
   }
 }
 
@@ -183,4 +241,3 @@ new CustomMeasurementsValidator();
 document.addEventListener('shopify:section:load', () => {
   new CustomMeasurementsValidator();
 });
-
