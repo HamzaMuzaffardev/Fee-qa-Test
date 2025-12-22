@@ -13,22 +13,46 @@ class CustomMeasurementsValidator {
     if (document.readyState === 'loading') {
       document.addEventListener('DOMContentLoaded', () => this.setup());
     } else {
-      this.setup();
+      // Small delay to ensure all elements are rendered
+      setTimeout(() => this.setup(), 100);
     }
   }
 
   setup() {
     const measurementsForm = document.querySelector('.custom-measurements-wrapper');
-    if (!measurementsForm) return;
+    if (!measurementsForm) {
+      console.log('Custom measurements: No measurement form found');
+      return;
+    }
 
     this.measurementsWrapper = measurementsForm;
     this.requiredInputs = measurementsForm.querySelectorAll('input[required]');
     this.allInputs = measurementsForm.querySelectorAll('input[type="number"]');
-    this.productForm = document.querySelector('product-form form[data-type="add-to-cart-form"], form.feature-product-form');
-    this.submitButton = document.querySelector('.product-form__submit, .product_submit_button');
+    
+    // Try multiple selectors to find the product form
+    this.productForm = document.querySelector('product-form form') || 
+                       document.querySelector('form[data-type="add-to-cart-form"]') ||
+                       document.querySelector('form.feature-product-form') ||
+                       document.querySelector('.product__submit-form form');
+    
+    this.submitButton = document.querySelector('.product-form__submit') || 
+                        document.querySelector('.product_submit_button') ||
+                        document.querySelector('button[name="add"]');
+    
     this.errorMessage = measurementsForm.querySelector('.measurements-error');
     
-    if (!this.submitButton) return;
+    console.log('Custom measurements initialized:', {
+      wrapper: !!this.measurementsWrapper,
+      requiredInputs: this.requiredInputs.length,
+      allInputs: this.allInputs.length,
+      productForm: !!this.productForm,
+      submitButton: !!this.submitButton
+    });
+
+    if (!this.submitButton) {
+      console.log('Custom measurements: No submit button found');
+      return;
+    }
 
     // Move inputs inside the form so they get submitted
     this.moveInputsToForm();
@@ -36,10 +60,16 @@ class CustomMeasurementsValidator {
     // Initially check the button state
     this.updateButtonState();
     
-    // Listen for input changes
-    this.requiredInputs.forEach(input => {
-      input.addEventListener('input', () => this.updateButtonState());
-      input.addEventListener('change', () => this.updateButtonState());
+    // Listen for input changes on ALL inputs (not just required)
+    this.allInputs.forEach(input => {
+      input.addEventListener('input', () => {
+        this.updateButtonState();
+        this.syncSingleValue(input);
+      });
+      input.addEventListener('change', () => {
+        this.updateButtonState();
+        this.syncSingleValue(input);
+      });
       input.addEventListener('blur', () => this.validateSingleInput(input));
     });
 
@@ -53,15 +83,18 @@ class CustomMeasurementsValidator {
   }
 
   moveInputsToForm() {
-    // If we found the product form, we need to ensure inputs are inside it
-    // We'll create hidden inputs inside the form that mirror the visible ones
-    if (!this.productForm) return;
+    if (!this.productForm) {
+      console.log('Custom measurements: Cannot move inputs - no form found');
+      return;
+    }
+
+    console.log('Custom measurements: Moving inputs to form');
 
     this.allInputs.forEach(input => {
       const inputName = input.name;
       
       // Check if a hidden input already exists in the form
-      let hiddenInput = this.productForm.querySelector(`input[name="${inputName}"][type="hidden"]`);
+      let hiddenInput = this.productForm.querySelector(`input.measurement-hidden-input[data-measurement-name="${inputName}"]`);
       
       if (!hiddenInput) {
         // Create a hidden input inside the form
@@ -69,20 +102,23 @@ class CustomMeasurementsValidator {
         hiddenInput.type = 'hidden';
         hiddenInput.name = inputName;
         hiddenInput.className = 'measurement-hidden-input';
+        hiddenInput.setAttribute('data-measurement-name', inputName);
         this.productForm.appendChild(hiddenInput);
+        console.log('Custom measurements: Created hidden input for', inputName);
       }
       
-      // Sync the visible input with the hidden input
-      const syncValue = () => {
-        hiddenInput.value = input.value;
-      };
-      
-      input.addEventListener('input', syncValue);
-      input.addEventListener('change', syncValue);
+      // Store reference to hidden input on the visible input
+      input._hiddenInput = hiddenInput;
       
       // Initial sync
-      syncValue();
+      hiddenInput.value = input.value;
     });
+  }
+
+  syncSingleValue(input) {
+    if (input._hiddenInput) {
+      input._hiddenInput.value = input.value;
+    }
   }
 
   validateSingleInput(input) {
@@ -91,13 +127,22 @@ class CustomMeasurementsValidator {
     const max = parseFloat(input.max);
     const row = input.closest('tr');
     
-    if (input.required && (!input.value || input.value.trim() === '' || isNaN(value))) {
+    // Check if empty and required
+    if (input.required && (!input.value || input.value.trim() === '')) {
       input.classList.add('input-error');
       row?.classList.add('row-error');
       return false;
     }
     
-    if (input.value && input.value.trim() !== '' && (value < min || value > max)) {
+    // Check if value is a valid number
+    if (input.value && input.value.trim() !== '' && isNaN(value)) {
+      input.classList.add('input-error');
+      row?.classList.add('row-error');
+      return false;
+    }
+    
+    // Check if value is within range
+    if (input.value && input.value.trim() !== '' && !isNaN(value) && (value < min || value > max)) {
       input.classList.add('input-error');
       row?.classList.add('row-error');
       return false;
@@ -113,28 +158,45 @@ class CustomMeasurementsValidator {
     const missingFields = [];
     
     this.requiredInputs.forEach(input => {
-      const value = parseFloat(input.value);
+      const rawValue = input.value;
+      const value = parseFloat(rawValue);
       const min = parseFloat(input.min);
       const max = parseFloat(input.max);
       const row = input.closest('tr');
       const label = row?.querySelector('td:first-child')?.textContent?.replace('*', '').trim() || 'Field';
       
-      if (!input.value || input.value.trim() === '' || isNaN(value)) {
+      // Check if empty
+      if (!rawValue || rawValue.trim() === '') {
         isValid = false;
         input.classList.add('input-error');
         row?.classList.add('row-error');
         missingFields.push(label);
-      } else if (value < min || value > max) {
+        return;
+      }
+      
+      // Check if not a valid number
+      if (isNaN(value)) {
         isValid = false;
         input.classList.add('input-error');
         row?.classList.add('row-error');
-        missingFields.push(`${label} (must be ${min}-${max})`);
-      } else {
-        input.classList.remove('input-error');
-        row?.classList.remove('row-error');
+        missingFields.push(`${label} (enter a number)`);
+        return;
       }
+      
+      // Check range
+      if (value < min || value > max) {
+        isValid = false;
+        input.classList.add('input-error');
+        row?.classList.add('row-error');
+        missingFields.push(`${label} (${min}-${max})`);
+        return;
+      }
+      
+      input.classList.remove('input-error');
+      row?.classList.remove('row-error');
     });
 
+    console.log('Custom measurements validation:', { isValid, missingFields });
     return { isValid, missingFields };
   }
 
@@ -151,7 +213,8 @@ class CustomMeasurementsValidator {
 
   showError(message) {
     if (this.errorMessage) {
-      this.errorMessage.querySelector('span').textContent = message;
+      const span = this.errorMessage.querySelector('span');
+      if (span) span.textContent = message;
       this.errorMessage.classList.add('show');
     }
     
@@ -181,7 +244,12 @@ class CustomMeasurementsValidator {
   }
 
   handleButtonClick(e) {
+    // Sync all values first
+    this.syncAllValues();
+    
     const { isValid, missingFields } = this.validateAll();
+    
+    console.log('Custom measurements: Button clicked, valid:', isValid);
     
     if (!isValid) {
       e.preventDefault();
@@ -195,13 +263,15 @@ class CustomMeasurementsValidator {
       this.showError(message);
       return false;
     }
-    
-    // Sync all values one more time before submission
-    this.syncAllValues();
   }
 
   handleSubmit(e) {
+    // Sync all values first
+    this.syncAllValues();
+    
     const { isValid, missingFields } = this.validateAll();
+    
+    console.log('Custom measurements: Form submitted, valid:', isValid);
     
     if (!isValid) {
       e.preventDefault();
@@ -215,20 +285,14 @@ class CustomMeasurementsValidator {
       this.showError(message);
       return false;
     }
-    
-    // Sync all values one more time before submission
-    this.syncAllValues();
   }
 
   syncAllValues() {
     // Sync all visible input values to their hidden counterparts
-    if (!this.productForm) return;
-    
     this.allInputs.forEach(input => {
-      const inputName = input.name;
-      const hiddenInput = this.productForm.querySelector(`input[name="${inputName}"][type="hidden"]`);
-      if (hiddenInput) {
-        hiddenInput.value = input.value;
+      if (input._hiddenInput) {
+        input._hiddenInput.value = input.value;
+        console.log('Custom measurements: Synced', input.name, '=', input.value);
       }
     });
   }
