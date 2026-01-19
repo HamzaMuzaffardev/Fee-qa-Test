@@ -9270,6 +9270,39 @@ gsap.utils.toArray(".animation-svg-main svg path").forEach(path => {
   );
 });
 
+(function () {
+
+  const updateCustomMeasurements = () => {
+    const customRadio = document.querySelector('input[value="Custom"]:checked');
+    const wrapper = document.querySelector('.custom-measurements-wrapper');
+
+    if (!wrapper) return;
+
+    wrapper.style.display = customRadio ? 'block' : 'none';
+  };
+
+  // ✅ EVENT DELEGATION
+  document.addEventListener('change', function (event) {
+    if (
+      event.target.matches('input[type="radio"]') &&
+      event.target.name &&
+      (event.target.name.includes('Size') || event.target.name.includes('option'))
+    ) {
+      updateCustomMeasurements();
+    }
+  });
+
+  // ✅ DELAYED INIT
+  const init = () => {
+    updateCustomMeasurements();
+  };
+
+  window.addEventListener('load', init);
+
+  // Shopify theme editor support
+  document.addEventListener('shopify:section:load', init);
+
+})();
 
 
 
