@@ -9270,27 +9270,4 @@ gsap.utils.toArray(".animation-svg-main svg path").forEach(path => {
   );
 });
 
-// Function to check visibility
-const updateCustomMeasurements = () => {
-  const customRadio = document.querySelector('input[value="Custom"]'); // Safer than ID
-  const measurementWrapper = document.querySelector('.custom-measurements-wrapper');
-
-  if (customRadio && measurementWrapper) {
-    measurementWrapper.style.display = customRadio.checked ? 'block' : 'none';
-  }
-};
-
-// 1. Listen for ANY change on the page
-document.addEventListener('change', (event) => {
-  // Only trigger if the user clicked a radio button named 'Size' or 'options[Size]'
-  if (event.target.name && (event.target.name.includes('Size') || event.target.name.includes('option'))) {
-    updateCustomMeasurements();
-  }
-});
-
-// 2. Run on initial page load
-document.addEventListener('DOMContentLoaded', updateCustomMeasurements);
-
-// 3. Special fix for Shopify's dynamic section loading (Theme Editor)
-document.addEventListener('shopify:section:load', updateCustomMeasurements);
 
