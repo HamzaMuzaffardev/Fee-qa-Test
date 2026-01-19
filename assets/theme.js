@@ -9271,28 +9271,3 @@ gsap.utils.toArray(".animation-svg-main svg path").forEach(path => {
 });
 
 
-    const customRadio = document.getElementById('template--20069970641093__main-2-0');
-    const measurementWrapper = document.querySelector('.custom-measurements-wrapper');
-    
-    // 2. Select ALL radio buttons in the size group to detect when user switches AWAY from custom
-    const allSizeRadios = document.querySelectorAll('input[name="Size"]'); // Adjust name if it's different
-
-    if (customRadio && measurementWrapper) {
-        
-        const handleVisibility = () => {
-            if (customRadio.checked) {
-                measurementWrapper.style.display = 'block';
-            } else {
-                measurementWrapper.style.display = 'none';
-            }
-        };
-
-        // Run on page load (in case 'Custom' is selected by default)
-        handleVisibility();
-
-        // Listen for changes on all radios in the group
-        // This ensures the section hides when 'L', 'M', etc., are clicked
-        allSizeRadios.forEach(radio => {
-            radio.addEventListener('change', handleVisibility);
-        });
-    }
