@@ -9271,38 +9271,31 @@ gsap.utils.toArray(".animation-svg-main svg path").forEach(path => {
 });
 
 
-
 document.addEventListener('DOMContentLoaded', function() {
-    const customLabel = document.querySelector('label[for="template--20069970641093__main-2-0"]');
+    // 1. Select the specific radio input and the wrapper
+    const customRadio = document.getElementById('template--20069970641093__main-2-0');
     const measurementWrapper = document.querySelector('.custom-measurements-wrapper');
+    
+    // 2. Select ALL radio buttons in the size group to detect when user switches AWAY from custom
+    const allSizeRadios = document.querySelectorAll('input[name="Size"]'); // Adjust name if it's different
 
-    if (customLabel && measurementWrapper) {
-        // Function to check if the Custom button is "active"
-        const toggleMeasurementSection = () => {
-            const styles = window.getComputedStyle(customLabel);
-            // Check if the background color is the 'dark' variable or not transparent/white
-            // Themes usually change the background color of the active variant label
-            const isActive = styles.backgroundColor !== 'rgba(17, 17, 17,)' && 
-                             styles.backgroundColor !== 'rgb(255, 255, 255)';
-
-            if (isActive) {
+    if (customRadio && measurementWrapper) {
+        
+        const handleVisibility = () => {
+            if (customRadio.checked) {
                 measurementWrapper.style.display = 'block';
             } else {
                 measurementWrapper.style.display = 'none';
             }
         };
 
-        // 1. Run on page load
-        toggleMeasurementSection();
+        // Run on page load (in case 'Custom' is selected by default)
+        handleVisibility();
 
-        // 2. Watch for changes (when user clicks different sizes)
-        const observer = new MutationObserver((mutations) => {
-            mutations.forEach(() => toggleMeasurementSection());
-        });
-
-        observer.observe(customLabel, { 
-            attributes: true, 
-            attributeFilter: ['class', 'style'] 
+        // Listen for changes on all radios in the group
+        // This ensures the section hides when 'L', 'M', etc., are clicked
+        allSizeRadios.forEach(radio => {
+            radio.addEventListener('change', handleVisibility);
         });
     }
 });
