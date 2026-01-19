@@ -9271,4 +9271,38 @@ gsap.utils.toArray(".animation-svg-main svg path").forEach(path => {
 });
 
 
-// 
+
+document.addEventListener('DOMContentLoaded', function() {
+    const customLabel = document.querySelector('label[for="template--20069970641093__main-2-0"]');
+    const measurementWrapper = document.querySelector('.custom-measurements-wrapper');
+
+    if (customLabel && measurementWrapper) {
+        // Function to check if the Custom button is "active"
+        const toggleMeasurementSection = () => {
+            const styles = window.getComputedStyle(customLabel);
+            // Check if the background color is the 'dark' variable or not transparent/white
+            // Themes usually change the background color of the active variant label
+            const isActive = styles.backgroundColor !== 'rgba(0, 0, 0, 0)' && 
+                             styles.backgroundColor !== 'rgb(255, 255, 255)';
+
+            if (isActive) {
+                measurementWrapper.style.display = 'block';
+            } else {
+                measurementWrapper.style.display = 'none';
+            }
+        };
+
+        // 1. Run on page load
+        toggleMeasurementSection();
+
+        // 2. Watch for changes (when user clicks different sizes)
+        const observer = new MutationObserver((mutations) => {
+            mutations.forEach(() => toggleMeasurementSection());
+        });
+
+        observer.observe(customLabel, { 
+            attributes: true, 
+            attributeFilter: ['class', 'style'] 
+        });
+    }
+});
