@@ -9270,40 +9270,6 @@ gsap.utils.toArray(".animation-svg-main svg path").forEach(path => {
   );
 });
 
-if (document.body.classList.contains('template-product')) {
-  (function () {
-  const updateCustomMeasurements = () => {
-    const customRadio = document.querySelector('input[value="Custom"]:checked');
-    const measurementWrapper = document.querySelector('.custom-measurements-wrapper');
 
-    if (!measurementWrapper) return;
-
-    measurementWrapper.style.display = customRadio ? 'block' : 'none';
-  };
-
-  // Listen for radio changes (delegated)
-  document.addEventListener('change', function (event) {
-    if (
-      event.target.matches('input[type="radio"]') &&
-      event.target.name &&
-      (event.target.name.includes('Size') || event.target.name.includes('option'))
-    ) {
-      updateCustomMeasurements();
-    }
-  });
-
-  // Delay init (important)
-  const init = () => {
-    updateCustomMeasurements();
-  };
-
-  // Run on load
-  window.addEventListener('load', init);
-
-  // Shopify Theme Editor support
-  document.addEventListener('shopify:section:load', init);
-})();
-
-}
 
 
