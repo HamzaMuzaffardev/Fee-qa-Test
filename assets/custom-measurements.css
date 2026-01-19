@@ -239,6 +239,14 @@
   margin-top: 4px;
   text-align: center;
 }
+/* new */
+input.input-error {
+    max-width: 100% !important;
+}
+
+.custom-measurements-wrapper .abaya-measurements thead th {
+    text-align: center;
+}
 
 /* Mobile Responsive */
 @media (max-width: 767px) {
@@ -266,4 +274,5 @@
     font-size: 14px;
   }
 }
+
 
