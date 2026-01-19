@@ -9273,38 +9273,3 @@ gsap.utils.toArray(".animation-svg-main svg path").forEach(path => {
 
 
 
-(function() {
-  const wrapper = document.querySelector('.custom-measurements-wrapper');
-  if (!wrapper) return;
-
-  const customLabel = document.querySelector('label[for="template--20069970641093__main-2-0"]');
-  if (!customLabel) return;
-
-  const updateWrapper = () => {
-    // Check if Shopify marks the label as selected
-    const isActive = customLabel.getAttribute('aria-checked') === 'true' || customLabel.classList.contains('is-selected');
-    wrapper.style.display = isActive ? 'block' : 'none';
-  };
-
-  // Run on initial load
-  window.addEventListener('load', updateWrapper);
-
-  // Shopify section reload
-  document.addEventListener('shopify:section:load', updateWrapper);
-
-  // Listen for clicks anywhere (event delegation)
-  document.addEventListener('click', function(event) {
-    const label = event.target.closest('label');
-    if (!label) return;
-
-    // If it’s the label we care about OR any sibling option label
-    if (label === customLabel || label.closest('fieldset')) {
-      // Wait a tiny bit for Shopify JS to apply changes
-      setTimeout(updateWrapper, 50);
-    }
-  });
-
-  // Optional: Observe mutations on the label itself
-  const observer = new MutationObserver(updateWrapper);
-  observer.observe(customLabel, { attributes: true, attributeFilter: ['aria-checked', 'class'] });
-})();
