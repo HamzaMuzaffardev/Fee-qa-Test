@@ -9272,7 +9272,6 @@ gsap.utils.toArray(".animation-svg-main svg path").forEach(path => {
 
 
 // 
-document.addEventListener("DOMContentLoaded", function () {
   const label = document.querySelector('label[for="template--20069970641093__main-2-0"]');
   const targetSection = document.querySelector('.custom-measurements-wrapper');
 
@@ -9298,4 +9297,3 @@ document.addEventListener("DOMContentLoaded", function () {
   // Optional: observe style/class changes (useful if color changes dynamically)
   const observer = new MutationObserver(toggleSection);
   observer.observe(label, { attributes: true, attributeFilter: ["class", "style"] });
-});
