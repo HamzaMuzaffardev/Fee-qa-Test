@@ -2009,3 +2009,23 @@ h2.mt-0.sec__content-heading.heading-letter-spacing.mb-custom.fs-medium.heading_
 .custom-measurements-wrapper{
   display: none;
 }
+input[type="radio"][name="Size"][value="Custom"]:checked
+  ~ .custom-measurements-wrapper {
+  display: block;
+}
+.product-form input[type="radio"][name="Size"][value="Custom"]:checked
+  ~ .custom-measurements-wrapper {
+  display: block;
+}
+.custom-measurements-wrapper {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+input[type="radio"][name="Size"][value="Custom"]:checked
+  ~ .custom-measurements-wrapper {
+  max-height: 2000px;
+  opacity: 1;
+}
