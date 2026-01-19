@@ -92,6 +92,20 @@ class CustomMeasurementsValidator {
   }
 
   checkFields() {
+    // If the measurements UI is hidden, do not block add-to-cart.
+    if (
+      !this.measurementsWrapper ||
+      this.measurementsWrapper.style.display === 'none' ||
+      this.measurementsWrapper.hasAttribute('hidden')
+    ) {
+      this.hideError();
+      this.submitButton?.classList.remove('measurements-required');
+      return { valid: true, emptyCount: 0 };
+    }
+
+    // Re-query required inputs in case required attributes were toggled.
+    this.requiredInputs = this.measurementsWrapper.querySelectorAll('input[required]');
+
     let allFilled = true;
     let emptyCount = 0;
 
@@ -157,9 +171,89 @@ class CustomMeasurementsValidator {
   }
 }
 
-// Start
-new CustomMeasurementsValidator();
+/**
+ * Custom Measurements - Visibility Toggle
+ * Shows measurement table only when "Custom" size is selected.
+ *
+ * IMPORTANT:
+ * - Do NOT depend on hard-coded Shopify section element IDs (they change).
+ * - Use event delegation so it keeps working after Shopify re-renders variant pickers.
+ */
+function initCustomMeasurementsToggle() {
+  const wrapper = document.querySelector('.custom-measurements-wrapper');
+  if (!wrapper) return;
 
-document.addEventListener('shopify:section:load', () => {
+  // Scope to the current product section when possible (prevents collisions on pages with multiple products).
+  const scope = wrapper.closest('[id^="MainProduct-"]') || document;
+
+  const getSizeRadios = () =>
+    scope.querySelectorAll('input[type="radio"][name]');
+
+  const isSizeRadio = (el) => {
+    if (!el || el.type !== 'radio') return false;
+    const name = (el.getAttribute('name') || '').trim();
+    return /size/i.test(name);
+  };
+
+  const isCustomSelected = () => {
+    // Look for the checked radio among "Size" option radios
+    const radios = Array.from(getSizeRadios()).filter(isSizeRadio);
+    const checked = radios.find((r) => r.checked);
+    const value = (checked?.value || '').trim();
+    return /custom/i.test(value);
+  };
+
+  const setRequiredEnabled = (enabled) => {
+    const requiredInputs = wrapper.querySelectorAll('input[type="text"]');
+    requiredInputs.forEach((input) => {
+      const wasRequired = input.hasAttribute('required') || input.dataset.wasRequired === 'true';
+
+      if (enabled) {
+        if (input.dataset.wasRequired === 'true') input.setAttribute('required', '');
+      } else {
+        // Preserve which inputs were required originally so we can restore.
+        if (input.hasAttribute('required')) input.dataset.wasRequired = 'true';
+        else if (!input.dataset.wasRequired) input.dataset.wasRequired = wasRequired ? 'true' : 'false';
+        input.removeAttribute('required');
+        input.classList.remove('input-error');
+      }
+    });
+
+    const error = wrapper.querySelector('.measurements-error');
+    error?.classList.remove('show');
+  };
+
+  const applyVisibility = () => {
+    const show = isCustomSelected();
+    wrapper.style.display = show ? 'block' : 'none';
+    setRequiredEnabled(show);
+  };
+
+  // Avoid attaching multiple listeners on repeated init (section load, etc.)
+  if (!document.documentElement.dataset.customMeasurementsToggleBound) {
+    document.addEventListener('change', (e) => {
+      const target = e.target;
+      if (isSizeRadio(target)) applyVisibility();
+    });
+    document.documentElement.dataset.customMeasurementsToggleBound = 'true';
+  }
+
+  applyVisibility();
+}
+
+// Start (validator + toggle)
+function initCustomMeasurements() {
   new CustomMeasurementsValidator();
+  initCustomMeasurementsToggle();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initCustomMeasurements);
+} else {
+  setTimeout(initCustomMeasurements, 0);
+}
+
+// Re-init when Shopify dynamically reloads sections (theme editor / OS2).
+document.addEventListener('shopify:section:load', () => {
+  initCustomMeasurements();
 });
