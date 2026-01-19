@@ -9282,7 +9282,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const styles = window.getComputedStyle(customLabel);
             // Check if the background color is the 'dark' variable or not transparent/white
             // Themes usually change the background color of the active variant label
-            const isActive = styles.backgroundColor !== 'rgba(0, 0, 0, 0)' && 
+            const isActive = styles.backgroundColor !== 'rgba(17, 17, 17,)' && 
                              styles.backgroundColor !== 'rgb(255, 255, 255)';
 
             if (isActive) {
