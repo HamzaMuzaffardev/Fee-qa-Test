@@ -9271,8 +9271,6 @@ gsap.utils.toArray(".animation-svg-main svg path").forEach(path => {
 });
 
 
-document.addEventListener('DOMContentLoaded', function() {
-    // 1. Select the specific radio input and the wrapper
     const customRadio = document.getElementById('template--20069970641093__main-2-0');
     const measurementWrapper = document.querySelector('.custom-measurements-wrapper');
     
@@ -9298,4 +9296,3 @@ document.addEventListener('DOMContentLoaded', function() {
             radio.addEventListener('change', handleVisibility);
         });
     }
-});
