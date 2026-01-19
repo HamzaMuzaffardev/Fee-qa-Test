@@ -240,12 +240,20 @@
   text-align: center;
 }
 /* new */
-input.input-error {
+input.input-error, .custom-measurements-wrapper .abaya-measurements input[type=text] {
     max-width: 100% !important;
 }
 
 .custom-measurements-wrapper .abaya-measurements thead th {
     text-align: center;
+}
+
+.custom-measurements-wrapper .abaya-measurements td {
+    text-align: center;
+}
+
+td:before {
+    display: none;
 }
 
 /* Mobile Responsive */
