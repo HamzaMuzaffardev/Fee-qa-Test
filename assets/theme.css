@@ -2013,7 +2013,7 @@ input[type="radio"][name="Size"][value="Custom"]:checked
   ~ .custom-measurements-wrapper {
   display: block;
 }
-.product-form input[type="radio"][name="Size"][value="Custom"]:checked
+input[type="radio"][name="Size"][value="Custom"]:checked
   ~ .custom-measurements-wrapper {
   display: block;
 }
