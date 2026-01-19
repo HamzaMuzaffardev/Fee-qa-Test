@@ -57,3 +57,37 @@ window.ProductModel = {
 window.addEventListener('DOMContentLoaded', () => {
   if (window.ProductModel) window.ProductModel.loadShopifyXR();
 });
+
+
+// 
+const initCustomMeasurementToggle = () => {
+    const customRadio = document.getElementById('template--20069970641093__main-2-0');
+    const measurementWrapper = document.querySelector('.custom-measurements-wrapper');
+    // Using a more generic selector for Shopify size radios
+    const allSizeRadios = document.querySelectorAll('input[name="options[Size]"], input[name="Size"]');
+
+    if (customRadio && measurementWrapper) {
+        const handleVisibility = () => {
+            measurementWrapper.style.display = customRadio.checked ? 'block' : 'none';
+        };
+
+        // Attach listeners
+        allSizeRadios.forEach(radio => {
+            radio.addEventListener('change', handleVisibility);
+        });
+
+        // Run immediately
+        handleVisibility();
+    }
+};
+
+// This handles the timing issue
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCustomMeasurementToggle);
+} else {
+    // If the page is already "ready" (common in fast themes), run it now
+    initCustomMeasurementToggle();
+}
+
+// Optional: Re-run if your theme uses dynamic section loading (like Dawn/Online Store 2.0)
+document.addEventListener('shopify:section:load', initCustomMeasurementToggle);
