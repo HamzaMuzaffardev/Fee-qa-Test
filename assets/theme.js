@@ -9276,6 +9276,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const label = document.querySelector('label[for="template--20069970641093__main-2-0"]');
   const targetSection = document.querySelector('.custom-measurements-wrapper');
 
+  console.log(label);
+  console.log(targetSection);
+
   if (!label || !targetSection) return;
 
   function toggleSection() {
