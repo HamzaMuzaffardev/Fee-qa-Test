@@ -9277,31 +9277,34 @@ gsap.utils.toArray(".animation-svg-main svg path").forEach(path => {
   const wrapper = document.querySelector('.custom-measurements-wrapper');
   if (!wrapper) return;
 
-  const updateWrapper = () => {
-    // Find the "Custom" radio input
-    const customRadio = document.querySelector('input[value="Custom"]');
-    if (!customRadio) return;
+  const customLabel = document.querySelector('label[for="template--20069970641093__main-2-0"]');
+  if (!customLabel) return;
 
-    wrapper.style.display = customRadio.checked ? 'block' : 'none';
+  const updateWrapper = () => {
+    // Check if Shopify marks the label as selected
+    const isActive = customLabel.getAttribute('aria-checked') === 'true' || customLabel.classList.contains('is-selected');
+    wrapper.style.display = isActive ? 'block' : 'none';
   };
 
-  // 1️⃣ Run initially (delayed for Shopify dynamic sections)
-  setTimeout(updateWrapper, 2000); // 500ms delay to ensure Shopify loaded
+  // Run on initial load
+  window.addEventListener('load', updateWrapper);
 
-  // 2️⃣ Listen to changes on the whole form (event delegation)
-  document.addEventListener('change', function(event) {
-    if (event.target.matches('input[type="radio"]')) {
-      updateWrapper();
+  // Shopify section reload
+  document.addEventListener('shopify:section:load', updateWrapper);
+
+  // Listen for clicks anywhere (event delegation)
+  document.addEventListener('click', function(event) {
+    const label = event.target.closest('label');
+    if (!label) return;
+
+    // If it’s the label we care about OR any sibling option label
+    if (label === customLabel || label.closest('fieldset')) {
+      // Wait a tiny bit for Shopify JS to apply changes
+      setTimeout(updateWrapper, 50);
     }
   });
 
-  // 3️⃣ MutationObserver for Shopify dynamic variant updates
-  const form = document.querySelector('form.product-form');
-  if (form) {
-    const observer = new MutationObserver(() => updateWrapper());
-    observer.observe(form, { attributes: true, childList: true, subtree: true });
-  }
-
-  // 4️⃣ Shopify theme editor support
-  document.addEventListener('shopify:section:load', updateWrapper);
+  // Optional: Observe mutations on the label itself
+  const observer = new MutationObserver(updateWrapper);
+  observer.observe(customLabel, { attributes: true, attributeFilter: ['aria-checked', 'class'] });
 })();
