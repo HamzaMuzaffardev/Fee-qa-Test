@@ -9272,37 +9272,3 @@ gsap.utils.toArray(".animation-svg-main svg path").forEach(path => {
 
 
 
-window.addEventListener('load', function() {
-    const measurementWrapper = document.querySelector('.custom-measurements-wrapper');
-
-    const handleVisibility = () => {
-        // We re-query the radio inside the function to ensure we have the latest element
-        const customRadio = document.getElementById('template--20069970641093__main-2-0') || 
-                           document.querySelector('input[value="Custom"]');
-        
-        if (customRadio && measurementWrapper) {
-            if (customRadio.checked) {
-                measurementWrapper.style.setProperty('display', 'block', 'important');
-            } else {
-                measurementWrapper.style.setProperty('display', 'none', 'important');
-            }
-        }
-    };
-
-    // 1. Initial run on page load
-    // We add a small delay even on load to wait for theme-specific 'selected' logic
-    setTimeout(handleVisibility, 300);
-
-    // 2. Global listener for changes
-    document.addEventListener('change', function(event) {
-        // Check if the clicked item is a size option
-        if (event.target.name && (event.target.name.includes('Size') || event.target.name.includes('option'))) {
-            
-            // 3. Add the delay here (200ms)
-            // This gives the theme time to finish updating the 'checked' attribute
-            setTimeout(() => {
-                handleVisibility();
-            }, 200);
-        }
-    });
-});
