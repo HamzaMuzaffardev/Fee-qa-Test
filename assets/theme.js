@@ -9270,41 +9270,37 @@ gsap.utils.toArray(".animation-svg-main svg path").forEach(path => {
   );
 });
 
-(function () {
+(function() {
+  const wrapper = document.querySelector('.custom-measurements-wrapper');
+  if (!wrapper) return;
 
-  const updateCustomMeasurements = (clickedLabel = null) => {
-    const wrapper = document.querySelector('.custom-measurements-wrapper');
-    if (!wrapper) return;
+  const updateWrapper = () => {
+    // Find the "Custom" radio input
+    const customRadio = document.querySelector('input[value="Custom"]');
+    if (!customRadio) return;
 
-    let isCustomActive = false;
-
-    // If label was clicked
-    if (clickedLabel) {
-      const bg = getComputedStyle(clickedLabel).backgroundColor;
-
-      // var(--color-dark) resolves to rgb(17, 17, 17)
-      if (bg === 'rgb(17, 17, 17)') {
-        isCustomActive = true;
-      }
-    }
-
-    wrapper.style.display = isCustomActive ? 'block' : 'none';
+    wrapper.style.display = customRadio.checked ? 'block' : 'none';
   };
 
-  // ✅ EVENT DELEGATION (LABEL click)
-  document.addEventListener('click', function (event) {
-    const label = event.target.closest('label');
+  // 1️⃣ Run initially (delayed for Shopify dynamic sections)
+  setTimeout(updateWrapper, 500); // 500ms delay to ensure Shopify loaded
 
-    if (
-      label &&
-      label.getAttribute('for') === 'template--20069970641093__main-2-0'
-    ) {
-      setTimeout(() => {
-        updateCustomMeasurements(label);
-      }, 50); // wait for Shopify to apply styles
+  // 2️⃣ Listen to changes on the whole form (event delegation)
+  document.addEventListener('change', function(event) {
+    if (event.target.matches('input[type="radio"]')) {
+      updateWrapper();
     }
   });
 
+  // 3️⃣ MutationObserver for Shopify dynamic variant updates
+  const form = document.querySelector('form.product-form');
+  if (form) {
+    const observer = new MutationObserver(() => updateWrapper());
+    observer.observe(form, { attributes: true, childList: true, subtree: true });
+  }
+
+  // 4️⃣ Shopify theme editor support
+  document.addEventListener('shopify:section:load', updateWrapper);
 })();
 
 
