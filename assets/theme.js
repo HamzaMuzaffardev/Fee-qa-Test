@@ -9272,15 +9272,3 @@ gsap.utils.toArray(".animation-svg-main svg path").forEach(path => {
 
 
 
-
-document.addEventListener('change', function(event) {
-    // Check if the changed element is a radio button in the size group
-    if (event.target.name === 'Size' || event.target.name === 'options[Size]') {
-        const customRadio = document.getElementById('template--20069970641093__main-2-0');
-        const measurementWrapper = document.querySelector('.custom-measurements-wrapper');
-        
-        if (customRadio && measurementWrapper) {
-            measurementWrapper.style.display = customRadio.checked ? 'block' : 'none';
-        }
-    }
-});
