@@ -9272,35 +9272,38 @@ gsap.utils.toArray(".animation-svg-main svg path").forEach(path => {
 
 (function () {
 
-  const updateCustomMeasurements = () => {
-    const customRadio = document.querySelector('input[value="Custom"]:checked');
+  const updateCustomMeasurements = (clickedLabel = null) => {
     const wrapper = document.querySelector('.custom-measurements-wrapper');
-
     if (!wrapper) return;
 
-    wrapper.style.display = customRadio ? 'block' : 'none';
+    let isCustomActive = false;
+
+    // If label was clicked
+    if (clickedLabel) {
+      const bg = getComputedStyle(clickedLabel).backgroundColor;
+
+      // var(--color-dark) resolves to rgb(17, 17, 17)
+      if (bg === 'rgb(17, 17, 17)') {
+        isCustomActive = true;
+      }
+    }
+
+    wrapper.style.display = isCustomActive ? 'block' : 'none';
   };
 
-  // ✅ EVENT DELEGATION
-  document.addEventListener('change', function (event) {
+  // ✅ EVENT DELEGATION (LABEL click)
+  document.addEventListener('click', function (event) {
+    const label = event.target.closest('label');
+
     if (
-      event.target.matches('input[type="radio"]') &&
-      event.target.name &&
-      (event.target.name.includes('Size') || event.target.name.includes('option'))
+      label &&
+      label.getAttribute('for') === 'template--20069970641093__main-2-0'
     ) {
-      updateCustomMeasurements();
+      setTimeout(() => {
+        updateCustomMeasurements(label);
+      }, 50); // wait for Shopify to apply styles
     }
   });
-
-  // ✅ DELAYED INIT
-  const init = () => {
-    updateCustomMeasurements();
-  };
-
-  window.addEventListener('load', init);
-
-  // Shopify theme editor support
-  document.addEventListener('shopify:section:load', init);
 
 })();
 
