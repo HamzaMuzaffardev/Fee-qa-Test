@@ -92,7 +92,6 @@
         },
         "product_addons_YRaprz": {
           "type": "product_addons",
-          "disabled": true,
           "settings": {
             "show_compare_color": false,
             "show_ask_question": false,
