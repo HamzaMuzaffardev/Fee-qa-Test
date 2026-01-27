@@ -28,6 +28,18 @@
       assign enable_rtl = false
     endif
   endif
+
+  comment
+    Hide cart addons when the Fee digital gift card is present in the cart.
+    Uses the product handle from the gift card URL: /products/fee-digital-gift-card
+  endcomment
+  assign hide_cart_addons = false
+  for cart_item in cart.items
+    if cart_item.product.handle == 'fee-digital-gift-card'
+      assign hide_cart_addons = true
+      break
+    endif
+  endfor
 %}
 {% if template != 'cart' and action_after_add_cart != 'go_to_cart_page' %}
   <cart-notification id="minicart_wrapper" class="minicart {{ action_after_add_cart }} bls-image-js">
@@ -278,7 +290,7 @@
         </div>
         {% if cart.items.size > 0 %}
           <div class="cart-footer{% if action_after_add_cart == 'show_popup' %} mt-30{% endif %}">
-            {% if action_after_add_cart == 'open_drawer' %}
+            {% if action_after_add_cart == 'open_drawer' and hide_cart_addons == false %}
               {%- render 'cart-addons' -%}
             {% endif %}
             <div class="drawer-bottom cart__ctas px-30 pt-20 pb-30 grey-bg border-top">
