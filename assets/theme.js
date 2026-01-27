@@ -9272,3 +9272,43 @@ gsap.utils.toArray(".animation-svg-main svg path").forEach(path => {
 
 
 
+/**
+ * Hides cart addons if only the digital gift card is present
+ */
+function toggleCartAddons() {
+  fetch(window.Shopify.routes.root + 'cart.js')
+    .then(response => response.json())
+    .then(cart => {
+      const addonElement = document.querySelector('.cart-addons');
+      if (!addonElement) return;
+
+      // Check if cart has exactly one type of item and it's the gift card
+      const isOnlyGiftCard = cart.items.length === 1 && 
+                             cart.items[0].handle === 'fee-digital-gift-card';
+
+      if (isOnlyGiftCard) {
+        addonElement.style.display = 'none';
+      } else {
+        addonElement.style.display = 'flex'; // or 'block' depending on your layout
+      }
+    });
+}
+
+// 1. Run on initial page load
+document.addEventListener('DOMContentLoaded', toggleCartAddons);
+
+// 2. Run whenever the cart is updated (AJAX)
+// This listens for the standard Shopify 'change' event
+document.addEventListener('change', (event) => {
+  if (event.target.getAttribute('name') === 'updates[]' || event.target.closest('[data-cart-update]')) {
+    // Small delay to allow the theme's own script to finish updating the DOM
+    setTimeout(toggleCartAddons, 500);
+  }
+});
+
+// 3. For Dawn Theme specifically: listen for the cart drawer opening
+const cartDrawer = document.querySelector('cart-drawer');
+if (cartDrawer) {
+  const observer = new MutationObserver(toggleCartAddons);
+  observer.observe(cartDrawer, { attributes: true, attributeFilter: ['class'] });
+}
