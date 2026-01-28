@@ -44,6 +44,3 @@
   height: 18px;
 }
 
-:where(.hidden, [hidden], .no-js .no-js-hidden) {
-    display: none !important;
-}
