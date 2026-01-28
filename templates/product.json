@@ -127,6 +127,12 @@
             "show_compare": false
           }
         },
+        "product_grouped_dKPrmi": {
+          "type": "product_grouped",
+          "settings": {
+            "heading": "Send as a Gift"
+          }
+        },
         "trust_badge_qKXhpg": {
           "type": "trust_badge",
           "disabled": true,
@@ -191,6 +197,7 @@
         "custom_measurements_e7NzrQ",
         "custom_liquid_JRGweC",
         "buy_buttons_LcQGtR",
+        "product_grouped_dKPrmi",
         "trust_badge_qKXhpg",
         "collapsible_row_m3g6f8",
         "product_meta_kq9ae8",
