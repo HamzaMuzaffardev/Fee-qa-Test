@@ -110,6 +110,13 @@
           "type": "custom_measurements",
           "settings": {}
         },
+        "send_gift_MrwMFN": {
+          "type": "send_gift",
+          "settings": {
+            "enabled": true,
+            "toggle_label": "Send as a gift this product"
+          }
+        },
         "custom_liquid_JRGweC": {
           "type": "custom_liquid",
           "name": "custom measurement",
@@ -189,6 +196,7 @@
         "product_addons_YRaprz",
         "stock_countdown_JNK9zi",
         "custom_measurements_e7NzrQ",
+        "send_gift_MrwMFN",
         "custom_liquid_JRGweC",
         "buy_buttons_LcQGtR",
         "trust_badge_qKXhpg",
