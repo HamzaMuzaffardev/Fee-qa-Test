@@ -304,12 +304,7 @@
                   {{- product.metafields.custom.external_affiliate.value.button_text -}}
                 </a>
               {%- endif -%}
-            {%- when 'send_gift' -%}
-              {% comment %}
-                Send gift block: UI is rendered inside the buy buttons form so fields
-                submit as line item properties. This block just exists for theme editor control.
-              {% endcomment %}
-            {%- when 'live_view' -%}
+            
               {% comment %} live_view {% endcomment %}
               {% if block_st.content %}
                 <div class="live_view flex flex-wrap gap-10 align-center mb-20{% if enable_skeleton_loading %} skeleton-loading{% endif %}">
