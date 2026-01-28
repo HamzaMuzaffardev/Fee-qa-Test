@@ -304,6 +304,8 @@
                   {{- product.metafields.custom.external_affiliate.value.button_text -}}
                 </a>
               {%- endif -%}
+            {%- when 'send_gift' -%}
+              {# Send gift block: UI is rendered inside the buy buttons form so fields submit as line item properties. This block just exists for theme editor control. #}
             {%- when 'live_view' -%}
               {% comment %} live_view {% endcomment %}
               {% if block_st.content %}
@@ -1582,6 +1584,25 @@
           "id": "show_compare",
           "default": true,
           "label": "t:sections.main-product.blocks.buy_buttons.settings.show_compare"
+        }
+      ]
+    },
+    {
+      "type": "send_gift",
+      "name": "Send as a gift",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "enabled",
+          "label": "Enable Send as a gift option",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "toggle_label",
+          "label": "Toggle label",
+          "default": "Send as a gift this product"
         }
       ]
     },

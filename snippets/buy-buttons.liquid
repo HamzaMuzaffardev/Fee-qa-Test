@@ -1,9 +1,10 @@
-{% comment %} This snippet is not done {% endcomment %}
-
 {%- if product != blank -%}
   {%- liquid
     assign gift_card_recipient_feature_active = false
     assign show_dynamic_checkout = false
+    assign send_gift_block = section.blocks | where: 'type', 'send_gift' | first
+    assign send_gift_enabled = false
+    assign send_gift_label = 'Send as a gift this product'
     if block != blank
       if block.settings.show_gift_card_recipient and product.gift_card?
         assign gift_card_recipient_feature_active = true
@@ -16,9 +17,20 @@
     assign compare = pages.compare
     assign action_when_click_added_wishlist = theme_st.action_when_click_added_wishlist
     assign show_quantity = settings.show_quantity_input
+
+    if send_gift_block != blank and send_gift_block.settings.enabled
+      assign send_gift_enabled = true
+      if send_gift_block.settings.toggle_label != blank
+        assign send_gift_label = send_gift_block.settings.toggle_label
+      endif
+    endif
   -%}
   {% if settings.enable_catalog_mode == false %}
     <div class="product__submit-form buy-btn-js d-flex flex-wrap btn-large">
+      {% if send_gift_enabled %}
+        {{ 'gift-fields.css' | asset_url | stylesheet_tag }}
+        <script src="{{ 'product-size-toggle.js' | asset_url }}" defer></script>
+      {% endif %}
       <product-form
         class="d-block product-form flex-1"
         data-hide-errors="{{ gift_card_recipient_feature_active }}"
@@ -46,6 +58,67 @@
             disabled
             class="product-variant-id"
           >
+          {% if send_gift_enabled %}
+            <div class="gift-fields-wrapper" data-send-gift-wrapper>
+              <label class="gift-toggle-label">
+                <input
+                  type="checkbox"
+                  class="gift-toggle-input"
+                  data-send-gift-toggle
+                  id="SendGiftToggle-{{ section.id }}"
+                >
+                <span>{{ send_gift_label }}</span>
+              </label>
+              <div
+                class="gift-fields-grid hidden"
+                data-gift-fields-container
+                aria-hidden="true"
+              >
+                <div class="gift-field">
+                  <label for="GiftRecipientName-{{ section.id }}">Recipient Name</label>
+                  <input
+                    id="GiftRecipientName-{{ section.id }}"
+                    type="text"
+                    name="properties[Recipient Name]"
+                    data-gift-required
+                  >
+                </div>
+                <div class="gift-field">
+                  <label for="GiftRecipientPhone-{{ section.id }}">Recipient Phone</label>
+                  <input
+                    id="GiftRecipientPhone-{{ section.id }}"
+                    type="tel"
+                    name="properties[Recipient Phone]"
+                    data-gift-required
+                  >
+                </div>
+                <div class="gift-field">
+                  <label for="GiftRecipientAddress-{{ section.id }}">Recipient Address</label>
+                  <input
+                    id="GiftRecipientAddress-{{ section.id }}"
+                    type="text"
+                    name="properties[Recipient Address]"
+                    data-gift-required
+                  >
+                </div>
+                <div class="gift-field">
+                  <label for="GiftMessage-{{ section.id }}">Gift Message</label>
+                  <textarea
+                    id="GiftMessage-{{ section.id }}"
+                    name="properties[Gift Message]"
+                  ></textarea>
+                </div>
+                <div class="gift-field">
+                  <label for="GiftDeliveryDate-{{ section.id }}">Delivery Date</label>
+                  <input
+                    id="GiftDeliveryDate-{{ section.id }}"
+                    type="date"
+                    name="properties[Delivery Date]"
+                  >
+                </div>
+              </div>
+            </div>
+          {% endif %}
           {%- if gift_card_recipient_feature_active -%}
             {% comment %} add gift card recipient form {% endcomment %}
             {%- render 'gift-card-recipient-form',
