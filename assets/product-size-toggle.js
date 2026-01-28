@@ -19,24 +19,45 @@
     });
   }
 
-  function applyState(wrapper) {
-    const toggle = wrapper.querySelector('[data-send-gift-toggle]');
-    const fields = wrapper.querySelector('[data-gift-fields-container]');
-    if (!toggle || !fields) return;
+  // function applyState(wrapper) {
+  //   const toggle = wrapper.querySelector('[data-send-gift-toggle]');
+  //   const fields = wrapper.querySelector('[data-gift-fields-container]');
+  //   if (!toggle || !fields) return;
 
-    const requiredInputs = fields.querySelectorAll('[data-gift-required]');
-    const allInputs = fields.querySelectorAll('input, textarea, select');
+  //   const requiredInputs = fields.querySelectorAll('[data-gift-required]');
+  //   const allInputs = fields.querySelectorAll('input, textarea, select');
 
-    const shouldShow = toggle.checked;
-    fields.classList.toggle('hidden', !shouldShow);
-    fields.setAttribute('aria-hidden', shouldShow ? 'false' : 'true');
+  //   const shouldShow = toggle.checked;
+  //   fields.classList.toggle('hidden', !shouldShow);
+  //   fields.setAttribute('aria-hidden', shouldShow ? 'false' : 'true');
 
-    setRequired(Array.from(requiredInputs), shouldShow);
-    if (!shouldShow) {
-      clearValues(Array.from(allInputs));
-    }
+  //   setRequired(Array.from(requiredInputs), shouldShow);
+  //   if (!shouldShow) {
+  //     clearValues(Array.from(allInputs));
+  //   }
+  // }
+function applyState(wrapper) {
+  const toggle = wrapper.querySelector('[data-send-gift-toggle]');
+  const fields = wrapper.querySelector('[data-gift-fields-container]');
+  if (!toggle || !fields) return;
+
+  const requiredInputs = fields.querySelectorAll('[data-gift-required]');
+  const allInputs = fields.querySelectorAll('input, textarea, select');
+
+  const shouldShow = toggle.checked;
+
+  // Inline style logic with !important
+  if (shouldShow) {
+    fields.style.setProperty('display', 'block', 'important');
+    fields.setAttribute('aria-hidden', 'false');
+  } else {
+    fields.style.setProperty('display', 'none', 'important');
+    fields.setAttribute('aria-hidden', 'true');
+    clearValues(Array.from(allInputs));
   }
 
+  setRequired(Array.from(requiredInputs), shouldShow);
+}
   function bind(wrapper) {
     const toggle = wrapper.querySelector('[data-send-gift-toggle]');
     if (!toggle) return;
