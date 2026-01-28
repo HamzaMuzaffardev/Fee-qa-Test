@@ -18,7 +18,8 @@
     assign action_when_click_added_wishlist = theme_st.action_when_click_added_wishlist
     assign show_quantity = settings.show_quantity_input
 
-    if send_gift_block != blank and send_gift_block.settings.enabled
+    # Only show custom "Send as a gift" for non–gift card products.
+    if send_gift_block != blank and send_gift_block.settings.enabled and product.gift_card? != true
       assign send_gift_enabled = true
       if send_gift_block.settings.toggle_label != blank
         assign send_gift_label = send_gift_block.settings.toggle_label
