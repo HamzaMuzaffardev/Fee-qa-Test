@@ -70,6 +70,12 @@
                 >
                 <span>{{ send_gift_label }}</span>
               </label>
+              <input
+                type="hidden"
+                name="properties[Send as a gift]"
+                value=""
+                data-gift-flag
+              >
               <div
                 class="gift-fields-grid hidden"
                 data-gift-fields-container
@@ -310,6 +316,87 @@
         {%- endform -%}
       </product-form>
     </div>
+    {% if send_gift_enabled %}
+      <script>
+        (function () {
+          document.addEventListener('DOMContentLoaded', function () {
+            var wrappers = document.querySelectorAll('[data-send-gift-wrapper]');
+            if (!wrappers.length) return;
+
+            wrappers.forEach(function (wrapper) {
+              var toggle = wrapper.querySelector('[data-send-gift-toggle]');
+              var fieldsContainer = wrapper.querySelector('[data-gift-fields-container]');
+              var requiredFields = wrapper.querySelectorAll('[data-gift-required]');
+              var giftFlagInput = wrapper.querySelector('[data-gift-flag]');
+              if (!toggle || !fieldsContainer || !requiredFields.length) return;
+
+              var form = wrapper.closest('form');
+              if (!form) return;
+
+              function setGiftFieldsState(isEnabled) {
+                if (isEnabled) {
+                  fieldsContainer.classList.remove('hidden');
+                  fieldsContainer.setAttribute('aria-hidden', 'false');
+                } else {
+                  fieldsContainer.classList.add('hidden');
+                  fieldsContainer.setAttribute('aria-hidden', 'true');
+                }
+
+                requiredFields.forEach(function (field) {
+                  if (isEnabled) {
+                    field.removeAttribute('disabled');
+                  } else {
+                    field.setAttribute('disabled', 'disabled');
+                    field.removeAttribute('aria-invalid');
+                    field.classList.remove('gift-field__input-error');
+                  }
+                });
+
+                if (giftFlagInput) {
+                  giftFlagInput.value = isEnabled ? 'send as a gift' : '';
+                }
+              }
+
+              toggle.addEventListener('change', function () {
+                setGiftFieldsState(toggle.checked);
+              });
+
+              form.addEventListener('submit', function (event) {
+                if (!toggle.checked) return;
+
+                var hasError = false;
+                requiredFields.forEach(function (field) {
+                  var value = (field.value || '').trim();
+                  if (!value) {
+                    hasError = true;
+                    field.setAttribute('aria-invalid', 'true');
+                    field.classList.add('gift-field__input-error');
+                  } else {
+                    field.removeAttribute('aria-invalid');
+                    field.classList.remove('gift-field__input-error');
+                  }
+                });
+
+                if (hasError) {
+                  event.preventDefault();
+                  var productForm = form.closest('product-form');
+                  if (!productForm) return;
+
+                  var errorWrapper = productForm.querySelector('.product-form__error-message-wrapper');
+                  var errorMessage = productForm.querySelector('.product-form__error-message');
+                  if (errorWrapper) {
+                    errorWrapper.hidden = false;
+                  }
+                  if (errorMessage) {
+                    errorMessage.textContent = 'Please fill in all gift fields before adding to cart.';
+                  }
+                }
+              });
+            });
+          });
+        })();
+      </script>
+    {% endif %}
   {% endif %}
 
 {%- else -%}
