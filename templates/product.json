@@ -110,13 +110,6 @@
           "type": "custom_measurements",
           "settings": {}
         },
-        "send_gift_MrwMFN": {
-          "type": "send_gift",
-          "settings": {
-            "enabled": true,
-            "toggle_label": "Send as a gift this product"
-          }
-        },
         "custom_liquid_JRGweC": {
           "type": "custom_liquid",
           "name": "custom measurement",
@@ -132,6 +125,13 @@
             "show_gift_card_recipient": true,
             "show_wishlist": false,
             "show_compare": false
+          }
+        },
+        "send_gift_MrwMFN": {
+          "type": "send_gift",
+          "settings": {
+            "enabled": true,
+            "toggle_label": "Send as a gift this product"
           }
         },
         "trust_badge_qKXhpg": {
@@ -196,9 +196,9 @@
         "product_addons_YRaprz",
         "stock_countdown_JNK9zi",
         "custom_measurements_e7NzrQ",
-        "send_gift_MrwMFN",
         "custom_liquid_JRGweC",
         "buy_buttons_LcQGtR",
+        "send_gift_MrwMFN",
         "trust_badge_qKXhpg",
         "collapsible_row_m3g6f8",
         "product_meta_kq9ae8",
