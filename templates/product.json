@@ -153,6 +153,7 @@
         },
         "product_meta_kq9ae8": {
           "type": "product_meta",
+          "disabled": true,
           "settings": {
             "show_barcode": false,
             "show_sku": true,
