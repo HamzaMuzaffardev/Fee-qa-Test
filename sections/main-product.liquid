@@ -305,7 +305,10 @@
                 </a>
               {%- endif -%}
             {%- when 'send_gift' -%}
-              {# Send gift block: UI is rendered inside the buy buttons form so fields submit as line item properties. This block just exists for theme editor control. #}
+              {% comment %}
+                Send gift block: UI is rendered inside the buy buttons form so fields
+                submit as line item properties. This block just exists for theme editor control.
+              {% endcomment %}
             {%- when 'live_view' -%}
               {% comment %} live_view {% endcomment %}
               {% if block_st.content %}
