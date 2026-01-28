@@ -325,6 +325,7 @@
 
               var form = wrapper.closest('form');
               if (!form) return;
+              var submitButton = form.querySelector('.product-form__submit');
 
               function setGiftFieldsState(isEnabled) {
                 if (isEnabled) {
@@ -336,14 +337,10 @@
                 }
               }
 
-              toggle.addEventListener('change', function () {
-                setGiftFieldsState(toggle.checked);
-              });
-
-              form.addEventListener('submit', function (event) {
-                // Only validate when Send as a gift is checked
-                if (!toggle.checked) return;
-
+              function validateGiftFields() {
+                if (!toggle.checked) {
+                  return true;
+                }
                 var hasError = false;
                 requiredFields.forEach(function (field) {
                   var value = (field.value || '').trim();
@@ -358,7 +355,6 @@
                 });
 
                 if (hasError) {
-                  event.preventDefault();
                   var productForm = form.closest('product-form');
                   if (!productForm) return;
 
@@ -371,6 +367,27 @@
                     errorMessage.textContent = 'Please fill in all gift fields before adding to cart.';
                   }
                 }
+                return !hasError;
+              }
+
+              toggle.addEventListener('change', function () {
+                setGiftFieldsState(toggle.checked);
+              });
+
+              form.addEventListener('submit', function (event) {
+                if (!validateGiftFields()) {
+                  event.preventDefault();
+                  event.stopImmediatePropagation();
+                }
+              });
+
+              if (submitButton) {
+                submitButton.addEventListener('click', function (event) {
+                  if (!validateGiftFields()) {
+                    event.preventDefault();
+                    event.stopImmediatePropagation();
+                  }
+                });
               });
             });
           });
