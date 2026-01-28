@@ -313,7 +313,7 @@
     {% if send_gift_enabled %}
       <script>
         (function () {
-          document.addEventListener('DOMContentLoaded', function () {
+          function initGiftValidation() {
             var wrappers = document.querySelectorAll('[data-send-gift-wrapper]');
             if (!wrappers.length) return;
 
@@ -341,6 +341,7 @@
                 if (!toggle.checked) {
                   return true;
                 }
+
                 var hasError = false;
                 requiredFields.forEach(function (field) {
                   var value = (field.value || '').trim();
@@ -367,8 +368,12 @@
                     errorMessage.textContent = 'Please fill in all gift fields before adding to cart.';
                   }
                 }
+
                 return !hasError;
               }
+
+              // Start with fields hidden unless already checked
+              setGiftFieldsState(toggle.checked);
 
               toggle.addEventListener('change', function () {
                 setGiftFieldsState(toggle.checked);
@@ -388,9 +393,15 @@
                     event.stopImmediatePropagation();
                   }
                 });
-              });
+              }
             });
-          });
+          }
+
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initGiftValidation);
+          } else {
+            initGiftValidation();
+          }
         })();
       </script>
     {% endif %}
