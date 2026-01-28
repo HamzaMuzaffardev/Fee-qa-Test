@@ -18,7 +18,7 @@
     assign action_when_click_added_wishlist = theme_st.action_when_click_added_wishlist
     assign show_quantity = settings.show_quantity_input
 
-    if send_gift_block != blank and send_gift_block.settings.enabled and product.gift_card? == false
+    if send_gift_block != blank and send_gift_block.settings.enabled
       assign send_gift_enabled = true
       if send_gift_block.settings.toggle_label != blank
         assign send_gift_label = send_gift_block.settings.toggle_label
@@ -81,7 +81,6 @@
                     type="text"
                     name="properties[Recipient Name]"
                     data-gift-required
-                    placeholder="Recipient name..."
                   >
                 </div>
                 <div class="gift-field">
@@ -91,7 +90,6 @@
                     type="tel"
                     name="properties[Recipient Phone]"
                     data-gift-required
-                    placeholder="Recipient phone..."
                   >
                 </div>
                 <div class="gift-field">
@@ -101,7 +99,6 @@
                     type="text"
                     name="properties[Recipient Address]"
                     data-gift-required
-                    placeholder="Recipient address..."
                   >
                 </div>
                 <div class="gift-field">
@@ -109,13 +106,10 @@
                   <textarea
                     id="GiftMessage-{{ section.id }}"
                     name="properties[Gift Message]"
-                    maxlength="200"
-                    placeholder="Message (optional)..."
                   ></textarea>
-                  <p class="gift-field-hint">200 characters max</p>
                 </div>
                 <div class="gift-field">
-                  <label for="GiftDeliveryDate-{{ section.id }}">Delivery Date (optional)</label>
+                  <label for="GiftDeliveryDate-{{ section.id }}">Delivery Date</label>
                   <input
                     id="GiftDeliveryDate-{{ section.id }}"
                     type="date"
