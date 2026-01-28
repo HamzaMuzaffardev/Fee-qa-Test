@@ -70,12 +70,6 @@
                 >
                 <span>{{ send_gift_label }}</span>
               </label>
-              <input
-                type="hidden"
-                name="properties[Send as a gift]"
-                value=""
-                data-gift-flag
-              >
               <div
                 class="gift-fields-grid hidden"
                 data-gift-fields-container
@@ -327,7 +321,6 @@
               var toggle = wrapper.querySelector('[data-send-gift-toggle]');
               var fieldsContainer = wrapper.querySelector('[data-gift-fields-container]');
               var requiredFields = wrapper.querySelectorAll('[data-gift-required]');
-              var giftFlagInput = wrapper.querySelector('[data-gift-flag]');
               if (!toggle || !fieldsContainer || !requiredFields.length) return;
 
               var form = wrapper.closest('form');
@@ -341,20 +334,6 @@
                   fieldsContainer.classList.add('hidden');
                   fieldsContainer.setAttribute('aria-hidden', 'true');
                 }
-
-                requiredFields.forEach(function (field) {
-                  if (isEnabled) {
-                    field.removeAttribute('disabled');
-                  } else {
-                    field.setAttribute('disabled', 'disabled');
-                    field.removeAttribute('aria-invalid');
-                    field.classList.remove('gift-field__input-error');
-                  }
-                });
-
-                if (giftFlagInput) {
-                  giftFlagInput.value = isEnabled ? 'send as a gift' : '';
-                }
               }
 
               toggle.addEventListener('change', function () {
@@ -362,6 +341,7 @@
               });
 
               form.addEventListener('submit', function (event) {
+                // Only validate when Send as a gift is checked
                 if (!toggle.checked) return;
 
                 var hasError = false;
