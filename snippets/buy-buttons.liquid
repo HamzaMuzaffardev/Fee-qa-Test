@@ -78,9 +78,8 @@
                 <input
                   type="hidden"
                   name="properties[Send as a Gift]"
-                  value="Send as a Gift"
+                  value=""
                   data-gift-hidden-field
-                  disabled
                 >
                 <div class="gift-field">
                   <label for="GiftRecipientName-{{ section.id }}">Recipient Name</label>
@@ -345,13 +344,9 @@
                       allFieldsFilled = false;
                     }
                   });
-                  if (allFieldsFilled) {
-                    hiddenField.removeAttribute('disabled');
-                  } else {
-                    hiddenField.setAttribute('disabled', 'disabled');
-                  }
+                  hiddenField.value = allFieldsFilled ? 'Send as a Gift' : '';
                 } else {
-                  hiddenField.setAttribute('disabled', 'disabled');
+                  hiddenField.value = '';
                 }
               }
 
