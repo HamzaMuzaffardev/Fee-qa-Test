@@ -106,6 +106,15 @@
             "stock_items": 30
           }
         },
+        "buy_buttons_LcQGtR": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false,
+            "show_gift_card_recipient": true,
+            "show_wishlist": false,
+            "show_compare": false
+          }
+        },
         "custom_measurements_e7NzrQ": {
           "type": "custom_measurements",
           "settings": {}
@@ -116,15 +125,6 @@
           "disabled": true,
           "settings": {
             "custom_liquid": "{% if product.metafields.custom.is_custom == true %}\n<table class=\"abaya-measurements\" style=\"width:100%;border-collapse:collapse;margin-bottom:15px;\">\n  <thead>\n    <tr>\n      <th style=\"text-align:left;padding:8px;border-bottom:1px solid #eee\">Measurement (name)</th>\n      <th style=\"text-align:left;padding:8px;border-bottom:1px solid #eee\">Your value&nbsp;(cm)</th>\n    </tr>\n  </thead>\n  <tbody>\n    <tr>\n      <td style=\"padding:6px 8px\">Overall length (shoulder → hem)</td>\n      <td style=\"padding:6px 8px\">\n        <input type=\"number\" class=\"abaya-field\" name=\"properties[Abaya Length (cm)]\" min=\"100\" max=\"170\" step=\"0.1\" required>\n      </td>\n    </tr>\n    <tr>\n      <td style=\"padding:6px 8px\">Shoulder width (bone → bone)</td>\n      <td style=\"padding:6px 8px\">\n        <input type=\"number\" class=\"abaya-field\" name=\"properties[Shoulder Width (cm)]\" min=\"30\" max=\"60\" step=\"0.1\" required>\n      </td>\n    </tr>\n    <tr>\n      <td style=\"padding:6px 8px\">Bust / chest</td>\n      <td style=\"padding:6px 8px\">\n        <input type=\"number\" class=\"abaya-field\" name=\"properties[Bust (cm)]\" min=\"70\" max=\"150\" step=\"0.1\" required>\n      </td>\n    </tr>\n    <tr>\n      <td style=\"padding:6px 8px\">Waist (natural)</td>\n      <td style=\"padding:6px 8px\">\n        <input type=\"number\" class=\"abaya-field\" name=\"properties[Waist (cm)]\" min=\"50\" max=\"130\" step=\"0.1\" required>\n      </td>\n    </tr>\n    <tr>\n      <td style=\"padding:6px 8px\">Hips (fullest point)</td>\n      <td style=\"padding:6px 8px\">\n        <input type=\"number\" class=\"abaya-field\" name=\"properties[Hips (cm)]\" min=\"70\" max=\"160\" step=\"0.1\" required>\n      </td>\n    </tr>\n    <tr>\n      <td style=\"padding:6px 8px\">Sleeve length (shoulder → wrist)</td>\n      <td style=\"padding:6px 8px\">\n        <input type=\"number\" class=\"abaya-field\" name=\"properties[Sleeve Length (cm)]\" min=\"40\" max=\"80\" step=\"0.1\" required>\n      </td>\n    </tr>\n    <tr>\n      <td style=\"padding:6px 8px\">Upper-arm / biceps</td>\n      <td style=\"padding:6px 8px\">\n        <input type=\"number\" class=\"abaya-field\" name=\"properties[Upper Arm (cm)]\" min=\"20\" max=\"60\" step=\"0.1\" required>\n      </td>\n    </tr>\n    <tr>\n      <td style=\"padding:6px 8px\">Wrist / cuff</td>\n      <td style=\"padding:6px 8px\">\n        <input type=\"number\" class=\"abaya-field\" name=\"properties[Wrist (cm)]\" min=\"10\" max=\"30\" step=\"0.1\" required>\n      </td>\n    </tr>\n  </tbody>\n</table>\n{% endif %}"
-          }
-        },
-        "buy_buttons_LcQGtR": {
-          "type": "buy_buttons",
-          "settings": {
-            "show_dynamic_checkout": false,
-            "show_gift_card_recipient": true,
-            "show_wishlist": false,
-            "show_compare": false
           }
         },
         "send_gift_MrwMFN": {
@@ -196,9 +196,9 @@
         "variant_picker_tcCihG",
         "product_addons_YRaprz",
         "stock_countdown_JNK9zi",
+        "buy_buttons_LcQGtR",
         "custom_measurements_e7NzrQ",
         "custom_liquid_JRGweC",
-        "buy_buttons_LcQGtR",
         "send_gift_MrwMFN",
         "trust_badge_qKXhpg",
         "collapsible_row_m3g6f8",
