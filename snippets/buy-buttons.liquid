@@ -75,6 +75,13 @@
                 data-gift-fields-container
                 aria-hidden="true"
               >
+                <input
+                  type="hidden"
+                  name="properties[Send as a Gift]"
+                  value="Send as a Gift"
+                  data-gift-hidden-field
+                  disabled
+                >
                 <div class="gift-field">
                   <label for="GiftRecipientName-{{ section.id }}">Recipient Name</label>
                   <input
@@ -321,11 +328,32 @@
               var toggle = wrapper.querySelector('[data-send-gift-toggle]');
               var fieldsContainer = wrapper.querySelector('[data-gift-fields-container]');
               var requiredFields = wrapper.querySelectorAll('[data-gift-required]');
+              var hiddenField = wrapper.querySelector('[data-gift-hidden-field]');
               if (!toggle || !fieldsContainer || !requiredFields.length) return;
 
               var form = wrapper.closest('form');
               if (!form) return;
               var submitButton = form.querySelector('.product-form__submit');
+
+              function updateHiddenField() {
+                if (!hiddenField) return;
+                if (toggle.checked) {
+                  var allFieldsFilled = true;
+                  requiredFields.forEach(function (field) {
+                    var value = (field.value || '').trim();
+                    if (!value) {
+                      allFieldsFilled = false;
+                    }
+                  });
+                  if (allFieldsFilled) {
+                    hiddenField.removeAttribute('disabled');
+                  } else {
+                    hiddenField.setAttribute('disabled', 'disabled');
+                  }
+                } else {
+                  hiddenField.setAttribute('disabled', 'disabled');
+                }
+              }
 
               function setGiftFieldsState(isEnabled) {
                 if (isEnabled) {
@@ -335,6 +363,7 @@
                   fieldsContainer.classList.add('hidden');
                   fieldsContainer.setAttribute('aria-hidden', 'true');
                 }
+                updateHiddenField();
               }
 
               function validateGiftFields() {
@@ -367,6 +396,8 @@
                   if (errorMessage) {
                     errorMessage.textContent = 'Please fill in all gift fields before adding to cart.';
                   }
+                } else {
+                  updateHiddenField();
                 }
 
                 return !hasError;
@@ -379,10 +410,26 @@
                 setGiftFieldsState(toggle.checked);
               });
 
+              // Update hidden field when required fields change
+              requiredFields.forEach(function (field) {
+                field.addEventListener('input', function () {
+                  if (toggle.checked) {
+                    updateHiddenField();
+                  }
+                });
+                field.addEventListener('blur', function () {
+                  if (toggle.checked) {
+                    updateHiddenField();
+                  }
+                });
+              });
+
               form.addEventListener('submit', function (event) {
                 if (!validateGiftFields()) {
                   event.preventDefault();
                   event.stopImmediatePropagation();
+                } else {
+                  updateHiddenField();
                 }
               });
 
@@ -391,6 +438,8 @@
                   if (!validateGiftFields()) {
                     event.preventDefault();
                     event.stopImmediatePropagation();
+                  } else {
+                    updateHiddenField();
                   }
                 });
               }
