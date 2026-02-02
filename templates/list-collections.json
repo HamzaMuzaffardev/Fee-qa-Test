@@ -77,6 +77,14 @@
             "collection": "winter-collection",
             "collection_title": ""
           }
+        },
+        "collection_r4kRUa": {
+          "type": "collection",
+          "settings": {
+            "collection": "ramadan",
+            "collection_image": "shopify://shop_images/Untitled_design_-_2026-02-02T132641.792.png",
+            "collection_title": ""
+          }
         }
       },
       "block_order": [
@@ -84,7 +92,8 @@
         "collection_k6UJWD",
         "collection_Dh49Wa",
         "collection_qag64J",
-        "collection_Kk8pDP"
+        "collection_Kk8pDP",
+        "collection_r4kRUa"
       ],
       "settings": {
         "section_width": "fluid_container",
