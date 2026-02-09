@@ -4,8 +4,10 @@
     assign show_dynamic_checkout = false
     assign send_gift_block = section.blocks | where: 'type', 'send_gift' | first
     assign send_gift_enabled = false
-    # Default label using translation key
+    
+    # Use translation key for the default label
     assign send_gift_label = 'products.gift.send_as_gift' | t 
+    
     if block != blank
       if block.settings.show_gift_card_recipient and product.gift_card?
         assign gift_card_recipient_feature_active = true
@@ -126,15 +128,27 @@
               </div>
             </div>
           {% endif %}
-          
-          {% comment %} Remaining buttons and form logic... {% endcomment %}
+
+          {%- if gift_card_recipient_feature_active -%}
+            {%- render 'gift-card-recipient-form', product: product, form: form, section: section -%}
+          {%- endif -%}
+
           <div class="product-form__buttons btn-large flex flex-wrap gap-10">
-            {% comment %} (Rest of your original code remains exactly the same) {% endcomment %}
             <div class="product__submit-form-cart flex flex-wrap gap-10 gap-lg-20 align-center grow-1">
-               {% comment %} ... content remains the same ... {% endcomment %}
-               <div class="button_buy-now grow-1 skeleton-loading">
-                <button type="submit" name="add" class="add_to_cart_button btn btn-primary w-full product_submit_button product-form__submit">
-                  <span class="btn-label">{{ 'products.product.general.add_to_cart' | t }}</span>
+              <div class="button_buy-now grow-1 skeleton-loading">
+                <button
+                  type="submit"
+                  name="add"
+                  class="add_to_cart_button btn btn-primary w-full product_submit_button product-form__submit"
+                  {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
+                >
+                  <span class="btn-label">
+                    {%- if product.selected_or_first_available_variant.available == false -%}
+                      {{ 'products.product.general.outstock' | t }}
+                    {%- else -%}
+                      {{ 'products.product.general.add_to_cart' | t }}
+                    {%- endif -%}
+                  </span>
                 </button>
               </div>
             </div>
@@ -142,5 +156,54 @@
         {%- endform -%}
       </product-form>
     </div>
+
+    {% if send_gift_enabled %}
+      <script>
+        (function () {
+          function initGiftValidation() {
+            var wrappers = document.querySelectorAll('[data-send-gift-wrapper]');
+            wrappers.forEach(function (wrapper) {
+              var toggle = wrapper.querySelector('[data-send-gift-toggle]');
+              var fieldsContainer = wrapper.querySelector('[data-gift-fields-container]');
+              var requiredFields = wrapper.querySelectorAll('[data-gift-required]');
+              var form = wrapper.closest('form');
+              if (!form) return;
+
+              function validateGiftFields() {
+                if (!toggle.checked) return true;
+                var hasError = false;
+                requiredFields.forEach(function (field) {
+                  if (!(field.value || '').trim()) {
+                    hasError = true;
+                    field.classList.add('gift-field__input-error');
+                  } else {
+                    field.classList.remove('gift-field__input-error');
+                  }
+                });
+
+                if (hasError) {
+                  var errorMessage = form.closest('product-form').querySelector('.product-form__error-message');
+                  if (errorMessage) errorMessage.textContent = "{{ 'products.gift.error_message' | t }}";
+                  form.closest('product-form').querySelector('.product-form__error-message-wrapper').hidden = false;
+                }
+                return !hasError;
+              }
+
+              toggle.addEventListener('change', function () {
+                fieldsContainer.classList.toggle('hidden', !toggle.checked);
+              });
+
+              form.addEventListener('submit', function (event) {
+                if (!validateGiftFields()) {
+                  event.preventDefault();
+                  event.stopImmediatePropagation();
+                }
+              });
+            });
+          }
+          initGiftValidation();
+        })();
+      </script>
+    {% endif %}
   {% endif %}
 {%- endif -%}
