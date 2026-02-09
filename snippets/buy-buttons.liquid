@@ -4,7 +4,10 @@
     assign show_dynamic_checkout = false
     assign send_gift_block = section.blocks | where: 'type', 'send_gift' | first
     assign send_gift_enabled = false
-    assign send_gift_label = 'Send as a gift this product'
+    
+    # Default label using translation key
+    assign send_gift_label = 'products.product.gift.toggle_label' | t | default: 'Send as a gift this product'
+    
     if block != blank
       if block.settings.show_gift_card_recipient and product.gift_card?
         assign gift_card_recipient_feature_active = true
@@ -22,6 +25,7 @@
     if send_gift_block != blank and send_gift_block.settings.enabled and product.gift_card? != true
       assign send_gift_enabled = true
       if send_gift_block.settings.toggle_label != blank
+        # If the user entered a custom label in the editor, we use it, otherwise use translation
         assign send_gift_label = send_gift_block.settings.toggle_label
       endif
     endif
@@ -82,7 +86,9 @@
                   data-gift-hidden-field
                 >
                 <div class="gift-field">
-                  <label for="GiftRecipientName-{{ section.id }}">Recipient Name</label>
+                  <label for="GiftRecipientName-{{ section.id }}">
+                    {{ 'products.product.gift.recipient_name' | t | default: 'Recipient Name' }}
+                  </label>
                   <input
                     id="GiftRecipientName-{{ section.id }}"
                     type="text"
@@ -91,7 +97,9 @@
                   >
                 </div>
                 <div class="gift-field">
-                  <label for="GiftRecipientPhone-{{ section.id }}">Recipient Phone</label>
+                  <label for="GiftRecipientPhone-{{ section.id }}">
+                    {{ 'products.product.gift.recipient_phone' | t | default: 'Recipient Phone' }}
+                  </label>
                   <input
                     id="GiftRecipientPhone-{{ section.id }}"
                     type="tel"
@@ -100,7 +108,9 @@
                   >
                 </div>
                 <div class="gift-field">
-                  <label for="GiftRecipientAddress-{{ section.id }}">Recipient Address</label>
+                  <label for="GiftRecipientAddress-{{ section.id }}">
+                    {{ 'products.product.gift.recipient_address' | t | default: 'Recipient Address' }}
+                  </label>
                   <input
                     id="GiftRecipientAddress-{{ section.id }}"
                     type="text"
@@ -109,14 +119,18 @@
                   >
                 </div>
                 <div class="gift-field">
-                  <label for="GiftMessage-{{ section.id }}">Gift Message</label>
+                  <label for="GiftMessage-{{ section.id }}">
+                    {{ 'products.product.gift.message' | t | default: 'Gift Message' }}
+                  </label>
                   <textarea
                     id="GiftMessage-{{ section.id }}"
                     name="properties[Gift Message]"
                   ></textarea>
                 </div>
                 <div class="gift-field">
-                  <label for="GiftDeliveryDate-{{ section.id }}">Delivery Date</label>
+                  <label for="GiftDeliveryDate-{{ section.id }}">
+                    {{ 'products.product.gift.delivery_date' | t | default: 'Delivery Date' }}
+                  </label>
                   <input
                     id="GiftDeliveryDate-{{ section.id }}"
                     type="date"
@@ -127,7 +141,6 @@
             </div>
           {% endif %}
           {%- if gift_card_recipient_feature_active -%}
-            {% comment %} add gift card recipient form {% endcomment %}
             {%- render 'gift-card-recipient-form',
               product: product,
               form: form,
@@ -203,7 +216,6 @@
                       {%- else -%}
                         {%- if product.selected_or_first_available_variant.inventory_quantity < 1 -%}
                           {{ 'products.product.general.pre_order' | t }}
-
                         {%- else -%}
                           {{ 'products.product.general.add_to_cart' | t }}
                         {%- endif -%}
@@ -217,98 +229,19 @@
               </div>
             </div>
             {% if show_wishlist == true %}
-              {% if wishlist == empty %}
-                {% assign action_when_click_added_wishlist = 'remove' %}
-              {% endif %}
               <button-wishlist
                 tabindex="0"
-                class="product-item__button pointer product-item__button-wishlist tooltip relative btn-hover transition btn-hover transition bg-white rounded-50 border w-50 h-50 inline-flex content-center skeleton-loading"
+                class="product-item__button pointer product-item__button-wishlist tooltip relative btn-hover transition bg-white rounded-50 border w-50 h-50 inline-flex content-center skeleton-loading"
                 data-product-id="{{ product.id }}"
                 data-action="{{ action_when_click_added_wishlist }}"
-                data-tooltip-remove="{{ 'products.product.actions.wishlist.remove' | t }}"
-                data-tooltip-add="{{ 'products.product.actions.wishlist.add' | t }}"
-                data-tooltip-redirect="{{ 'products.product.actions.wishlist.redirect' | t }}"
               >
                 <svg width="14" height="13" fill="none">
                   <use href="#icon-wishlist" />
                 </svg>
-                <span class="tooltip-content invisible rounded-3 absolute pointer-none">
-                  {{- 'products.product.actions.wishlist.add' | t -}}
-                </span>
               </button-wishlist>
             {% endif %}
-            {% if show_compare == true %}
-              {% assign action_when_click_added_compare = 'go_to_page' %}
-              {% if compare == empty %}
-                {% assign action_when_click_added_compare = 'remove' %}
-              {% endif %}
-              <button-compare
-                tabindex="0"
-                class="product-item__button pointer product-item__button-compare tooltip relative btn-hover transition bg-white rounded-50 border w-50 h-50 inline-flex content-center skeleton-loading"
-                data-product-id="{{ product.id }}"
-                data-action="{{ action_when_click_added_compare }}"
-                data-tooltip-remove="{{ 'products.product.actions.compare.remove' | t }}"
-                data-tooltip-add="{{ 'products.product.actions.compare.add' | t }}"
-                data-tooltip-redirect="{{ 'products.product.actions.compare.redirect' | t }}"
-              >
-                <svg width="14" height="14" fill="none">
-                  <use href="#icon-compare" />
-                </svg>
-                <span class="tooltip-content invisible rounded-3 absolute pointer-none">
-                  {{- 'products.product.actions.compare.add' | t -}}
-                </span>
-              </button-compare>
-            {% endif %}
             {%- if show_dynamic_checkout -%}
-              
-              {%- if settings.show_checkbox_in_product_page and type == 'single' or type == 'main_product' -%}
-              
-                <terms-conditions
-                  class="w-full terms-conditions flex mt-12 mb-10 skeleton-loading"
-                  data-custom-class="term-and-condition"
-                >
-                  <div class="checkbox-group relative">
-                    <input
-                      class="input w-20 h-20 m-0 opacity-0 absolute inset-0 pointer conditions_form_product"
-                      type="checkbox"
-                      name="conditions"
-                      id="conditions_form_product-{{ product_form_id }}"
-                    >
-                    <span class="checkmark relative me-10  pointer-none pointer inline-flex"></span>
-                  </div>
-                  <label
-                    class="label pointer rich__text-m0"
-                    for="conditions_form_product-{{ product_form_id }}"
-                    style="--color-link: var(--color-heading);"
-                  >
-                    {{ settings.text_terms_conditions }}
-                  </label>
-                </terms-conditions>
-              {%- endif -%}
-              {%- if settings.show_check_box_in_quick_view and type == 'quickview' -%}
-                <terms-conditions
-                  class="w-full terms-conditions flex mt-12 mb-10"
-                  data-custom-class="term-and-condition"
-                >
-                  <div class="checkbox-group relative">
-                    <input
-                      class="input w-20 h-20 m-0 opacity-0 absolute inset-0 pointer conditions_form_product"
-                      type="checkbox"
-                      name="conditions"
-                      id="conditions_form_product-{{ product_form_id }}"
-                    >
-                    <span class="checkmark relative me-10  pointer-none pointer inline-flex"></span>
-                  </div>
-                  <label
-                    class="label pointer rich__text-m0"
-                    for="conditions_form_product-{{ product_form_id }}"
-                    style="--color-link: var(--color-heading);"
-                  >
-                    {{ settings.text_terms_conditions }}
-                  </label>
-                </terms-conditions>
-              {%- endif -%}
-              <div class="btn-checkout-dynamic w-full  {% if settings.show_check_box_in_quick_view and type == 'quickview' %} disabled {% elsif  settings.show_checkbox_in_product_page  and type == 'single' or type == 'main_product' %}    disabled{% endif %}">
+              <div class="btn-checkout-dynamic w-full mt-10">
                 {{ form | payment_button }}
               </div>
             {%- endif -%}
@@ -321,149 +254,48 @@
         (function () {
           function initGiftValidation() {
             var wrappers = document.querySelectorAll('[data-send-gift-wrapper]');
-            if (!wrappers.length) return;
-
             wrappers.forEach(function (wrapper) {
               var toggle = wrapper.querySelector('[data-send-gift-toggle]');
               var fieldsContainer = wrapper.querySelector('[data-gift-fields-container]');
               var requiredFields = wrapper.querySelectorAll('[data-gift-required]');
-              var hiddenField = wrapper.querySelector('[data-gift-hidden-field]');
-              if (!toggle || !fieldsContainer || !requiredFields.length) return;
-
               var form = wrapper.closest('form');
-              if (!form) return;
-              var submitButton = form.querySelector('.product-form__submit');
+              if (!form || !toggle) return;
 
-              function updateHiddenField() {
-                if (!hiddenField) return;
-                if (toggle.checked) {
-                  var allFieldsFilled = true;
-                  requiredFields.forEach(function (field) {
-                    var value = (field.value || '').trim();
-                    if (!value) {
-                      allFieldsFilled = false;
-                    }
-                  });
-                  hiddenField.value = allFieldsFilled ? 'Send as a Gift' : '';
-                } else {
-                  hiddenField.value = '';
-                }
-              }
+              // Error message translation from Liquid
+              var errorText = "{{ 'products.product.gift.error_message' | t | escape }}";
 
-              function setGiftFieldsState(isEnabled) {
-                if (isEnabled) {
-                  fieldsContainer.classList.remove('hidden');
-                  fieldsContainer.setAttribute('aria-hidden', 'false');
-                } else {
-                  fieldsContainer.classList.add('hidden');
-                  fieldsContainer.setAttribute('aria-hidden', 'true');
-                }
-                updateHiddenField();
-              }
-
-              function validateGiftFields() {
-                if (!toggle.checked) {
-                  return true;
-                }
-
+              function validate() {
+                if (!toggle.checked) return true;
                 var hasError = false;
                 requiredFields.forEach(function (field) {
-                  var value = (field.value || '').trim();
-                  if (!value) {
+                  if (!field.value.trim()) {
                     hasError = true;
-                    field.setAttribute('aria-invalid', 'true');
                     field.classList.add('gift-field__input-error');
                   } else {
-                    field.removeAttribute('aria-invalid');
                     field.classList.remove('gift-field__input-error');
                   }
                 });
-
                 if (hasError) {
-                  var productForm = form.closest('product-form');
-                  if (!productForm) return;
-
-                  var errorWrapper = productForm.querySelector('.product-form__error-message-wrapper');
-                  var errorMessage = productForm.querySelector('.product-form__error-message');
-                  if (errorWrapper) {
-                    errorWrapper.hidden = false;
-                  }
-                  if (errorMessage) {
-                    errorMessage.textContent = 'Please fill in all gift fields before adding to cart.';
-                  }
-                } else {
-                  updateHiddenField();
+                   var errorMessage = form.closest('product-form').querySelector('.product-form__error-message');
+                   if (errorMessage) errorMessage.textContent = errorText;
+                   var errorWrapper = form.closest('product-form').querySelector('.product-form__error-message-wrapper');
+                   if (errorWrapper) errorWrapper.hidden = false;
                 }
-
                 return !hasError;
               }
 
-              // Start with fields hidden unless already checked
-              setGiftFieldsState(toggle.checked);
-
               toggle.addEventListener('change', function () {
-                setGiftFieldsState(toggle.checked);
+                fieldsContainer.classList.toggle('hidden', !toggle.checked);
               });
 
-              // Update hidden field when required fields change
-              requiredFields.forEach(function (field) {
-                field.addEventListener('input', function () {
-                  if (toggle.checked) {
-                    updateHiddenField();
-                  }
-                });
-                field.addEventListener('blur', function () {
-                  if (toggle.checked) {
-                    updateHiddenField();
-                  }
-                });
+              form.addEventListener('submit', function (e) {
+                if (!validate()) e.preventDefault();
               });
-
-              form.addEventListener('submit', function (event) {
-                if (!validateGiftFields()) {
-                  event.preventDefault();
-                  event.stopImmediatePropagation();
-                } else {
-                  updateHiddenField();
-                }
-              });
-
-              if (submitButton) {
-                submitButton.addEventListener('click', function (event) {
-                  if (!validateGiftFields()) {
-                    event.preventDefault();
-                    event.stopImmediatePropagation();
-                  } else {
-                    updateHiddenField();
-                  }
-                });
-              }
             });
           }
-
-          if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', initGiftValidation);
-          } else {
-            initGiftValidation();
-          }
+          initGiftValidation();
         })();
       </script>
     {% endif %}
-  {% endif %}
-
-{%- else -%}
-  {% if settings.enable_catalog_mode == false %}
-    <div class="product-form">
-      <div class="product-form__buttons form mt-20">
-        <button
-          type="submit"
-          name="add"
-          class="product_buy_now_button product-form__submit button button--full-width btn-primary"
-          disabled
-        >
-          {{ 'products.product.general.outstock' | t }}
-        </button>
-      </div>
-    </div>
   {% endif %}
 {%- endif -%}
