@@ -516,6 +516,15 @@
       "addGiftCard": "Add gift card successfully",
       "removeCartItem": "Remove item successfully",
       "loading": "loading",
+      "gift": {
+      "toggle_label": "Send this product as a gift",
+      "recipient_name": "Recipient Name",
+      "recipient_phone": "Recipient Phone",
+      "recipient_address": "Recipient Address",
+      "message": "Gift Message",
+      "delivery_date": "Delivery Date",
+      "error_message": "Please fill in all required gift fields."
+    },
       "label": {
         "sale_label": "Sale",
         "new_label": "New",
