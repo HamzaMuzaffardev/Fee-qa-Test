@@ -123,7 +123,7 @@
           "type": "send_gift",
           "settings": {
             "enabled": true,
-            "toggle_label": "Send product as a gift"
+            "toggle_label": "Send this product as a gift"
           }
         },
         "custom_liquid_JRGweC": {
