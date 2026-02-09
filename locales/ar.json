@@ -516,6 +516,15 @@
       "addGiftCard": "تمت إضافة بطاقة الهدايا بنجاح",
       "removeCartItem": "تمت إزالة العنصر بنجاح",
       "loading": "تحميل",
+      "gift": {
+      "toggle_label": "إرسال هذا المنتج كهدية",
+      "recipient_name": "اسم المستلم",
+      "recipient_phone": "رقم هاتف المستلم",
+      "recipient_address": "عنوان المستلم",
+      "message": "رسالة الهدية",
+      "delivery_date": "تاريخ التسليم",
+      "error_message": "يرجى ملء جميع حقول الهدية المطلوبة."
+    },
       "label": {
         "sale_label": "أُوكَازيُون",
         "new_label": "جديد",
