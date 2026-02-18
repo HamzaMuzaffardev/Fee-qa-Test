@@ -85,6 +85,13 @@
             "collection_image": "shopify://shop_images/IMG_0487.jpg",
             "collection_title": ""
           }
+        },
+        "collection_nKTKhW": {
+          "type": "collection",
+          "settings": {
+            "collection": "eid-collection",
+            "collection_title": ""
+          }
         }
       },
       "block_order": [
@@ -93,7 +100,8 @@
         "collection_Dh49Wa",
         "collection_qag64J",
         "collection_Kk8pDP",
-        "collection_r4kRUa"
+        "collection_r4kRUa",
+        "collection_nKTKhW"
       ],
       "settings": {
         "section_width": "fluid_container",
