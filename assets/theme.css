@@ -2010,3 +2010,6 @@ h2.mt-0.sec__content-heading.heading-letter-spacing.mb-custom.fs-medium.heading_
   display: none;
 }
 
+sticky-add-cart.fixed.z-10.inset-x-0.bottom-0.py-15.shadow.color-default.transition-popup.invisible.sticky_desktop--show.sticky_mobile--show.show-sticky-cart {
+    display: none !important;
+}
