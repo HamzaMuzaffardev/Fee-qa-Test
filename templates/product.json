@@ -92,6 +92,7 @@
         },
         "product_addons_YRaprz": {
           "type": "product_addons",
+          "disabled": true,
           "settings": {
             "show_compare_color": false,
             "show_ask_question": false,
@@ -100,7 +101,6 @@
         },
         "stock_countdown_JNK9zi": {
           "type": "stock_countdown",
-          "disabled": true,
           "settings": {
             "message": "Hurry up! Only [count] items left in stock",
             "stock_items": 30
@@ -227,6 +227,7 @@
     },
     "product-set": {
       "type": "product-set",
+      "disabled": true,
       "settings": {
         "section_width": "container",
         "color_scheme": "",
