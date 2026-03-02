@@ -35,7 +35,10 @@
     endfor
 
     assign is_custom_size = false
-    if value == custom_size_value
+    assign value_downcase = value | downcase
+    assign custom_downcase = custom_size_value | downcase
+
+    if value_downcase == custom_downcase or value_downcase == 'custom'
       assign is_custom_size = true
     endif
   -%}
