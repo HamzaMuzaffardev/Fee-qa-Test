@@ -186,8 +186,10 @@ function initCustomMeasurementsToggle() {
   // Scope to the current product section when possible (prevents collisions on pages with multiple products).
   const scope = wrapper.closest('[id^="MainProduct-"]') || document;
 
-  const getAllRadios = () =>
-    scope.querySelectorAll('input[type="radio"][name]');
+  const getSizeRadios = () =>
+    scope.querySelectorAll(
+      '.product-form__input_size input[type="radio"][name]'
+    );
 
   const isCustomSelected = () => {
     // Prefer explicit "custom size" markers added in Liquid (language agnostic).
