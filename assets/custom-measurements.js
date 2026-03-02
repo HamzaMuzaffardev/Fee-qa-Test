@@ -187,24 +187,38 @@ function initCustomMeasurementsToggle() {
   const scope = wrapper.closest('[id^="MainProduct-"]') || document;
 
   const getSizeRadios = () =>
-    scope.querySelectorAll(
-      '.product-form__input_size input[type="radio"][name]'
+    Array.from(
+      scope.querySelectorAll(
+        '.product-form__input_size input[type="radio"][name]'
+      )
     );
+
+  const isCustomRadio = (radio) => {
+    if (!radio) return false;
+
+    // 1) Explicit data attribute from Liquid (language agnostic).
+    if (radio.dataset.customSize === 'true') return true;
+
+    // 2) Fallback: value contains "custom" (for English stores).
+    const value = (radio.value || '').toLowerCase().trim();
+    if (value.includes('custom')) return true;
+
+    // 3) Fallback: label text contains a known keyword (English + Arabic).
+    const label = scope.querySelector(`label[for="${radio.id}"]`);
+    const labelText = (label?.textContent || '').toLowerCase();
+    const customKeywords = ['custom', 'مخصص', 'تفصيل'];
+
+    return customKeywords.some((keyword) => labelText.includes(keyword));
+  };
 
   const isCustomSelected = () => {
-    // Prefer explicit "custom size" markers added in Liquid (language agnostic).
-    const markedCustomRadios = scope.querySelectorAll(
-      'input[type="radio"][data-custom-size="true"]'
-    );
-    const markedChecked = Array.from(markedCustomRadios).some((r) => r.checked);
-    if (markedChecked) return true;
+    const radios = getSizeRadios();
+    if (!radios.length) return false;
 
-    // Fallback: look for a checked radio whose value contains "custom" (for stores
-    // that still use English values and don't use the data attribute).
-    const radios = Array.from(getAllRadios());
     const checked = radios.find((r) => r.checked);
-    const value = (checked?.value || '').trim();
-    return /custom/i.test(value);
+    if (!checked) return false;
+
+    return isCustomRadio(checked);
   };
 
   const setRequiredEnabled = (enabled) => {
@@ -238,6 +252,7 @@ function initCustomMeasurementsToggle() {
     document.addEventListener('change', (e) => {
       const target = e.target;
       if (!target || target.type !== 'radio') return;
+      if (!target.closest('.product-form__input_size')) return;
       applyVisibility();
     });
     document.documentElement.dataset.customMeasurementsToggleBound = 'true';
