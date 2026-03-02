@@ -186,18 +186,20 @@ function initCustomMeasurementsToggle() {
   // Scope to the current product section when possible (prevents collisions on pages with multiple products).
   const scope = wrapper.closest('[id^="MainProduct-"]') || document;
 
-  const getSizeRadios = () =>
+  const getAllRadios = () =>
     scope.querySelectorAll('input[type="radio"][name]');
 
-  const isSizeRadio = (el) => {
-    if (!el || el.type !== 'radio') return false;
-    const name = (el.getAttribute('name') || '').trim();
-    return /size/i.test(name);
-  };
-
   const isCustomSelected = () => {
-    // Look for the checked radio among "Size" option radios
-    const radios = Array.from(getSizeRadios()).filter(isSizeRadio);
+    // Prefer explicit "custom size" markers added in Liquid (language agnostic).
+    const markedCustomRadios = scope.querySelectorAll(
+      'input[type="radio"][data-custom-size="true"]'
+    );
+    const markedChecked = Array.from(markedCustomRadios).some((r) => r.checked);
+    if (markedChecked) return true;
+
+    // Fallback: look for a checked radio whose value contains "custom" (for stores
+    // that still use English values and don't use the data attribute).
+    const radios = Array.from(getAllRadios());
     const checked = radios.find((r) => r.checked);
     const value = (checked?.value || '').trim();
     return /custom/i.test(value);
@@ -233,7 +235,8 @@ function initCustomMeasurementsToggle() {
   if (!document.documentElement.dataset.customMeasurementsToggleBound) {
     document.addEventListener('change', (e) => {
       const target = e.target;
-      if (isSizeRadio(target)) applyVisibility();
+      if (!target || target.type !== 'radio') return;
+      applyVisibility();
     });
     document.documentElement.dataset.customMeasurementsToggleBound = 'true';
   }

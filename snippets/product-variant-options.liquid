@@ -5,6 +5,15 @@
   assign variants_option_3_arr = product.variants | map: 'option3'
   assign product_form_id = 'product-form-' | append: section.id
 -%}
+
+{%- liquid
+  comment
+    Value that should be treated as the "Custom" size.
+    Translate this key per locale (e.g. Arabic) so front-end JS
+    can detect the custom size in a language-agnostic way.
+  endcomment
+  assign custom_size_value = 'products.product.custom_measurements.custom_size_value' | t | default: 'Custom'
+-%}
 {%- for value in option.values -%}
   {%- liquid
     assign option_disabled = true
@@ -24,6 +33,11 @@
           endif
       endcase
     endfor
+
+    assign is_custom_size = false
+    if value == custom_size_value
+      assign is_custom_size = true
+    endif
   -%}
   {% if variant_type == 'dropdown' %}
     <swatch-dropdown-item class="block text-color hover-heading-color transition body_weight">
@@ -37,6 +51,9 @@
           checked
         {% endif %}
         class="{% if option_disabled -%}option-disabled{%- endif %} visually-hidden"
+        {% if is_custom_size %}
+          data-custom-size="true"
+        {% endif %}
       >
       {%- liquid
         assign op = 'option' | append: option.position
@@ -77,6 +94,9 @@
         checked
       {% endif %}
       class="{% if option_disabled -%}option-disabled {%- endif %} visually-hidden"
+      {% if is_custom_size %}
+        data-custom-size="true"
+      {% endif %}
     >
     {%- if isColorOption != true or settings.enable_color_swatches == false -%}
       <label
