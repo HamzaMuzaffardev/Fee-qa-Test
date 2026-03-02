@@ -1,72 +1,199 @@
-/**
- * Custom Measurements Logic for Abaya Store
- * Supports English (LTR) and Arabic (RTL)
- */
-document.addEventListener('DOMContentLoaded', function() {
-  const measurementWrapper = document.querySelector('.custom-measurements-wrapper');
-  const addToCartForm = document.querySelector('form[action$="/cart/add"]');
+{% comment %}
+  Custom Measurements Form
+  Renders a measurement form for custom-fit products
   
-  if (!measurementWrapper || !addToCartForm) return;
+  Usage: {% render 'custom-measurements', product: product %}
+  
+  Requires: 
+  - product.metafields.custom.is_custom = true (to show the form)
+  - assets/custom-measurements.css
+  - assets/custom-measurements.js
+{% endcomment %}
 
-  // 1. FUNCTION: Toggle visibility based on size selection
-  function toggleMeasurements() {
-    // Look for the selected size radio button or dropdown value
-    const selectedOption = addToCartForm.querySelector('input[name="options[Size]"]:checked, select[name="options[Size]"]');
-    const selectedValue = selectedOption ? selectedOption.value.toLowerCase().trim() : '';
+{% if product.metafields.custom.is_custom == true %}
+  {{ 'custom-measurements.css' | asset_url | stylesheet_tag }}
+  <script src="{{ 'custom-measurements.js' | asset_url }}" defer></script>
 
-    // Check for "custom" in any language or the specific Arabic string from your screenshot
-    if (selectedValue.includes('custom')) {
-      measurementWrapper.style.display = 'block';
-      measurementWrapper.classList.add('is-active');
-    } else {
-      measurementWrapper.style.display = 'none';
-      measurementWrapper.classList.remove('is-active');
-      clearErrors();
-    }
-  }
+  <div class="custom-measurements-wrapper" data-measurements-required="true">
+    <div class="measurements-header">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M21 3H3v18h18V3z"></path>
+        <path d="M9 3v18"></path>
+        <path d="M3 9h6"></path>
+        <path d="M3 15h6"></path>
+      </svg>
+      <h4 class="measurements-title">{{ 'products.product.custom_measurements.title' | t | default: 'Your Custom Measurements' }}</h4>
+    </div>
+    
+    {% comment %} <p class="measurements-subtitle">
+      {{ 'products.product.custom_measurements.subtitle' | t | default: 'Please provide your body measurements for a perfect custom fit. All measurements should be in centimeters (cm).' }}
+    </p> {% endcomment %}
+    
+    <div class="measurements-required-note">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      </svg>
+      <span>{{ 'products.product.custom_measurements.required_note' | t | default: 'Fields marked with * are required' }}</span>
+    </div>
 
-  // 2. EVENT: Listen for changes on size selectors
-  addToCartForm.addEventListener('change', function(e) {
-    if (e.target.name === 'options[Size]') {
-      toggleMeasurements();
-    }
-  });
+    <table class="abaya-measurements">
+      <thead>
+        <tr>
+          <th>{{ 'products.product.custom_measurements.measurement' | t | default: 'Measurement' }}</th>
+          <th>{{ 'products.product.custom_measurements.your_value' | t | default: 'Your Value (cm)' }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% comment %} 1. Overall garment length - REQUIRED {% endcomment %}
+        <tr>
+          <td>
+            {{ 'products.product.custom_measurements.length' | t | default: 'Overall length (shoulder → hem)' }}
+            <span class="required-indicator">*</span>
+          </td>
+          <td>
+            <input 
+              type="text" 
+              inputmode="decimal"
+              name="properties[Abaya Length (cm)]" 
+              required 
+              placeholder="{{ 'products.product.custom_measurements.placeholder_length' | t | default: 'e.g. 140' }}"
+            >
+            <span class="input-hint">100 - 170 cm</span>
+          </td>
+        </tr>
 
-  // 3. VALIDATION: Check required fields on "Add to Cart"
-  addToCartForm.addEventListener('submit', function(e) {
-    if (measurementWrapper.classList.contains('is-active')) {
-      const requiredInputs = measurementWrapper.querySelectorAll('input[required]');
-      let hasError = false;
+        {% comment %} 2. Shoulder width - REQUIRED {% endcomment %}
+        <tr>
+          <td>
+            {{ 'products.product.custom_measurements.shoulder' | t | default: 'Shoulder width (bone → bone)' }}
+            <span class="required-indicator">*</span>
+          </td>
+          <td>
+            <input 
+              type="text" 
+              inputmode="decimal"
+              name="properties[Shoulder Width (cm)]" 
+              required 
+              placeholder="{{ 'products.product.custom_measurements.placeholder_shoulder' | t | default: 'e.g. 42' }}"
+            >
+            <span class="input-hint">30 - 60 cm</span>
+          </td>
+        </tr>
 
-      requiredInputs.forEach(input => {
-        if (!input.value.trim()) {
-          input.style.border = '2px solid #ff0000';
-          hasError = true;
-        } else {
-          input.style.border = '';
-        }
-      });
+        {% comment %} 3. Bust / chest circumference - REQUIRED {% endcomment %}
+        <tr>
+          <td>
+            {{ 'products.product.custom_measurements.bust' | t | default: 'Bust / chest circumference' }}
+            <span class="required-indicator">*</span>
+          </td>
+          <td>
+            <input 
+              type="text" 
+              inputmode="decimal"
+              name="properties[Bust (cm)]" 
+              required 
+              placeholder="{{ 'products.product.custom_measurements.placeholder_bust' | t | default: 'e.g. 95' }}"
+            >
+            <span class="input-hint">70 - 150 cm</span>
+          </td>
+        </tr>
 
-      if (hasError) {
-        e.preventDefault();
-        e.stopImmediatePropagation();
-        
-        // Show error message
-        const errorMsg = measurementWrapper.querySelector('.measurements-error');
-        if (errorMsg) errorMsg.style.display = 'flex';
-        
-        // Scroll to measurements
-        measurementWrapper.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
-    }
-  });
+        {% comment %} 4. Natural waist - OPTIONAL {% endcomment %}
+        <tr>
+          <td>
+            {{ 'products.product.custom_measurements.waist' | t | default: 'Waist (natural)' }}
+          </td>
+          <td>
+            <input 
+              type="text" 
+              inputmode="decimal"
+              name="properties[Waist (cm)]" 
+              placeholder="{{ 'products.product.custom_measurements.placeholder_optional' | t | default: 'Optional' }}"
+            >
+            <span class="input-hint">50 - 130 cm</span>
+          </td>
+        </tr>
 
-  function clearErrors() {
-    const errorMsg = measurementWrapper.querySelector('.measurements-error');
-    if (errorMsg) errorMsg.style.display = 'none';
-    measurementWrapper.querySelectorAll('input').forEach(i => i.style.border = '');
-  }
+        {% comment %} 5. Hip circumference - REQUIRED {% endcomment %}
+        <tr>
+          <td>
+            {{ 'products.product.custom_measurements.hips' | t | default: 'Hips (fullest point)' }}
+            <span class="required-indicator">*</span>
+          </td>
+          <td>
+            <input 
+              type="text" 
+              inputmode="decimal"
+              name="properties[Hips (cm)]" 
+              required 
+              placeholder="{{ 'products.product.custom_measurements.placeholder_hips' | t | default: 'e.g. 100' }}"
+            >
+            <span class="input-hint">70 - 160 cm</span>
+          </td>
+        </tr>
 
-  // Run on page load
-  toggleMeasurements();
-});
+        {% comment %} 6. Sleeve length - REQUIRED {% endcomment %}
+        <tr>
+          <td>
+            {{ 'products.product.custom_measurements.sleeve' | t | default: 'Sleeve length (shoulder → wrist)' }}
+            <span class="required-indicator">*</span>
+          </td>
+          <td>
+            <input 
+              type="text" 
+              inputmode="decimal"
+              name="properties[Sleeve Length (cm)]" 
+              required 
+              placeholder="{{ 'products.product.custom_measurements.placeholder_sleeve' | t | default: 'e.g. 60' }}"
+            >
+            <span class="input-hint">40 - 80 cm</span>
+          </td>
+        </tr>
+
+        {% comment %} 7. Upper-arm / biceps - OPTIONAL {% endcomment %}
+        <tr>
+          <td>
+            {{ 'products.product.custom_measurements.upper_arm' | t | default: 'Upper-arm / biceps' }}
+          </td>
+          <td>
+            <input 
+              type="text" 
+              inputmode="decimal"
+              name="properties[Upper Arm (cm)]" 
+              placeholder="{{ 'products.product.custom_measurements.placeholder_optional' | t | default: 'Optional' }}"
+            >
+            <span class="input-hint">20 - 60 cm</span>
+          </td>
+        </tr>
+
+        {% comment %} 8. Wrist / cuff - OPTIONAL {% endcomment %}
+        <tr>
+          <td>
+            {{ 'products.product.custom_measurements.wrist' | t | default: 'Wrist / cuff' }}
+          </td>
+          <td>
+            <input 
+              type="text" 
+              inputmode="decimal"
+              name="properties[Wrist (cm)]" 
+              placeholder="{{ 'products.product.custom_measurements.placeholder_optional' | t | default: 'Optional' }}"
+            >
+            <span class="input-hint">10 - 30 cm</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <div class="measurements-error">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="15" y1="9" x2="9" y2="15"></line>
+        <line x1="9" y1="9" x2="15" y2="15"></line>
+      </svg>
+      <span>{{ 'products.product.custom_measurements.error_message' | t | default: 'Please fill in all required measurements' }}</span>
+    </div>
+  </div>
+{% endif %}
+
