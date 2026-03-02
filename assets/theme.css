@@ -2010,3 +2010,39 @@ h2.mt-0.sec__content-heading.heading-letter-spacing.mb-custom.fs-medium.heading_
 sticky-add-cart.fixed.z-10.inset-x-0.bottom-0.py-15.shadow.color-default.transition-popup.invisible.sticky_desktop--show.sticky_mobile--show.show-sticky-cart {
     display: none !important;
 }
+
+
+/*  */
+
+.custom-measurements-wrapper {
+  display: none; /* Hidden by default */
+  margin: 20px 0;
+  padding: 15px;
+  border: 1px solid #e8e8e8;
+  background: #fdfdfd;
+}
+
+/* RTL Support for Arabic */
+[dir="rtl"] .custom-measurements-wrapper {
+  direction: rtl;
+  text-align: right;
+}
+
+[dir="rtl"] .measurements-header svg {
+  margin-left: 10px;
+  margin-right: 0;
+}
+
+.measurements-error {
+  display: none;
+  color: #ff0000;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+/* Highlight required fields if empty */
+.custom-measurements-wrapper input:invalid {
+  box-shadow: none;
+}
