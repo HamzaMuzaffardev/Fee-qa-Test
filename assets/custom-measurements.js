@@ -186,12 +186,27 @@ function initCustomMeasurementsToggle() {
   // Scope to the current product section when possible (prevents collisions on pages with multiple products).
   const scope = wrapper.closest('[id^="MainProduct-"]') || document;
 
-  const getSizeRadios = () =>
-    Array.from(
-      scope.querySelectorAll(
-        '.product-form__input_size input[type="radio"][name]'
-      )
+  const getAllRadios = () =>
+    Array.from(scope.querySelectorAll('input[type="radio"][name]'));
+
+  // Try to detect which option group is the "size" group:
+  // - Prefer the group that contains the radio marked data-custom-size="true".
+  // - Fallback: use all radios if we can't determine the group.
+  const getSizeRadios = () => {
+    const allRadios = getAllRadios();
+    if (!allRadios.length) return [];
+
+    const markedCustom = allRadios.find(
+      (r) => r.dataset && r.dataset.customSize === 'true'
     );
+
+    if (!markedCustom) {
+      return allRadios;
+    }
+
+    const sizeName = markedCustom.name;
+    return allRadios.filter((r) => r.name === sizeName);
+  };
 
   const isCustomRadio = (radio) => {
     if (!radio) return false;
@@ -252,7 +267,12 @@ function initCustomMeasurementsToggle() {
     document.addEventListener('change', (e) => {
       const target = e.target;
       if (!target || target.type !== 'radio') return;
-      if (!target.closest('.product-form__input_size')) return;
+
+      // Only react if this radio belongs to the same option group as the custom size.
+      const sizeRadios = getSizeRadios();
+      if (!sizeRadios.length) return;
+      if (!sizeRadios.includes(target)) return;
+
       applyVisibility();
     });
     document.documentElement.dataset.customMeasurementsToggleBound = 'true';
