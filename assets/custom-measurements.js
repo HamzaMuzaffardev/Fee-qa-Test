@@ -236,17 +236,158 @@ function initCustomMeasurementsToggle() {
     return isCustomRadio(checked);
   };
 
-  const setRequiredEnabled = (enabled) => {
-    const requiredInputs = wrapper.querySelectorAll('input[type="text"]');
-    requiredInputs.forEach((input) => {
-      const wasRequired = input.hasAttribute('required') || input.dataset.wasRequired === 'true';
+  /**
+   * Create 2 tabs on the Size option group:
+   * - Standard Sizing: show all sizes except Custom
+   * - Custom Sizing: show only Custom size
+   */
+  const initSizingTabs = () => {
+    const sizeRadios = getSizeRadios();
+    if (!sizeRadios.length) return;
 
-      if (enabled) {
-        if (input.dataset.wasRequired === 'true') input.setAttribute('required', '');
+    // Find a stable container to insert tabs into (fieldset that wraps the size radios).
+    const firstRadio = sizeRadios[0];
+    const fieldset = firstRadio.closest('fieldset');
+    if (!fieldset) return;
+
+    // Avoid double-init if Shopify re-renders.
+    if (fieldset.dataset.sizingTabsBound === 'true') return;
+
+    const customRadios = sizeRadios.filter(isCustomRadio);
+    const standardRadios = sizeRadios.filter((r) => !isCustomRadio(r));
+    if (!customRadios.length || !standardRadios.length) return; // nothing to split
+
+    const labelRow = fieldset.querySelector('.form__label');
+
+    // Units to move (supports both: plain input+label, or <swatch-dropdown-item> wrappers)
+    const getUnitForRadio = (radio) => {
+      const dropdownItem = radio.closest('swatch-dropdown-item');
+      if (dropdownItem) return dropdownItem;
+
+      const unit = document.createElement('div');
+      unit.className = 'sizing-option-unit';
+
+      const label = fieldset.querySelector(`label[for="${radio.id}"]`);
+      unit.appendChild(radio);
+      if (label) unit.appendChild(label);
+      return unit;
+    };
+
+    // Build containers
+    const tabs = document.createElement('div');
+    tabs.className = 'sizing-track-tabs';
+    tabs.setAttribute('role', 'tablist');
+    tabs.setAttribute('aria-label', 'Sizing track');
+
+    const btnStandard = document.createElement('button');
+    btnStandard.type = 'button';
+    btnStandard.className = 'sizing-track-tab is-active';
+    btnStandard.setAttribute('role', 'tab');
+    btnStandard.setAttribute('aria-selected', 'true');
+    btnStandard.dataset.track = 'standard';
+    btnStandard.textContent = 'Standard Sizing';
+
+    const btnCustom = document.createElement('button');
+    btnCustom.type = 'button';
+    btnCustom.className = 'sizing-track-tab';
+    btnCustom.setAttribute('role', 'tab');
+    btnCustom.setAttribute('aria-selected', 'false');
+    btnCustom.dataset.track = 'custom';
+    btnCustom.textContent = 'Custom Sizing';
+
+    tabs.appendChild(btnStandard);
+    tabs.appendChild(btnCustom);
+
+    const standardWrap = document.createElement('div');
+    standardWrap.className = 'sizing-track-panel sizing-track-panel--standard';
+    standardWrap.dataset.sizingTrackPanel = 'standard';
+
+    const customWrap = document.createElement('div');
+    customWrap.className = 'sizing-track-panel sizing-track-panel--custom';
+    customWrap.dataset.sizingTrackPanel = 'custom';
+    customWrap.style.display = 'none';
+
+    // Move options into the correct panel
+    standardRadios.forEach((r) => standardWrap.appendChild(getUnitForRadio(r)));
+    customRadios.forEach((r) => customWrap.appendChild(getUnitForRadio(r)));
+
+    // Insert into DOM (after option label row when possible)
+    if (labelRow && labelRow.parentNode === fieldset) {
+      labelRow.insertAdjacentElement('afterend', tabs);
+      tabs.insertAdjacentElement('afterend', standardWrap);
+      standardWrap.insertAdjacentElement('afterend', customWrap);
+    } else {
+      fieldset.prepend(customWrap);
+      fieldset.prepend(standardWrap);
+      fieldset.prepend(tabs);
+    }
+
+    const setActiveTrack = (track) => {
+      const isCustomTrack = track === 'custom';
+      btnStandard.classList.toggle('is-active', !isCustomTrack);
+      btnCustom.classList.toggle('is-active', isCustomTrack);
+      btnStandard.setAttribute('aria-selected', (!isCustomTrack).toString());
+      btnCustom.setAttribute('aria-selected', isCustomTrack.toString());
+      standardWrap.style.display = isCustomTrack ? 'none' : '';
+      customWrap.style.display = isCustomTrack ? '' : 'none';
+
+      // Ensure a visible radio is selected (variant system needs a checked value)
+      const visibleRadios = isCustomTrack ? customRadios : standardRadios;
+      const currentlyChecked = sizeRadios.find((r) => r.checked);
+      const checkedIsVisible = currentlyChecked && visibleRadios.includes(currentlyChecked);
+      if (!checkedIsVisible && visibleRadios.length) {
+        visibleRadios[0].checked = true;
+        visibleRadios[0].dispatchEvent(new Event('change', { bubbles: true }));
+      }
+    };
+
+    // Default track based on current selection
+    setActiveTrack(isCustomSelected() ? 'custom' : 'standard');
+
+    tabs.addEventListener('click', (e) => {
+      const target = e.target;
+      if (!(target instanceof HTMLElement)) return;
+      const track = target.dataset.track;
+      if (!track) return;
+      setActiveTrack(track);
+    });
+
+    fieldset.dataset.sizingTabsBound = 'true';
+  };
+
+  /**
+   * Update measurement table visibility + required fields based on sizing track.
+   *
+   * - Standard sizing: show Length only, require Length only
+   * - Custom sizing: show all rows, require all 5 fields
+   */
+  const applyVisibility = () => {
+    const isCustom = isCustomSelected();
+
+    // Measurement block should always be visible (Length required for both tracks)
+    wrapper.style.display = 'block';
+
+    // Show/hide measurement rows based on their role
+    const rows = wrapper.querySelectorAll('tr[data-measurement-role]');
+    rows.forEach((row) => {
+      const role = row.dataset.measurementRole;
+      const isLengthRow = role === 'length';
+      row.style.display = isCustom || isLengthRow ? '' : 'none';
+    });
+
+    // Required fields in inches:
+    // - Length always required
+    // - Other fields required only in custom sizing
+    const inputs = wrapper.querySelectorAll('input[type="text"][data-measurement-role]');
+    inputs.forEach((input) => {
+      const role = input.dataset.measurementRole;
+      const isLength = role === 'length';
+
+      if (isLength) {
+        input.setAttribute('required', '');
+      } else if (isCustom) {
+        input.setAttribute('required', '');
       } else {
-        // Preserve which inputs were required originally so we can restore.
-        if (input.hasAttribute('required')) input.dataset.wasRequired = 'true';
-        else if (!input.dataset.wasRequired) input.dataset.wasRequired = wasRequired ? 'true' : 'false';
         input.removeAttribute('required');
         input.classList.remove('input-error');
       }
@@ -254,12 +395,6 @@ function initCustomMeasurementsToggle() {
 
     const error = wrapper.querySelector('.measurements-error');
     error?.classList.remove('show');
-  };
-
-  const applyVisibility = () => {
-    const show = isCustomSelected();
-    wrapper.style.display = show ? 'block' : 'none';
-    setRequiredEnabled(show);
   };
 
   // Avoid attaching multiple listeners on repeated init (section load, etc.)
@@ -278,6 +413,7 @@ function initCustomMeasurementsToggle() {
     document.documentElement.dataset.customMeasurementsToggleBound = 'true';
   }
 
+  initSizingTabs();
   applyVisibility();
 }
 
