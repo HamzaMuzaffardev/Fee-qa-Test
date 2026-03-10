@@ -1,11 +1,51 @@
 /* Custom Measurements Form Styles */
 
 .custom-measurements-wrapper {
-  margin: 20px 0;
+  margin: 20px 0 40px;
   padding: 20px;
   background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
   border-radius: 12px;
   border: 1px solid #e8e8e8;
+  display: block;
+  clear: both;
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Sizing track tabs (Standard Sizing vs Custom Sizing) --- */
+.sizing-track-tabs {
+  display: inline-flex;
+  gap: 8px;
+  width: 100%;
+  margin: 10px 0 12px;
+}
+
+.sizing-track-tab {
+  appearance: none;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  background: #fff;
+  color: inherit;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.1;
+}
+
+.sizing-track-tab.is-active {
+  border-color: rgba(0, 0, 0, 0.6);
+  font-weight: 600;
+}
+
+.sizing-track-panel {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+/* When we have to wrap an input+label pair, keep the original layout flow */
+.sizing-option-unit {
+  display: contents;
 }
 
 .custom-measurements-wrapper .measurements-header {
