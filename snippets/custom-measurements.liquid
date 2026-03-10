@@ -10,11 +10,10 @@
   - assets/custom-measurements.js
 {% endcomment %}
 
-{% if product.metafields.custom.is_custom == true %}
-  {{ 'custom-measurements.css' | asset_url | stylesheet_tag }}
-  <script src="{{ 'custom-measurements.js' | asset_url }}" defer></script>
+{{ 'custom-measurements.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'custom-measurements.js' | asset_url }}" defer></script>
 
-  <div class="custom-measurements-wrapper" data-measurements-required="true">
+<div class="custom-measurements-wrapper" data-measurements-required="true">
     <div class="measurements-header">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <path d="M21 3H3v18h18V3z"></path>
@@ -157,5 +156,5 @@
       <span>{{ 'products.product.custom_measurements.error_message' | t | default: 'Please fill in all required measurements' }}</span>
     </div>
   </div>
-{% endif %}
+</div>
 
