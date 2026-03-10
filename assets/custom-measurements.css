@@ -12,6 +12,14 @@
   z-index: 1;
 }
 
+/* Ensure following description/accordion blocks sit clearly below
+   the measurements inside the same sticky column */
+.product-detail__custom-measurements + .product-detail__description,
+.product-detail__custom-measurements + .product-detail__short-description {
+  margin-top: 24px;
+  clear: both;
+}
+
 /* --- Sizing track tabs (Standard Sizing vs Custom Sizing) --- */
 .sizing-track-tabs {
   display: inline-flex;
