@@ -35,152 +35,114 @@
         <line x1="12" y1="8" x2="12" y2="12"></line>
         <line x1="12" y1="16" x2="12.01" y2="16"></line>
       </svg>
-      <span>{{ 'products.product.custom_measurements.required_note' | t | default: 'Fields marked with * are required' }}</span>
+      <span>
+        {{ 'products.product.custom_measurements.required_note' | t | default: 'All measurements must be provided in inches (in). Fields marked with * are required.' }}
+      </span>
     </div>
 
     <table class="abaya-measurements">
       <thead>
         <tr>
           <th>{{ 'products.product.custom_measurements.measurement' | t | default: 'Measurement' }}</th>
-          <th>{{ 'products.product.custom_measurements.your_value' | t | default: 'Your Value (cm)' }}</th>
+          <th>{{ 'products.product.custom_measurements.your_value' | t | default: 'Your Value (in)' }}</th>
         </tr>
       </thead>
       <tbody>
-        {% comment %} 1. Overall garment length - REQUIRED {% endcomment %}
-        <tr>
+        {% comment %}
+          NEW MEASUREMENT TABLE (INCHES)
+
+          Two sizing tracks are supported:
+          - Standard sizing (S / M / L, etc.): customer must provide a custom Length (in).
+          - Custom sizing (Custom size option): customer must provide Shoulder, Bust, Armhole,
+            Sleeve Length and Length (all in).
+
+          The JS (assets/custom-measurements.js) uses the data-measurement-role attributes below
+          to decide which fields are required and when to hide/show rows.
+        {% endcomment %}
+
+        {% comment %} 1. Shoulder - required ONLY for Custom sizing {% endcomment %}
+        <tr data-measurement-role="shoulder">
           <td>
-            {{ 'products.product.custom_measurements.length' | t | default: 'Overall length (shoulder → hem)' }}
+            {{ 'products.product.custom_measurements.shoulder' | t | default: 'Shoulder' }}
             <span class="required-indicator">*</span>
           </td>
           <td>
-            <input 
-              type="text" 
+            <input
+              type="text"
               inputmode="decimal"
-              name="properties[Abaya Length (cm)]" 
-              required 
-              placeholder="{{ 'products.product.custom_measurements.placeholder_length' | t | default: 'e.g. 140' }}"
+              name="properties[Shoulder (in)]"
+              data-measurement-role="shoulder"
+              placeholder="{{ 'products.product.custom_measurements.placeholder_shoulder' | t | default: 'e.g. 15.5' }}"
             >
-            <span class="input-hint">100 - 170 cm</span>
           </td>
         </tr>
 
-        {% comment %} 2. Shoulder width - REQUIRED {% endcomment %}
-        <tr>
+        {% comment %} 2. Bust - required ONLY for Custom sizing {% endcomment %}
+        <tr data-measurement-role="bust">
           <td>
-            {{ 'products.product.custom_measurements.shoulder' | t | default: 'Shoulder width (bone → bone)' }}
+            {{ 'products.product.custom_measurements.bust' | t | default: 'Bust' }}
             <span class="required-indicator">*</span>
           </td>
           <td>
-            <input 
-              type="text" 
+            <input
+              type="text"
               inputmode="decimal"
-              name="properties[Shoulder Width (cm)]" 
-              required 
-              placeholder="{{ 'products.product.custom_measurements.placeholder_shoulder' | t | default: 'e.g. 42' }}"
+              name="properties[Bust (in)]"
+              data-measurement-role="bust"
+              placeholder="{{ 'products.product.custom_measurements.placeholder_bust' | t | default: 'e.g. 38' }}"
             >
-            <span class="input-hint">30 - 60 cm</span>
           </td>
         </tr>
 
-        {% comment %} 3. Bust / chest circumference - REQUIRED {% endcomment %}
-        <tr>
+        {% comment %} 3. Armhole - required ONLY for Custom sizing {% endcomment %}
+        <tr data-measurement-role="armhole">
           <td>
-            {{ 'products.product.custom_measurements.bust' | t | default: 'Bust / chest circumference' }}
+            {{ 'products.product.custom_measurements.armhole' | t | default: 'Armhole' }}
             <span class="required-indicator">*</span>
           </td>
           <td>
-            <input 
-              type="text" 
+            <input
+              type="text"
               inputmode="decimal"
-              name="properties[Bust (cm)]" 
-              required 
-              placeholder="{{ 'products.product.custom_measurements.placeholder_bust' | t | default: 'e.g. 95' }}"
+              name="properties[Armhole (in)]"
+              data-measurement-role="armhole"
+              placeholder="{{ 'products.product.custom_measurements.placeholder_armhole' | t | default: 'e.g. 18' }}"
             >
-            <span class="input-hint">70 - 150 cm</span>
           </td>
         </tr>
 
-        {% comment %} 4. Natural waist - OPTIONAL {% endcomment %}
-        <tr>
+        {% comment %} 4. Sleeve Length - required ONLY for Custom sizing {% endcomment %}
+        <tr data-measurement-role="sleeve_length">
           <td>
-            {{ 'products.product.custom_measurements.waist' | t | default: 'Waist (natural)' }}
-          </td>
-          <td>
-            <input 
-              type="text" 
-              inputmode="decimal"
-              name="properties[Waist (cm)]" 
-              placeholder="{{ 'products.product.custom_measurements.placeholder_optional' | t | default: 'Optional' }}"
-            >
-            <span class="input-hint">50 - 130 cm</span>
-          </td>
-        </tr>
-
-        {% comment %} 5. Hip circumference - REQUIRED {% endcomment %}
-        <tr>
-          <td>
-            {{ 'products.product.custom_measurements.hips' | t | default: 'Hips (fullest point)' }}
+            {{ 'products.product.custom_measurements.sleeve' | t | default: 'Sleeve Length' }}
             <span class="required-indicator">*</span>
           </td>
           <td>
-            <input 
-              type="text" 
+            <input
+              type="text"
               inputmode="decimal"
-              name="properties[Hips (cm)]" 
-              required 
-              placeholder="{{ 'products.product.custom_measurements.placeholder_hips' | t | default: 'e.g. 100' }}"
+              name="properties[Sleeve Length (in)]"
+              data-measurement-role="sleeve_length"
+              placeholder="{{ 'products.product.custom_measurements.placeholder_sleeve' | t | default: 'e.g. 23' }}"
             >
-            <span class="input-hint">70 - 160 cm</span>
           </td>
         </tr>
 
-        {% comment %} 6. Sleeve length - REQUIRED {% endcomment %}
-        <tr>
+        {% comment %} 5. Length - REQUIRED for BOTH Standard and Custom sizing {% endcomment %}
+        <tr data-measurement-role="length">
           <td>
-            {{ 'products.product.custom_measurements.sleeve' | t | default: 'Sleeve length (shoulder → wrist)' }}
+            {{ 'products.product.custom_measurements.length' | t | default: 'Length' }}
             <span class="required-indicator">*</span>
           </td>
           <td>
-            <input 
-              type="text" 
+            <input
+              type="text"
               inputmode="decimal"
-              name="properties[Sleeve Length (cm)]" 
-              required 
-              placeholder="{{ 'products.product.custom_measurements.placeholder_sleeve' | t | default: 'e.g. 60' }}"
+              name="properties[Custom Length (in)]"
+              data-measurement-role="length"
+              required
+              placeholder="{{ 'products.product.custom_measurements.placeholder_length' | t | default: 'e.g. 54' }}"
             >
-            <span class="input-hint">40 - 80 cm</span>
-          </td>
-        </tr>
-
-        {% comment %} 7. Upper-arm / biceps - OPTIONAL {% endcomment %}
-        <tr>
-          <td>
-            {{ 'products.product.custom_measurements.upper_arm' | t | default: 'Upper-arm / biceps' }}
-          </td>
-          <td>
-            <input 
-              type="text" 
-              inputmode="decimal"
-              name="properties[Upper Arm (cm)]" 
-              placeholder="{{ 'products.product.custom_measurements.placeholder_optional' | t | default: 'Optional' }}"
-            >
-            <span class="input-hint">20 - 60 cm</span>
-          </td>
-        </tr>
-
-        {% comment %} 8. Wrist / cuff - OPTIONAL {% endcomment %}
-        <tr>
-          <td>
-            {{ 'products.product.custom_measurements.wrist' | t | default: 'Wrist / cuff' }}
-          </td>
-          <td>
-            <input 
-              type="text" 
-              inputmode="decimal"
-              name="properties[Wrist (cm)]" 
-              placeholder="{{ 'products.product.custom_measurements.placeholder_optional' | t | default: 'Optional' }}"
-            >
-            <span class="input-hint">10 - 30 cm</span>
           </td>
         </tr>
       </tbody>
