@@ -57,6 +57,14 @@ function applyState(wrapper) {
   }
 
   setRequired(Array.from(requiredInputs), shouldShow);
+
+  // IMPORTANT: prevent blank gift properties from being added to cart/orders
+  // by disabling inputs when the gift toggle is off.
+  allInputs.forEach((el) => {
+    if (!el) return;
+    // Keep the toggle itself enabled; disable everything inside the fields container.
+    el.disabled = !shouldShow;
+  });
 }
   function bind(wrapper) {
     const toggle = wrapper.querySelector('[data-send-gift-toggle]');
