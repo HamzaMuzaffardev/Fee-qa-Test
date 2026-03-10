@@ -91,6 +91,29 @@ class CustomMeasurementsValidator {
     this.allInputs.forEach(input => this.syncValue(input));
   }
 
+  /**
+   * Disable hidden line-item property inputs for any measurement
+   * field that has no value. This prevents empty properties like
+   * "Shoulder (in)" with no value from showing in the order view.
+   */
+  disableEmptyHiddenInputs() {
+    if (!this.productForm) return;
+
+    this.allInputs.forEach((input) => {
+      const hidden = input.hiddenInput;
+      if (!hidden) return;
+
+      const val = (input.value || '').trim();
+
+      if (!val) {
+        // Do not send this property with the form submission.
+        hidden.disabled = true;
+      } else {
+        hidden.disabled = false;
+      }
+    });
+  }
+
   checkFields() {
     // If the measurements UI is hidden, do not block add-to-cart.
     if (
@@ -168,6 +191,10 @@ class CustomMeasurementsValidator {
       this.showError(emptyCount);
       return false;
     }
+
+    // Only send non-empty measurement properties to Shopify
+    // so they appear on the order page only when filled.
+    this.disableEmptyHiddenInputs();
   }
 }
 
