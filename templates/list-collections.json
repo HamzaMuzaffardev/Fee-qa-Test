@@ -43,6 +43,14 @@
     "main": {
       "type": "main-list-collections",
       "blocks": {
+        "collection_6WEhnz": {
+          "type": "collection",
+          "settings": {
+            "collection": "new-collection",
+            "collection_image": "shopify://shop_images/IMG_7239.jpg",
+            "collection_title": "New collection"
+          }
+        },
         "collection_GawBmm": {
           "type": "collection",
           "settings": {
@@ -95,6 +103,7 @@
         }
       },
       "block_order": [
+        "collection_6WEhnz",
         "collection_GawBmm",
         "collection_k6UJWD",
         "collection_Dh49Wa",
