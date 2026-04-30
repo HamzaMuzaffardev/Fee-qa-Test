@@ -100,6 +100,13 @@
             "collection": "eid-collection",
             "collection_title": ""
           }
+        },
+        "collection_eaxMQV": {
+          "type": "collection",
+          "settings": {
+            "collection": "new-collection",
+            "collection_title": ""
+          }
         }
       },
       "block_order": [
@@ -110,7 +117,8 @@
         "collection_qag64J",
         "collection_Kk8pDP",
         "collection_r4kRUa",
-        "collection_nKTKhW"
+        "collection_nKTKhW",
+        "collection_eaxMQV"
       ],
       "settings": {
         "section_width": "fluid_container",
@@ -122,7 +130,7 @@
         "design": "default",
         "text_alignment": "center",
         "font_size": 16,
-        "items_to_show": 8,
+        "items_to_show": 9,
         "items_per_row": 3,
         "column_gap": 30,
         "pagination": "load_more_button",
