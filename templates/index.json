@@ -56,7 +56,7 @@
       "custom_css": [],
       "settings": {
         "section_width": "full_width",
-        "slide_height": "adapt",
+        "slide_height": "full_screen",
         "desktop_height": 300,
         "mobile_height": 550,
         "color_scheme": "scheme-fc2810ca-9089-4b73-95f4-f0424fd21cc8",
