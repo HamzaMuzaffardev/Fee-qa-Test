@@ -24,15 +24,15 @@
         "slider_item_YipJd4": {
           "type": "slider_item",
           "settings": {
-            "image": "shopify://shop_images/Untitled_design_-_2026-05-04T112052.580.png",
+            "image": "shopify://shop_images/hero_section_desktop_18.png",
             "image_mobile": "shopify://shop_images/hero_section_desktop_480_x_600_px_b4560574-0f3a-4482-9a61-0ba874af6c38.png",
             "overlay_opacity": 0,
             "slider_effect": "effect_fadeinup",
             "subheading": "",
             "heading": "Fee: Where Every Piece Tells a Story",
-            "description": "<p>Verse One by Fee is Officially out! Shop NOW only from FEE</p>",
+            "description": "<p>Dantel Collection by Fee is Officially out! Shop NOW only from FEE</p>",
             "first_button_label": "Shop now",
-            "first_button_link": "shopify://collections/all",
+            "first_button_link": "shopify://collections/dantel-collection",
             "first_button_style": false,
             "second_button_label": "",
             "second_button_link": "",
