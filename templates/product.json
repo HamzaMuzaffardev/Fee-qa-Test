@@ -210,7 +210,7 @@
         "section_width": "container",
         "color_scheme": "scheme-bed5c5a2-dcee-431e-8f35-d15ddd6491c9",
         "enable_sticky_content_on_desktop": true,
-        "enable_skeleton_loading": false,
+        "enable_skeleton_loading": true,
         "desktop_media_width": 50,
         "desktop_layout": "thumbnail_left",
         "image_zoom": "open_lightbox",
