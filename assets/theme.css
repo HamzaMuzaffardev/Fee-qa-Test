@@ -2014,6 +2014,8 @@ sticky-add-cart.fixed.z-10.inset-x-0.bottom-0.py-15.shadow.color-default.transit
 
 /*  */
 
-section#shopify-section-template--20069970280645__multi_content_LfYkpe .section__block-inner.gradient.hover-effect.color-scheme-4faf0e4d-27f4-4d02-bc51-617383bab1a9.flex.relative {
+@media (min-width: 767px){
+  section#shopify-section-template--20069970280645__multi_content_LfYkpe .section__block-inner.gradient.hover-effect.color-scheme-4faf0e4d-27f4-4d02-bc51-617383bab1a9.flex.relative {
     height: 450px;
+}
 }
