@@ -2019,3 +2019,7 @@ sticky-add-cart.fixed.z-10.inset-x-0.bottom-0.py-15.shadow.color-default.transit
     height: 450px;
 }
 }
+
+.footer__block-info.rich__text-mt-0.mb-20 {
+    max-width: 85%;
+}
