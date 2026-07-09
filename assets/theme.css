@@ -1,34 +1,4 @@
-@font-face {
-  font-family: 'Alexandria';
-  src: url('https://cdn.shopify.com/s/files/1/0934/9968/7185/files/Alexandria-Light.ttf?v=1749994577') format('truetype');
-  font-weight: 300;
-  font-style: normal;
-}
 
-@font-face {
-  font-family: 'Alexandria';
-  src: url('https://cdn.shopify.com/s/files/1/0934/9968/7185/files/Alexandria-Regular.ttf?v=YOUR-VALUE-HERE') format('truetype'); /* update this when available */
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Alexandria';
-  src: url('https://cdn.shopify.com/s/files/1/0934/9968/7185/files/Alexandria-Medium.ttf?v=1749994577') format('truetype');
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Alexandria';
-  src: url('https://cdn.shopify.com/s/files/1/0934/9968/7185/files/Alexandria-Bold.ttf?v=1749994577') format('truetype');
-  font-weight: 700;
-  font-style: normal;
-}
-body {
-  font-family: 'Alexandria', sans-serif;
- 
-}
 
 
 /* Some css class in defined in critical css */
@@ -2022,4 +1992,7 @@ sticky-add-cart.fixed.z-10.inset-x-0.bottom-0.py-15.shadow.color-default.transit
 
 .footer__block-info.rich__text-mt-0.mb-20 {
     max-width: 85%;
+}
+.cart-content.mt-30.grey-bg.p-30.rounded {
+    display: none;
 }
