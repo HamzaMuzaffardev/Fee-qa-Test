@@ -89,7 +89,7 @@
     "show_check_box_in_cart": true,
     "show_checkbox_in_product_page": true,
     "show_check_box_in_quick_view": true,
-    "text_terms_conditions": "<p> I agree with <a href=\"/policies/privacy-policy\" title=\"Privacy Policy\">Policies</a></p>",
+    "text_terms_conditions": "<p>I accept all the <a href=\"/policies/privacy-policy\" title=\"Privacy Policy\">Policies</a></p>",
     "page_terms_conditions": "term-and-conditions",
     "rate_color": "#ea0606",
     "sections": {
