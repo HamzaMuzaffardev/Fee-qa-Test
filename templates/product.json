@@ -99,13 +99,6 @@
             "show_share": false
           }
         },
-        "stock_countdown_JNK9zi": {
-          "type": "stock_countdown",
-          "settings": {
-            "message": "Hurry up! Only [count] items left in stock",
-            "stock_items": 30
-          }
-        },
         "buy_buttons_LcQGtR": {
           "type": "buy_buttons",
           "settings": {
@@ -195,7 +188,6 @@
         "countdown_timer_QB4Ydn",
         "variant_picker_tcCihG",
         "product_addons_YRaprz",
-        "stock_countdown_JNK9zi",
         "buy_buttons_LcQGtR",
         "custom_measurements_e7NzrQ",
         "send_gift_MrwMFN",
