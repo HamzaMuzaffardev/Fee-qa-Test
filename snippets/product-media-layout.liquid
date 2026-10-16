@@ -128,14 +128,16 @@
           %}
         {% else %}
           {%- if featured_media.host == 'youtube' -%}
+            {% comment %} MUTED: mute=1 is always set {% endcomment %}
             <iframe
-              src="https://www.youtube.com/embed/{{ video_id }}?enablejsapi=1&rel=0&autoplay={% if enable_video_autoplay -%}1{% else %}0{%- endif -%}&mute={% if enable_video_autoplay -%}1{% else %}0{%- endif -%}&loop={%- if enable_video_looping -%}1&playlist={{ video_id }}{%else%}0{% endif %}"
+              src="https://www.youtube.com/embed/{{ video_id }}?enablejsapi=1&rel=0&autoplay={% if enable_video_autoplay -%}1{% else %}0{%- endif -%}&mute=1&loop={%- if enable_video_looping -%}1&playlist={{ video_id }}{%else%}0{% endif %}"
               class="js-youtube media-video"
             ></iframe>
           {%- else -%}
+            {% comment %} MUTED: muted=1 is always set {% endcomment %}
             <iframe
               class="js-vimeo media-video"
-              src="https://player.vimeo.com/video/{{ video_id }}?autoplay={% if enable_video_autoplay -%}1{% else %}0{%- endif -%}&muted={% if enable_video_autoplay -%}1{% else %}0{%- endif -%}&loop={%- if enable_video_looping -%}1{%else%}0{% endif %}"
+              src="https://player.vimeo.com/video/{{ video_id }}?autoplay={% if enable_video_autoplay -%}1{% else %}0{%- endif -%}&muted=1&loop={%- if enable_video_looping -%}1{%else%}0{% endif %}"
               frameborder="0"
               allowfullscreen
             ></iframe>
@@ -149,7 +151,7 @@
             loop 
         {% endif %}
         {% if enable_video_autoplay -%}
-            muted autoplay
+            autoplay
         {%- endif -%}
       {%- endcapture -%}
       <div
@@ -187,6 +189,7 @@
           </svg>
         {% else %}
           <div class="test">
+            {% comment %} MUTED: muted attribute + onvolumechange forces it to stay muted {% endcomment %}
             <video
               playsinline="true"
               muted="muted"
@@ -196,6 +199,8 @@
               class="rounded-5 block w-full h-full absolute inset-0 media-video"
               src="{{ source_url }}"
               poster="{{ featured_media.preview_image | image_url: width: 800 }}"
+              onloadedmetadata="this.muted = true; this.volume = 0;"
+              onvolumechange="if (!this.muted || this.volume > 0) { this.muted = true; this.volume = 0; }"
               {{ video_attribute }}
             ></video>
           </div>
@@ -382,14 +387,16 @@
             %}
           {% else %}
             {%- if image.host == 'youtube' -%}
+              {% comment %} MUTED: mute=1 is always set {% endcomment %}
               <iframe
-                src="https://www.youtube.com/embed/{{ video_id }}?enablejsapi=1&rel=0&autoplay={% if enable_video_autoplay -%}1{% else %}0{%- endif -%}&mute={% if enable_video_autoplay -%}1{% else %}0{%- endif -%}&loop={%- if enable_video_looping -%}1&playlist={{ video_id }}{%else%}0{% endif %}"
+                src="https://www.youtube.com/embed/{{ video_id }}?enablejsapi=1&rel=0&autoplay={% if enable_video_autoplay -%}1{% else %}0{%- endif -%}&mute=1&loop={%- if enable_video_looping -%}1&playlist={{ video_id }}{%else%}0{% endif %}"
                 class="js-youtube media-video"
               ></iframe>
             {%- else -%}
+              {% comment %} MUTED: muted=1 is always set {% endcomment %}
               <iframe
                 class="js-vimeo media-video"
-                src="https://player.vimeo.com/video/{{ video_id }}?autoplay={% if enable_video_autoplay -%}1{% else %}0{%- endif -%}&muted={% if enable_video_autoplay -%}1{% else %}0{%- endif -%}&loop={%- if enable_video_looping -%}1{%else%}0{% endif %}"
+                src="https://player.vimeo.com/video/{{ video_id }}?autoplay={% if enable_video_autoplay -%}1{% else %}0{%- endif -%}&muted=1&loop={%- if enable_video_looping -%}1{%else%}0{% endif %}"
                 frameborder="0"
                 allowfullscreen
               ></iframe>
@@ -403,7 +410,7 @@
               loop 
           {% endif %}
           {% if enable_video_autoplay -%}
-              muted autoplay
+              autoplay
           {%- endif -%}
       {%- endcapture -%}
         <div
@@ -441,6 +448,7 @@
             </svg>
           {% else %}
             <div class="test">
+              {% comment %} MUTED: muted attribute + onvolumechange forces it to stay muted {% endcomment %}
               <video
                 playsinline="true"
                 muted="muted"
@@ -450,6 +458,8 @@
                 class="rounded-5 block w-full h-full absolute inset-0 media-video"
                 src="{{ source_url }}"
                 poster="{{ image.preview_image | image_url: width: 800 }}"
+                onloadedmetadata="this.muted = true; this.volume = 0;"
+                onvolumechange="if (!this.muted || this.volume > 0) { this.muted = true; this.volume = 0; }"
                 {{ video_attribute }}
               ></video>
             </div>
