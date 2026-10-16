@@ -21,6 +21,17 @@
     <meta name="google-site-verification" content="S4kBzTB41jwBucpYDTKsPTosMoQmUvNdhu89oKzP31w" />
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="stylesheet" href="{{ 'ar-language.css' | asset_url }}" >
+    {%- if collection.handle == 'all' -%}
+  <script>
+    (function () {
+      var url = new URL(window.location.href);
+      if (!url.searchParams.has('sort_by')) {
+        url.searchParams.set('sort_by', 'created-descending');
+        window.location.replace(url.toString());
+      }
+    })();
+  </script>
+{%- endif -%}
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" sizes="48x48" href="{{ settings.favicon | image_url: width: 48, height: 48 }}">
       <link rel="icon" type="image/png" sizes="32x32" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
